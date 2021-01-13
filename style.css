@@ -121,8 +121,8 @@ input {
   height: 2rem;
   border-radius: 7px;
   border: none;
-  -webkit-box-shadow: 3px 3px 11px 0px #41414133;
-          box-shadow: 3px 3px 11px 0px #41414133;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
 }
 
 input:focus {
@@ -157,6 +157,12 @@ input::placeholder {
   padding-left: 0.5rem;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .firstPlaceholder {
   margin-top: 9rem;
 }
@@ -170,17 +176,21 @@ input::placeholder {
 }
 
 textarea {
-  /*
-    width: 24rem;
-    height: 8rem;
-    */
   border-radius: 7px;
   border: none;
-  -webkit-box-shadow: 3px 3px 11px 0px #41414133;
-          box-shadow: 3px 3px 11px 0px #41414133;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
   outline: none;
   padding-left: 0.5rem;
   margin-top: 2rem;
   font-family: "Roboto", sans-serif;
+  max-width: 27rem;
+  max-height: 15rem;
+  min-width: 14rem;
+  min-height: 8rem;
+}
+
+#map {
+  margin-top: 3rem;
 }
 /*# sourceMappingURL=style.css.map */

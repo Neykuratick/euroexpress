@@ -35,3 +35,21 @@ function next(direction){
   slides[index].classList.add("active");     
 
 }
+
+
+ymaps.ready(init);
+    function init(){
+     var myMap = new ymaps.Map("map", {
+          center: [55.76, 37.64],
+          zoom: 10,
+          controls: []
+     });
+
+     myMap.controls.add('zoomControl');
+     myMap.controls.add('searchControl');
+     myMap.controls.add('typeSelector');
+
+
+     myMap.IEventManager()
+
+     }
