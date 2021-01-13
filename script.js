@@ -19,7 +19,7 @@ function next(direction){
        if(index==totalSlides){
         index=0;
        }
-   } 
+   }
    else{
            if(index==0){
             index=totalSlides-1;
