@@ -38,6 +38,8 @@ function next(direction){
 
 ymaps.ready(init);
 var coordinates;
+var cordsArray = [];
+
 function init() {
      var myMap = new ymaps.Map("map", {
           center: [55.76, 37.64],
@@ -57,6 +59,7 @@ function init() {
      }, this);
 
      searchControl.events.add("resultselect", function (e) {
+
                console.log("grege");
                var resString = searchControl.getRequestString();
                console.log(resString);
@@ -71,7 +74,22 @@ function init() {
                               var finaly = cords[1] + cordss[1]
                               var finaly = finaly / 2;
                               coordinates = [finalx, finaly];
-                              console.log(coordinates)
+
+                              if (cordsArray.length > 1) {
+                                   cordsArray = [];
+                              };
+
+                              cordsArray.push(coordinates)
+                              console.log(cordsArray)
+                              
+                              if (cordsArray.length == 1) {
+                                   document.getElementById("point1").innerHTML = "Ваша первая точка: " + resString;
+                                   document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
+                              }
+
+                              if (cordsArray.length == 2) {
+                                   document.getElementById("point2").innerHTML = "Ваша вторая точка: " + resString;
+                              }
                          },
                     function (err) {
                          // Обработка ошибки.
@@ -80,3 +98,4 @@ function init() {
      );
 
 }
+
