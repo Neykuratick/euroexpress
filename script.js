@@ -36,66 +36,76 @@ function next(direction){
 
 }
 
-ymaps.ready(init);
-var coordinates;
-var cordsArray = [];
 
-function init() {
-     var myMap = new ymaps.Map("map", {
-          center: [55.76, 37.64],
-          zoom: 10,
-          controls: []
-     });
+var markers = [];
+var markersPosition = [];
 
-     myMap.controls.add('zoomControl');
-     myMap.controls.add('searchControl');
-     myMap.controls.add('typeSelector');
+let map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 55.91091259697019, lng: 37.890153590767405 },
+    zoom: 15,
+    gestureHandling: "greedy",
+    streetViewControl: false,
+    mapTypeControl: true
+  });
 
+  map.addListener("click", (e) => {
+    console.log("--------------------------")
+    if (markers.length > 1) {
+      markers = [];
+      markersPosition = [];
+      document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
+    }
 
-     var searchControl = myMap.controls.get('searchControl');
+    markers.push(placeMarkerAndPanTo(e.latLng, map))
 
-     searchControl.events.add('submit', function (e) {
-          // console.log(searchControl.getResultsArray());
-     }, this);
+    if (markers.length < 2) {
+      var marPos = markers[0].getPosition().toJSON()
+      markersPosition.push(jsonToArray(marPos))
+      
+      adress = geocode(markersPosition[0])
+      document.getElementById("point1").innerHTML = "Ваша первая точка: " + adress;
+    }
 
-     searchControl.events.add("resultselect", function (e) {
+    if (markers.length == 2) {
+      var marPos = markers[1].getPosition().toJSON()
+      markersPosition.push(jsonToArray(marPos))
 
-               console.log("grege");
-               var resString = searchControl.getRequestString();
-               console.log(resString);
-               var myGeocoder = ymaps.geocode(resString);
-               myGeocoder.then(
-                    function (res) {
-                         // Выведем в консоль данные, полученные в результате геокодирования объекта.
-                              var cords = res.geoObjects.get(0).properties.get("boundedBy")[0];
-                              var cordss = res.geoObjects.get(0).properties.get("boundedBy")[1];
-                              var finalx = cords[0] + cordss[0]
-                              var finalx = finalx / 2;
-                              var finaly = cords[1] + cordss[1]
-                              var finaly = finaly / 2;
-                              coordinates = [finalx, finaly];
+      adress = geocode(markersPosition[1])
+      document.getElementById("point2").innerHTML = "Ваша вторая точка: " + adress;
+    }
+    
+    console.log("markersPosition", markersPosition)
 
-                              if (cordsArray.length > 1) {
-                                   cordsArray = [];
-                              };
-
-                              cordsArray.push(coordinates)
-                              console.log(cordsArray)
-                              
-                              if (cordsArray.length == 1) {
-                                   document.getElementById("point1").innerHTML = "Ваша первая точка: " + resString;
-                                   document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
-                              }
-
-                              if (cordsArray.length == 2) {
-                                   document.getElementById("point2").innerHTML = "Ваша вторая точка: " + resString;
-                              }
-                         },
-                    function (err) {
-                         // Обработка ошибки
-                    });
-          }
-     );
-
+  })
 }
 
+function placeMarkerAndPanTo(latLng, map) {
+  marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+  })
+  map.panTo(latLng)
+  return marker
+}
+
+function jsonToArray(json) {
+  var array = []
+  array.push(json.lat)
+  array.push(json.lng)
+  return array
+}
+
+function geocode(latLngArray) {
+  requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
+  apiResponse = JSON.parse(httpGet(requestURL))
+  return apiResponse.results[0].formatted_address;
+}
+
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.response;
+}
