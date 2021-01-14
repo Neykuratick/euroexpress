@@ -4,6 +4,14 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+//  ----------  header --------------------
+
+//  ----------  /header --------------------
+
+
+
+//  ----------  section --------------------
+
 .slider {
 	max-width: 40rem;
 	min-height: 30rem;
@@ -85,18 +93,22 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+
+    margin-top: 11rem;
+}
+
+.thirdSection {
+    margin-top: 13rem;
 }
 
 input {
     margin-top: 2rem;
-}
-
-input {
     width: 18rem;
     height: 2rem;
     border-radius: 7px;
     border: none;
     box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    padding-left: 0.5rem;
 }
 
 input:focus {
@@ -107,25 +119,12 @@ input::placeholder {
     outline: none;
     color: rgb(148, 148, 148);
     font-size: 1rem;
-    padding-left: 0.5rem;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.firstPlaceholder {
-    margin-top: 9rem;
-}
-
-.firstFirstPlaceHolder {
-    margin-top: 7rem;
-}
-
-.secondFirstPlaceHolder {
-    margin-top: 10rem;
 }
 
 textarea {
@@ -145,5 +144,49 @@ textarea {
 }
 
 #map {
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
+
+#pac-input {
+    margin-top: 5rem;
+}
+
+.slider {
+    min-height: 40rem;
+}
+
+.data {
+    margin: 0;
+    font-family: "Roboto";
+    font-weight: 400;
+}
+
+.outputData {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.distanceData {
+    margin-top: 1rem;
+}
+
+//  ----------  /section --------------------
+
+
+//  ----------  footer --------------------
+
+footer {
+    position: absolute;
+    background-color: #000000;
+    color: azure;
+
+
+    margin: 0;
+    height: 7.55rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//  ----------  /foter --------------------

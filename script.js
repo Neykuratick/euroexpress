@@ -62,8 +62,8 @@ function initMap() {
       markers = [];
       markersPosition = [];
       distance = 0;
-      document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
-      document.getElementById("distance").innerHTML = "Расстояние: ";
+      document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
+      document.getElementById("distance").innerHTML = ""; // Расстояние
     }
 
     markers.push(placeMarkerAndPanTo(e.latLng, map))
@@ -73,7 +73,7 @@ function initMap() {
       markersPosition.push(jsonToArray(marPos))
       
       adress = geocode(markersPosition[0])
-      document.getElementById("point1").innerHTML = "Ваша первая точка: " + adress;
+      document.getElementById("point1").innerHTML = "" + adress;
     }
 
     if (markers.length == 2) {
@@ -81,12 +81,12 @@ function initMap() {
       markersPosition.push(jsonToArray(marPos))
 
       adress = geocode(markersPosition[1])
-      document.getElementById("point2").innerHTML = "Ваша вторая точка: " + adress;
+      document.getElementById("point2").innerHTML = "" + adress;
 
       marker1 = markers[0].getPosition()
       marker2 = markers[1].getPosition()
       distance = getDistance(marker1, marker2)
-      document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance, 0) + "метров";
+      document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
     }
     
     console.log("markersPosition", markersPosition)
@@ -147,8 +147,8 @@ function initAutocomplete() {
         markers = [];
         markersPosition = [];
         distance = 0;
-        document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
-        document.getElementById("distance").innerHTML = "Расстояние: ";
+        document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
+        document.getElementById("distance").innerHTML = ""; // Расстояние:
       }
   
       markers.push(markersLocal[0])
@@ -171,8 +171,11 @@ function initAutocomplete() {
         marker1 = markers[0].getPosition()
         marker2 = markers[1].getPosition()
         distance = getDistance(marker1, marker2)
-        document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance, 0) + " метров";
+        document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
+        console.log("markers[1]", markers[1].getPosition())
       }
+
+      console.log("markers[0]", markers[0].getPosition())
 
       // -------------------------------------------------------------------------
 

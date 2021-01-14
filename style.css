@@ -110,19 +110,22 @@ body {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
+  margin-top: 11rem;
+}
+
+.thirdSection {
+  margin-top: 13rem;
 }
 
 input {
   margin-top: 2rem;
-}
-
-input {
   width: 18rem;
   height: 2rem;
   border-radius: 7px;
   border: none;
   -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
           box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  padding-left: 0.5rem;
 }
 
 input:focus {
@@ -133,46 +136,30 @@ input::-webkit-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.5rem;
 }
 
 input:-ms-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.5rem;
 }
 
 input::-ms-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.5rem;
 }
 
 input::placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.5rem;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.firstPlaceholder {
-  margin-top: 9rem;
-}
-
-.firstFirstPlaceHolder {
-  margin-top: 7rem;
-}
-
-.secondFirstPlaceHolder {
-  margin-top: 10rem;
 }
 
 textarea {
@@ -191,6 +178,46 @@ textarea {
 }
 
 #map {
-  margin-top: 3rem;
+  margin-top: 1rem;
+}
+
+#pac-input {
+  margin-top: 5rem;
+}
+
+.slider {
+  min-height: 40rem;
+}
+
+.data {
+  margin: 0;
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+.outputData {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.distanceData {
+  margin-top: 1rem;
+}
+
+footer {
+  position: absolute;
+  background-color: #000000;
+  color: azure;
+  margin: 0;
+  height: 7.55rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */
