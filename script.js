@@ -49,8 +49,8 @@ function initialize() {
 let map;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 55.91091259697019, lng: 37.890153590767405 },
-    zoom: 15,
+    center: { lat: 55.754652859190074, lng: 37.62576896153753 },
+    zoom: 10,
     gestureHandling: "greedy",
     streetViewControl: false,
     mapTypeControl: true

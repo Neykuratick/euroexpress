@@ -1,6 +1,74 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+a:hover {
+  color: #e94fe1;
+}
+
+header {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 1920px;
+  padding-bottom: 1rem;
+  border-bottom: black 1px solid;
+}
+
+#logo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-left: 3rem;
+}
+
+#header_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0;
+  margin-left: 35rem;
+  margin-top: 0.5rem;
+}
+
+#header_menu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 3rem;
+  font-size: 1.2rem;
+}
+
+.newHeader {
+  text-align: center;
+  font-size: 3rem;
+}
+
+#headerText {
+  font-weight: 500;
 }
 
 .slider {
@@ -143,6 +211,11 @@ input::-webkit-inner-spin-button {
 
 .slider {
   min-height: 45rem;
+  margin-top: -2rem;
+}
+
+#firstSection {
+  margin-top: 3rem;
 }
 
 #map {
@@ -165,6 +238,10 @@ input::-webkit-inner-spin-button {
 }
 
 .distanceData {
+  margin-top: 1rem;
+}
+
+#firstData {
   margin-top: 1rem;
 }
 

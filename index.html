@@ -6,29 +6,31 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&signed_in=true&libraries=places&callback=initialize" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&signed_in=true&language=ru&libraries=places&callback=initialize" defer></script>
 </head>
 <body>
     <header>
         <span id="logo">ЕвроЭкспресс</span>
         <ul id="header_menu">
-            <li>о компании</li>
-            <li>прайс-лист</li>
-            <li>контакты</li>
+            <li><a href="">о компании</a></li>
+            <li><a href="">прайс-лист</a></li>
+            <li><a href="">контакты</a></li>
         </ul>
     </header>
 
     <section>
 
-        <span id="headerText">Рассчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
+        <div class="newHeader">
+            <span id="headerText">Рассчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
+        </div>
 
         <div class="slider">
             <div class="slider-items">
 
-                <div  class="item active">
+                <div class="item active" id="firstSection">
                     <input id="pac-input" class="controls" type="text" placeholder="Введите адрес"/>
                     <div id="map" style="width: 443px; height: 374px"></div>
-                    <h3 class="data">Ваша первая точка: </h3>
+                    <h3 class="data" id="firstData">Ваша первая точка: </h3>
                     <h3 id="point1" class="data outputData"></h3>
                     <h3 class="data">Ваша вторая точка: </h3>
                     <h3 id="point2" class="data outputData"></h3>
