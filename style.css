@@ -95,37 +95,16 @@ body {
           align-items: center;
 }
 
-#inut_name {
-  width: 40%;
-}
-
-#secondSection.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-  margin-top: 11rem;
-}
-
-.thirdSection {
-  margin-top: 13rem;
-}
-
 input {
-  margin-top: 2rem;
+  font-size: 1rem;
   width: 18rem;
   height: 2rem;
+  margin-top: 2rem;
+  padding-left: 0.5rem;
   border-radius: 7px;
   border: none;
   -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
           box-shadow: 3px 3px 11px 0px #6d6d6d33;
-  padding-left: 0.5rem;
 }
 
 input:focus {
@@ -162,19 +141,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-textarea {
-  border-radius: 7px;
-  border: none;
-  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
-          box-shadow: 3px 3px 11px 0px #6d6d6d33;
-  outline: none;
-  padding-left: 0.5rem;
-  margin-top: 2rem;
-  font-family: "Roboto", sans-serif;
-  max-width: 27rem;
-  max-height: 15rem;
-  min-width: 14rem;
-  min-height: 8rem;
+.slider {
+  min-height: 45rem;
 }
 
 #map {
@@ -183,10 +151,6 @@ textarea {
 
 #pac-input {
   margin-top: 5rem;
-}
-
-.slider {
-  min-height: 40rem;
 }
 
 .data {
@@ -202,6 +166,52 @@ textarea {
 
 .distanceData {
   margin-top: 1rem;
+}
+
+#secondSection.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  margin-top: 13rem;
+}
+
+select {
+  font-size: 1rem;
+  width: 19rem;
+  height: 2rem;
+  margin-top: 2rem;
+  padding-left: 0.5rem;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+}
+
+.thirdSection {
+  margin-top: 15.5rem;
+}
+
+textarea {
+  border-radius: 7px;
+  border: none;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  outline: none;
+  padding-left: 0.5rem;
+  margin-top: 2rem;
+  font-family: "Roboto", sans-serif;
+  max-width: 27rem;
+  max-height: 15rem;
+  min-width: 14rem;
+  min-height: 8rem;
 }
 
 footer {

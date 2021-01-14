@@ -12,6 +12,8 @@ body {
 
 //  ----------  section --------------------
 
+
+// -- global section -- 
 .slider {
 	max-width: 40rem;
 	min-height: 30rem;
@@ -67,11 +69,14 @@ body {
 }
 .slider .slider-items .item .caption{
     position: absolute;
+
     width: 100%;
     height: 60px;
     bottom: 0px;
     left: 0px;
+
     background-color: rgba(0,0,0,.5);
+
     line-height: 60px;
     text-align: center;
     color: #ffffff;
@@ -85,30 +90,19 @@ body {
     align-items: center;
 }
 
-#inut_name {
-    width: 40%;
-}
-
-#secondSection.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-
-    margin-top: 11rem;
-}
-
-.thirdSection {
-    margin-top: 13rem;
-}
-
 input {
-    margin-top: 2rem;
+    font-size: 1rem;
+
     width: 18rem;
     height: 2rem;
+
+    margin-top: 2rem;
+    padding-left: 0.5rem;
+
     border-radius: 7px;
     border: none;
+
     box-shadow: 3px 3px 11px 0px #6d6d6d33;
-    padding-left: 0.5rem;
 }
 
 input:focus {
@@ -127,21 +121,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-textarea {
-    // width: 24rem;
-    // height: 8rem;
-    border-radius: 7px;
-    border: none;
-    box-shadow: 3px 3px 11px 0px #6d6d6d33;
-    outline: none;
-    padding-left: 0.5rem;
-    margin-top: 2rem;
-    font-family: "Roboto", sans-serif;
-    max-width: 27rem;
-    max-height: 15rem;
-    min-width: 14rem;
-    min-height: 8rem;
+.slider {
+    min-height: 45rem;
 }
+
+// -- /global section -- 
+
+
+// -- first section -- 
 
 #map {
     margin-top: 1rem;
@@ -149,10 +136,6 @@ textarea {
 
 #pac-input {
     margin-top: 5rem;
-}
-
-.slider {
-    min-height: 40rem;
 }
 
 .data {
@@ -169,6 +152,65 @@ textarea {
 .distanceData {
     margin-top: 1rem;
 }
+
+// -- /first section -- 
+
+// -- second section -- 
+
+#secondSection.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    margin-top: 13rem;
+}
+
+select {
+    font-size: 1rem;
+
+    width: 19rem;
+    height: 2rem;
+
+    margin-top: 2rem;
+    padding-left: 0.5rem;
+
+    border-radius: 7px;
+    border: none;
+    outline: none;
+
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+}
+
+// -- /second section -- 
+
+
+// -- third section -- 
+
+.thirdSection {
+    margin-top: 15.5rem;
+}
+
+// -- /third section -- 
+
+// -- fourth section -- 
+
+textarea {
+    // width: 24rem;
+    // height: 8rem;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    outline: none;
+    padding-left: 0.5rem;
+    margin-top: 2rem;
+    font-family: "Roboto", sans-serif;
+    max-width: 27rem;
+    max-height: 15rem;
+    min-width: 14rem;
+    min-height: 8rem;
+}
+
+// -- /fourth section -- 
 
 //  ----------  /section --------------------
 
