@@ -39,6 +39,7 @@ function next(direction){
 
 var markers = [];
 var markersPosition = [];
+var distance;
 
 let map;
 function initMap() {
@@ -55,7 +56,9 @@ function initMap() {
     if (markers.length > 1) {
       markers = [];
       markersPosition = [];
+      distance = 0;
       document.getElementById("point2").innerHTML = "Ваша вторая точка: ";
+      document.getElementById("distance").innerHTML = "Расстояние: ";
     }
 
     markers.push(placeMarkerAndPanTo(e.latLng, map))
@@ -74,9 +77,15 @@ function initMap() {
 
       adress = geocode(markersPosition[1])
       document.getElementById("point2").innerHTML = "Ваша вторая точка: " + adress;
+
+      marker1 = markers[0].getPosition()
+      marker2 = markers[1].getPosition()
+      distance = getDistance(marker1, marker2)
+      document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance, 0) + "метров";
     }
     
     console.log("markersPosition", markersPosition)
+    console.log("markers", markers)
 
   })
 }
@@ -108,4 +117,25 @@ function httpGet(theUrl) {
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.response;
+}
+
+var rad = function(x) {
+  return x * Math.PI / 180;
+};
+
+function getDistance(p1, p2) {
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(p2.lat() - p1.lat());
+  var dLong = rad(p2.lng() - p1.lng());
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  return d; // returns the distance in meter
+};
+
+function roundNumber(num, dec) {
+  const [sv, ev] = num.toString().split('e');
+  return Number(Number(Math.round(parseFloat(sv + 'e' + dec)) + 'e-' + dec) + 'e' + (ev || 0));
 }
