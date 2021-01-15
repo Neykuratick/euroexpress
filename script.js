@@ -143,10 +143,8 @@ function initAutocomplete() {
 
       // -------------------------------------------------------
 
-      
       clear()
-      markers.push(markersLocal[0])
-      placeMarkerAndPanTo(markersLocal[0].getPosition(), map)
+      markers.push(placeMarkerAndPanTo(markersLocal[0].getPosition(), map))
       getAdressAndDistance()
 
       // -------------------------------------------------------
@@ -162,39 +160,15 @@ function initAutocomplete() {
   });
 }
 
-function placeMarkerAndPanTo(latLng, map) {
-  marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-  })
-  map.panTo(latLng)
-  return marker
-}
-
-function geocode(latLngArray) {
-  requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
-  apiResponse = JSON.parse(httpGet(requestURL))
-  return apiResponse.results[0].formatted_address;
-}
-
-var rad = function(x) {
-  return x * Math.PI / 180;
-};
-
-function getDistance(p1, p2) {
-  var R = 6378137; // Earth’s mean radius in meter
-  var dLat = rad(p2.lat() - p1.lat());
-  var dLong = rad(p2.lng() - p1.lng());
-  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
-    Math.sin(dLong / 2) * Math.sin(dLong / 2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  var d = R * c;
-  return d; // returns the distance in meter
-};
-
 function clear() {
   if (markers.length > 1) {
+
+    // Clear out the old markers on the map.
+    markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+
+    
     markers = [];
     markersPosition = [];
     distance = 0;
@@ -228,5 +202,36 @@ function getAdressAndDistance() {
   // console.log("markersPosition", markersPosition)
   // console.log("markers", markers)
 }
+
+function placeMarkerAndPanTo(latLng, map) {
+  marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+  })
+  map.panTo(latLng)
+  return marker
+}
+
+function geocode(latLngArray) {
+  requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
+  apiResponse = JSON.parse(httpGet(requestURL))
+  return apiResponse.results[0].formatted_address;
+}
+
+var rad = function(x) {
+  return x * Math.PI / 180;
+};
+
+function getDistance(p1, p2) {
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(p2.lat() - p1.lat());
+  var dLong = rad(p2.lng() - p1.lng());
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  return d; // returns the distance in meter
+};
 
 // ------------------------------------- /map -------------------------------------------------------
