@@ -3,6 +3,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -77,6 +78,7 @@ header {
 .newHeader {
   text-align: center;
   font-size: 3rem;
+  margin-top: 2rem;
 }
 
 #headerText {
@@ -360,7 +362,7 @@ textarea {
 
 footer {
   position: absolute;
-  background-color: #000000;
+  background-color: #1b1b1b;
   color: azure;
   margin: 0;
   height: 7.55rem;
@@ -373,5 +375,37 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (max-width: 1500px) {
+  #header_menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 0;
+    margin-left: 15rem;
+    margin-top: 0.5rem;
+  }
+  section {
+    width: 1500px;
+  }
+  footer {
+    width: 1600px;
+  }
+}
+
+@media (max-width: 1100px) {
+  body {
+    overflow-x: visible;
+    -webkit-transform: scale(0.5, 0.5);
+            transform: scale(0.5, 0.5);
+  }
+  html {
+    margin-right: 50rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

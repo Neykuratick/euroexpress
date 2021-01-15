@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
 
+    width: 100%;
+
     overflow-x: hidden;
 }
 
@@ -82,6 +84,8 @@ header {
 .newHeader {
     text-align: center;
     font-size: 3rem;
+
+    margin-top: 2rem;
 }
 
 #headerText {
@@ -91,7 +95,8 @@ header {
 // -- /newHeader -- 
 
 
-// -- global section -- 
+// -- slider section -- 
+
 .slider {
 	max-width: 40rem;
 	min-height: 30rem;
@@ -203,7 +208,7 @@ input::-webkit-inner-spin-button {
     margin-top: -2rem;
 }
 
-// -- /global section -- 
+// -- /slider section -- 
 
 
 // -- first section -- 
@@ -362,7 +367,7 @@ textarea {
 
 footer {
     position: absolute;
-    background-color: #000000;
+    background-color: #1b1b1b;
     color: azure;
 
 
@@ -375,3 +380,35 @@ footer {
 }
 
 //  ----------  /foter --------------------
+
+
+@media (max-width: 1500px) {
+    #header_menu {
+        display: flex;
+        flex-direction: row;
+    
+        margin: 0;
+        margin-left: 15rem;
+        margin-top: 0.5rem;
+    }
+
+    section {
+        width: 1500px;
+    }
+
+    footer {
+        width: 1600px;
+    }
+}
+
+@media (max-width: 1100px) {
+    body {
+        overflow-x: visible;
+
+        transform: scale(0.5, 0.5);
+    }
+
+    html {
+        margin-right: 50rem;
+    }
+}
