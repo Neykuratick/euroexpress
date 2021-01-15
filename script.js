@@ -1,4 +1,27 @@
+// ------------------------------------- global -------------------------------------------------------
 
+function httpGet(theUrl) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+  xmlHttp.send( null );
+  return xmlHttp.response;
+}
+
+function jsonToArray(json) {
+  var array = []
+  array.push(json.lat)
+  array.push(json.lng)
+  return array
+}
+
+function roundNumber(num, dec) {
+  const [sv, ev] = num.toString().split('e');
+  return Number(Number(Math.round(parseFloat(sv + 'e' + dec)) + 'e-' + dec) + 'e' + (ev || 0));
+}
+
+// ------------------------------------- /global -------------------------------------------------------
+
+// ------------------------------------- slider -------------------------------------------------------
 var slides=document.querySelector('.slider-items').children;
 var nextSlide=document.querySelector(".right-slide");
 var prevSlide=document.querySelector(".left-slide");
@@ -36,6 +59,11 @@ function next(direction){
 
 }
 
+// ------------------------------------- /slider -------------------------------------------------------
+
+
+// ------------------------------------- map -------------------------------------------------------
+
 
 var markers = [];
 var markersPosition = [];
@@ -57,41 +85,14 @@ function initMap() {
   });
 
   map.addListener("click", (e) => {
-    console.log("--------------------------")
-    if (markers.length > 1) {
-      markers = [];
-      markersPosition = [];
-      distance = 0;
-      document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
-      document.getElementById("distance").innerHTML = ""; // Расстояние
-    }
 
+    // -------------------------------------------------------
+
+    clear()
     markers.push(placeMarkerAndPanTo(e.latLng, map))
+    getAdressAndDistance()
 
-    if (markers.length < 2) {
-      var marPos = markers[0].getPosition().toJSON()
-      markersPosition.push(jsonToArray(marPos))
-      
-      adress = geocode(markersPosition[0])
-      document.getElementById("point1").innerHTML = "" + adress;
-    }
-
-    if (markers.length == 2) {
-      var marPos = markers[1].getPosition().toJSON()
-      markersPosition.push(jsonToArray(marPos))
-
-      adress = geocode(markersPosition[1])
-      document.getElementById("point2").innerHTML = "" + adress;
-
-      marker1 = markers[0].getPosition()
-      marker2 = markers[1].getPosition()
-      distance = getDistance(marker1, marker2)
-      document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
-    }
-    
-    console.log("markersPosition", markersPosition)
-    console.log("markers", markers)
-
+    // -------------------------------------------------------
   })
 }
 
@@ -135,49 +136,20 @@ function initAutocomplete() {
       markersLocal.push(
         new google.maps.Marker({
           map,
-          icon,
           title: place.name,
           position: place.geometry.location,
         })
       );
-      // --------------------------------------------------------------------------
+
+      // -------------------------------------------------------
 
       
-      if (markers.length > 1) {
-        markers = [];
-        markersPosition = [];
-        distance = 0;
-        document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
-        document.getElementById("distance").innerHTML = ""; // Расстояние:
-      }
-  
+      clear()
       markers.push(markersLocal[0])
-  
-      if (markers.length < 2) {
-        var marPos = markers[0].getPosition().toJSON()
-        markersPosition.push(jsonToArray(marPos))
-        
-        adress = geocode(markersPosition[0])
-        document.getElementById("point1").innerHTML = "Ваша первая точка: " + adress;
-      }
-  
-      if (markers.length == 2) {
-        var marPos = markers[1].getPosition().toJSON()
-        markersPosition.push(jsonToArray(marPos))
-  
-        adress = geocode(markersPosition[1])
-        document.getElementById("point2").innerHTML = "Ваша вторая точка: " + adress;
-  
-        marker1 = markers[0].getPosition()
-        marker2 = markers[1].getPosition()
-        distance = getDistance(marker1, marker2)
-        document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
-        console.log("markers[1]", markers[1].getPosition())
-      }
+      placeMarkerAndPanTo(markersLocal[0].getPosition(), map)
+      getAdressAndDistance()
 
-      console.log("markers[0]", markers[0].getPosition())
-
-      // -------------------------------------------------------------------------
+      // -------------------------------------------------------
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
@@ -199,24 +171,10 @@ function placeMarkerAndPanTo(latLng, map) {
   return marker
 }
 
-function jsonToArray(json) {
-  var array = []
-  array.push(json.lat)
-  array.push(json.lng)
-  return array
-}
-
 function geocode(latLngArray) {
   requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
   apiResponse = JSON.parse(httpGet(requestURL))
   return apiResponse.results[0].formatted_address;
-}
-
-function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.response;
 }
 
 var rad = function(x) {
@@ -235,7 +193,40 @@ function getDistance(p1, p2) {
   return d; // returns the distance in meter
 };
 
-function roundNumber(num, dec) {
-  const [sv, ev] = num.toString().split('e');
-  return Number(Number(Math.round(parseFloat(sv + 'e' + dec)) + 'e-' + dec) + 'e' + (ev || 0));
+function clear() {
+  if (markers.length > 1) {
+    markers = [];
+    markersPosition = [];
+    distance = 0;
+    document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
+    document.getElementById("distance").innerHTML = ""; // Расстояние
+  }
 }
+
+function getAdressAndDistance() {
+  if (markers.length < 2) {
+    var marPos = markers[0].getPosition().toJSON()
+    markersPosition.push(jsonToArray(marPos))
+    
+    adress = geocode(markersPosition[0])
+    document.getElementById("point1").innerHTML = "" + adress;
+  }
+
+  if (markers.length == 2) {
+    var marPos = markers[1].getPosition().toJSON()
+    markersPosition.push(jsonToArray(marPos))
+
+    adress = geocode(markersPosition[1])
+    document.getElementById("point2").innerHTML = "" + adress;
+
+    marker1 = markers[0].getPosition()
+    marker2 = markers[1].getPosition()
+    distance = getDistance(marker1, marker2)
+    document.getElementById("distance").innerHTML = "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
+  }
+  
+  // console.log("markersPosition", markersPosition)
+  // console.log("markers", markers)
+}
+
+// ------------------------------------- /map -------------------------------------------------------
