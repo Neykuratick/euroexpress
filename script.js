@@ -178,6 +178,10 @@ function clear() {
 }
 
 function getAdressAndDistance() {
+  // does all the work.
+  // gets coordinates of 2 markers
+  // and counting distance
+
   if (markers.length < 2) {
     var marPos = markers[0].getPosition().toJSON()
     markersPosition.push(jsonToArray(marPos))
@@ -213,6 +217,8 @@ function placeMarkerAndPanTo(latLng, map) {
 }
 
 function geocode(latLngArray) {
+  // getting human readable adress based on lattitute and longtittude
+
   requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
   apiResponse = JSON.parse(httpGet(requestURL))
   return apiResponse.results[0].formatted_address;
@@ -235,3 +241,9 @@ function getDistance(p1, p2) {
 };
 
 // ------------------------------------- /map -------------------------------------------------------
+
+var element = document.getElementById('phone');
+var maskOptions = {
+  mask: '{+7} (000) 000 00-00'
+};
+var mask = IMask(element, maskOptions);

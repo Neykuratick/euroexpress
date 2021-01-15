@@ -104,19 +104,19 @@ header {
   -webkit-box-shadow: 0px 0px 10px black;
           box-shadow: 0px 0px 10px black;
   background-color: #29a8e2;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .slider .left-slide:active, .slider .right-slide:active {
   -webkit-box-shadow: 0px 0px 10px black;
           box-shadow: 0px 0px 10px black;
   background-color: #e22967;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   font-size: 1.5em;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .slider .left-slide {
@@ -256,7 +256,7 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
-  margin-top: 13rem;
+  margin-top: 13.5rem;
 }
 
 select {
@@ -276,6 +276,16 @@ select {
   margin-top: 15.5rem;
 }
 
+.loadUnloadDate {
+  width: 18.5rem;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.fourthSection {
+  margin-top: 12rem;
+}
+
 textarea {
   border-radius: 7px;
   border: none;
@@ -289,6 +299,44 @@ textarea {
   max-height: 15rem;
   min-width: 14rem;
   min-height: 8rem;
+}
+
+#submit {
+  display: block;
+  margin: auto;
+  border-radius: 11px;
+  border: none;
+  width: 19rem;
+  margin-top: 2rem;
+  margin-bottom: 7vmin;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  background-color: white;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#submit:hover {
+  background-color: #29a8e2;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#submit:active {
+  -webkit-box-shadow: 0px 0px 10px black;
+          box-shadow: 0px 0px 10px black;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+button:focus {
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 footer {

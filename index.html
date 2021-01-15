@@ -38,7 +38,13 @@
                 </div>
 
                 <div  class="item" id="secondSection">
-                    <input type="text" class="firstPlaceholder firstFirstPlaceHolder" placeholder="Наименование груза">
+                    <input type="text" name="name" placeholder="Фамилия Имя Отчество">
+                    <input type="text" placeholder="Наименование груза">
+                    <input type="number" class="" placeholder="Вес груза (кг)">
+                    <input type="number" class="" placeholder="Объём груза (м²)">
+                </div>
+
+                <div  class="item thirdSection">
 
                     <select name="vechicle_select">
                         <option value="0" disabled selected hidden>Тип транспортного средства</option>
@@ -49,19 +55,16 @@
                         <option value="">Манипулятор</option>
                     </select>
 
-                    <input type="number" class="" placeholder="Вес груза (кг)">
-                    <input type="number" class="" placeholder="Объём груза (м²)">
-                </div>
-
-                <div  class="item thirdSection">
-                    <input placeholder="Выберите день погрузки" class="firstPlaceholder secondFirstPlaceHolder" type="text" onfocus="(this.type='date')" id="load">
-                    <input placeholder="Выберите день выгрузки" class="" type="text" onfocus="(this.type='date')" id="unload">
-                    <input type="text" name="name" placeholder="Фамилия Имя Отчество" class="">
+                    <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
+                    <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
                 </div>
                 
-                <div  class="item thirdSection">
-                    <input type="number" class="firstPlaceholder" placeholder="+7 (000) 000 00-00">
-                    <textarea name="" id="" cols="40" rows="10" class="" placeholder="Комментарий к заказу"></textarea>
+                <div  class="item fourthSection">
+                    <form action="">
+                        <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
+                    </form>
+                    <textarea name="" id="" cols="40" rows="10" class="" placeholder="Комментарий к заказу" maxlength="11"></textarea>
+                    <button type="button" id="submit">Отправить</button>
                 </div>
       
             </div>
@@ -85,6 +88,7 @@
 
     </footer>
 
+    <script src="https://unpkg.com/imask"></script>
     <script src="script.js"></script>
 </body>
 </html>
