@@ -300,7 +300,17 @@ function submitData() {
   Комментарий к заказу: ${comment}
 
   `
-  alert(final_message)
+  Email.send({
+    Host : "smtp.mail.ru",
+    Username : "emailsenderjava@mail.ru",
+    Password : "111333fff111",
+    To : 'neykuratick@mail.ru',
+    From : "emailsenderjava@mail.ru",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
 }
 
 // ------------------------------------- /fourth section  -------------------------------------------------------
