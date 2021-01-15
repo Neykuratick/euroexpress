@@ -188,7 +188,7 @@ input::-webkit-inner-spin-button {
 }
 
 .slider {
-    min-height: 45rem;
+    min-height: 47rem;
     margin-top: -2rem;
 }
 
@@ -276,7 +276,7 @@ select {
 // -- fourth section -- 
 
 .fourthSection {
-    margin-top: 12rem;
+    margin-top: 12.5rem;
 }
 
 textarea {
@@ -327,9 +327,18 @@ textarea {
     transition: all 0.3s;
 }
 
-button:focus {
+#submit:focus {
     outline: none;
     transition: all 0.3s;
+}
+
+#cost {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #949494;
+
+    margin: 0;
+    margin-top: 1rem;
 }
 
 // -- /fourth section -- 

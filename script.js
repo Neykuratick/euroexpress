@@ -19,6 +19,7 @@ function roundNumber(num, dec) {
   return Number(Number(Math.round(parseFloat(sv + 'e' + dec)) + 'e-' + dec) + 'e' + (ev || 0));
 }
 
+var totalcost = 0;
 // ------------------------------------- /global -------------------------------------------------------
 
 // ------------------------------------- slider -------------------------------------------------------
@@ -205,6 +206,7 @@ function getAdressAndDistance() {
   
   // console.log("markersPosition", markersPosition)
   // console.log("markers", markers)
+  countCost() // TODO DELETE TO-DO
 }
 
 function placeMarkerAndPanTo(latLng, map) {
@@ -240,10 +242,21 @@ function getDistance(p1, p2) {
   return d; // returns the distance in meter
 };
 
+
 // ------------------------------------- /map -------------------------------------------------------
+
+
+// ------------------------------------- fourth section -------------------------------------------------------
 
 var element = document.getElementById('phone');
 var maskOptions = {
   mask: '{+7} (000) 000 00-00'
 };
 var mask = IMask(element, maskOptions);
+
+function countCost() {
+  totalcost = distance;
+  document.getElementById("cost").innerHTML = "Итоговая стоимость: " + totalcost + " руб.";
+}
+
+// ------------------------------------- /fourth section  -------------------------------------------------------
