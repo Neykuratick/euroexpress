@@ -66,9 +66,9 @@ function next(direction){
 // ------------------------------------- map -------------------------------------------------------
 
 
-var markers = [];
-var markersPosition = [];
-var distance;
+let markers = [];
+let markersPosition = [];
+let distance;
 
 function initialize() {
   initMap();
@@ -105,6 +105,7 @@ function initAutocomplete() {
   map.addListener("bounds_changed", () => {
     searchBox.setBounds(map.getBounds());
   });
+  
   let markersLocal = [];
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
@@ -172,12 +173,17 @@ function clear() {
     
     markers = [];
     markersPosition = [];
+    adress1 = "";
+    adress2 = ""
     distance = 0;
-    document.getElementById("point2").innerHTML = ""; // Ваша вторая точка:
+    document.getElementById("point2").innerHTML = ""; // адрес второй точки
+    document.getElementById("secondData").innerHTML = ""; // Ваша вторая точка:
     document.getElementById("distance").innerHTML = ""; // Расстояние
   }
 }
 
+var adress1 = "";
+var adress2 = "";
 function getAdressAndDistance() {
   // does all the work.
   // gets coordinates of 2 markers
@@ -187,8 +193,8 @@ function getAdressAndDistance() {
     var marPos = markers[0].getPosition().toJSON()
     markersPosition.push(jsonToArray(marPos))
     
-    adress = geocode(markersPosition[0])
-    document.getElementById("point1").innerHTML = "" + adress;
+    adress1 = geocode(markersPosition[0])
+    document.getElementById("point1").innerHTML = "" + adress1;
     document.getElementById("firstData").innerHTML = "Ваша первая точка";
   }
 
@@ -196,8 +202,8 @@ function getAdressAndDistance() {
     var marPos = markers[1].getPosition().toJSON()
     markersPosition.push(jsonToArray(marPos))
 
-    adress = geocode(markersPosition[1])
-    document.getElementById("point2").innerHTML = "" + adress;
+    adress2 = geocode(markersPosition[1])
+    document.getElementById("point2").innerHTML = "" + adress2;
     document.getElementById("secondData").innerHTML = "Ваша вторая точка";
 
     marker1 = markers[0].getPosition()
@@ -247,6 +253,7 @@ function getDistance(p1, p2) {
 
 // ------------------------------------- /map -------------------------------------------------------
 
+// ------------------------------------- second section -------------------------------------------------------
 
 // ------------------------------------- fourth section -------------------------------------------------------
 
@@ -259,6 +266,41 @@ var mask = IMask(element, maskOptions);
 function countCost() {
   totalcost = distance;
   document.getElementById("cost").innerHTML = "Итоговая стоимость: " + totalcost + " руб.";
+}
+
+function submitData() {
+  let nameData = document.getElementById("name").value;
+  let cargoName = document.getElementById("cargoName").value;
+  let cargoWeight = document.getElementById("cargoWeight").value;
+  let cargoVolume = document.getElementById("cargoVolume").value;
+  let vechicle_select = document.getElementById("vechicle_select").value;
+  let loadDate = document.getElementById("load").value;
+  let unloadDate = document.getElementById("unload").value;
+  let phone = document.getElementById("phone").value;
+  let comment = document.getElementById("comment").value;
+
+  let final_message =
+  
+  `
+  Новый отклик!
+
+  Фамилия Имя Отчество: ${nameData}
+  Номер телефона: ${phone}
+
+  Адрес куда: ${adress1}
+  Адрес откуда: ${adress2}
+
+  Наименование груза: ${cargoName}
+  Вес груза: ${cargoWeight}
+  Объём груза: ${cargoVolume}
+  Тип транспорта: ${vechicle_select}
+  Дата погрузки: ${loadDate}
+  Дата выгрузки: ${unloadDate}
+
+  Комментарий к заказу: ${comment}
+
+  `
+  alert(final_message)
 }
 
 // ------------------------------------- /fourth section  -------------------------------------------------------

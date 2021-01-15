@@ -38,21 +38,21 @@
                 </div>
 
                 <div  class="item" id="secondSection">
-                    <input type="text" name="name" placeholder="Фамилия Имя Отчество">
-                    <input type="text" placeholder="Наименование груза">
-                    <input type="number" class="" placeholder="Вес груза (кг)">
-                    <input type="number" class="" placeholder="Объём груза (м²)">
+                    <input type="text" name="name" placeholder="Фамилия Имя Отчество" id="name">
+                    <input type="text" placeholder="Наименование груза" id="cargoName">
+                    <input type="number" placeholder="Вес груза (кг)" id="cargoWeight">
+                    <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume">
                 </div>
 
                 <div  class="item thirdSection">
 
-                    <select name="vechicle_select">
-                        <option value="0" disabled selected hidden>Тип транспортного средства</option>
-                        <option value="">Тент, изотерм, целмет.</option>
-                        <option value="">Рефрижератор</option>
-                        <option value="">Борт</option>
-                        <option value="">Тент разборный, борт</option>
-                        <option value="">Манипулятор</option>
+                    <select name="vechicle_select" id="vechicle_select">
+                        <option value="null" disabled selected hidden>Тип транспортного средства</option>
+                        <option value="1">Тент, изотерм, целмет.</option>
+                        <option value="2">Рефрижератор</option>
+                        <option value="3">Борт</option>
+                        <option value="4">Тент разборный, борт</option>
+                        <option value="5">Манипулятор</option>
                     </select>
 
                     <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
@@ -63,9 +63,9 @@
                     <form action="">
                         <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
                     </form>
-                    <textarea name="" id="" cols="40" rows="10" class="" placeholder="Комментарий к заказу"></textarea>
+                    <textarea name="" id="comment" cols="40" rows="10" placeholder="Комментарий к заказу"></textarea>
                     <h1 id="cost"></h1>
-                    <button type="button" id="submit">Отправить</button>
+                    <button type="button" id="submit" onclick="submitData();">Отправить</button>
                 </div>
       
             </div>
