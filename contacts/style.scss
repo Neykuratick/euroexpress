@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.4s;
+}
+
+//  ----------  header --------------------
+
+header {
+    padding-top: 0.5rem;
+
+    display: flex;
+    flex-direction: row;
+
+    width: 1920px;
+
+    padding-bottom: 1rem;
+    border-bottom: black 1px solid;
+}
+
+#logo {
+    font-size: 2rem;
+    font-weight: 800;
+
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+#header_menu {
+    display: flex;
+    flex-direction: row;
+
+    margin: 0;
+    margin-left: 35rem;
+    margin-top: 0.5rem;
+}
+
+#header_menu li {
+    display: flex;
+    flex-direction: row;
+
+    padding: 1rem;
+    margin-left: 3rem;
+
+    font-size: 1.2rem;
+
+    transition: 0.4s;
+}
+
+#header_menu li:hover {
+    background-color: #29a8e2;
+    color: white;
+}
+
+#contactss {
+    background-color: #29a8e2;
+    color: white;
+}
+
+
+//  ----------  /header --------------------
+
+//  ----------  section --------------------
+
+// -- newHeader -- 
+
+.newHeader {
+    text-align: center;
+    font-size: 3rem;
+
+    margin-top: 2rem;
+}
+
+#headerText {
+    font-weight: 500;
+}
+
+// -- /newHeader -- 
+
+//  ----------  /section --------------------
+
+//  ----------  footer --------------------
+
+footer {
+    position: absolute;
+    background-color: #1b1b1b;
+    color: azure;
+
+    margin: 0;
+    margin-top: 100vh;
+    height: 7.55rem;
+    width: 100vw;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer h1, footer h2 {
+    margin: 0;
+    padding: 0;
+
+    font-weight: 400;
+}
+
+.footerContacts {
+    margin-left: auto;
+    margin-top: auto;
+
+    #footerNumber {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+    
+    #footerEmail {
+        margin-right: 2rem;
+    }
+}
+
+.footerCopyright {
+    margin: auto;
+
+    #footerRights {
+        text-align: center;
+
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
+
+#logoPNG {
+    margin-right: auto;
+}
+
+//  ----------  /foter --------------------

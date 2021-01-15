@@ -195,7 +195,7 @@ function getAdressAndDistance() {
     
     adress1 = geocode(markersPosition[0])
     document.getElementById("point1").innerHTML = "" + adress1;
-    document.getElementById("firstData").innerHTML = "Ваша первая точка";
+    document.getElementById("firstData").innerHTML = "Адрес откуда";
   }
 
   if (markers.length == 2) {
@@ -204,7 +204,7 @@ function getAdressAndDistance() {
 
     adress2 = geocode(markersPosition[1])
     document.getElementById("point2").innerHTML = "" + adress2;
-    document.getElementById("secondData").innerHTML = "Ваша вторая точка";
+    document.getElementById("secondData").innerHTML = "Адрес куда";
 
     marker1 = markers[0].getPosition()
     marker2 = markers[1].getPosition()
@@ -229,7 +229,7 @@ function placeMarkerAndPanTo(latLng, map) {
 function geocode(latLngArray) {
   // getting human readable adress based on lattitute and longtittude
 
-  requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0'
+  requestURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latLngArray[0] + ',' + latLngArray[1] + '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&language=ru'
   apiResponse = JSON.parse(httpGet(requestURL))
   return apiResponse.results[0].formatted_address;
 }
@@ -301,11 +301,11 @@ function submitData() {
 
   `
   Email.send({
-    Host : "smtp.mail.ru",
-    Username : "emailsenderjava@mail.ru",
-    Password : "111333fff111",
+    Host : "smtp.iportfolio.site",
+    Username : "u1256308",
+    Password : "!jWxg5Kj",
     To : 'neykuratick@mail.ru',
-    From : "emailsenderjava@mail.ru",
+    From : "noreply@iportfolio.site",
     Subject : "This is the subject",
     Body : "And this is the body"
 }).then(
