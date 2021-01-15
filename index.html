@@ -12,9 +12,9 @@
     <header>
         <span id="logo">ЕвроЭкспресс</span>
         <ul id="header_menu">
-            <li><a href="">о компании</a></li>
-            <li><a href="">прайс-лист</a></li>
-            <li><a href="">контакты</a></li>
+            <a href=""><li>о компании</li></a>
+            <a href=""><li>прайс-лист</li></a>
+            <a href=""><li>контакты</li></a>
         </ul>
     </header>
 
@@ -30,10 +30,10 @@
                 <div class="item active" id="firstSection">
                     <input id="pac-input" class="controls" type="text" placeholder="Введите адрес"/>
                     <div id="map" style="width: 443px; height: 374px"></div>
-                    <h3 class="data" id="firstData">Ваша первая точка: </h3>
-                    <h3 id="point1" class="data outputData"></h3>
-                    <h3 class="data">Ваша вторая точка: </h3>
-                    <h3 id="point2" class="data outputData"></h3>
+                    <h3 class="data" id="firstData"></h3> <!-- ваша первая точка -->
+                    <h3 id="point1" class="data outputData"></h3> <!-- адрес1 -->
+                    <h3 class="data" id="secondData"></h3> <!-- ваша вторая точка -->
+                    <h3 id="point2" class="data outputData"></h3> <!-- адрес2 -->
                     <h3 id="distance" class="data distanceData"> </h3>
                 </div>
 
@@ -63,7 +63,7 @@
                     <form action="">
                         <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
                     </form>
-                    <textarea name="" id="" cols="40" rows="10" class="" placeholder="Комментарий к заказу" maxlength="11"></textarea>
+                    <textarea name="" id="" cols="40" rows="10" class="" placeholder="Комментарий к заказу"></textarea>
                     <h1 id="cost"></h1>
                     <button type="button" id="submit">Отправить</button>
                 </div>
@@ -79,13 +79,17 @@
 
     <footer>
 
-        <img src="/imgs/logo.png" alt="logo">
+        <img src="logo.png" alt="logo" id="logoPNG">
 
-        <h1>© Транспортная компания «ЕвроЭкспресс»</h1>
-        <h1>Все права защищены</h1>
+        <div class="footerCopyright">
+            <h1 id="footerCopy">© Транспортная компания «ЕвроЭкспресс»</h1>
+            <h1 id="footerRights">Все права защищены</h1>
+        </div>
 
-        <h2>+7 (977) 692 37-50</h2>
-        <h2>euroexpress_buh@bk.ru</h2>
+        <div class="footerContacts">
+            <h2 id="footerNumber">+7 (977) 692 37-50</h2>
+            <h2 id="footerEmail">euroexpress_buh@bk.ru</h2>
+        </div>
 
     </footer>
 

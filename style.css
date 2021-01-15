@@ -14,10 +14,6 @@ a {
   transition: all 0.4s;
 }
 
-a:hover {
-  color: white;
-}
-
 header {
   padding-top: 0.5rem;
   display: -webkit-box;
@@ -69,9 +65,6 @@ header {
 
 #header_menu li:hover {
   background-color: #29a8e2;
-}
-
-#header_menu li:hover a {
   color: white;
 }
 
@@ -242,6 +235,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
   font-family: "Roboto";
   font-weight: 400;
+  -webkit-transition: all 10s;
+  transition: all 10s;
 }
 
 .outputData {
@@ -319,7 +314,7 @@ textarea {
   border-radius: 11px;
   border: none;
   width: 19rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: 7vmin;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -337,6 +332,7 @@ textarea {
   color: white;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 #submit:active {
@@ -366,6 +362,9 @@ footer {
   color: azure;
   margin: 0;
   height: 7.55rem;
+  width: 100vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,6 +374,40 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+footer h1, footer h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+.footerContacts {
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.footerContacts #footerNumber {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.footerContacts #footerEmail {
+  margin-right: 2rem;
+}
+
+.footerCopyright {
+  margin: auto;
+}
+
+.footerCopyright #footerRights {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+#logoPNG {
+  margin-right: auto;
 }
 
 @media (max-width: 1500px) {
@@ -394,7 +427,17 @@ footer {
     width: 1500px;
   }
   footer {
-    width: 1600px;
+    width: 100vw;
+    margin-top: 5rem;
+  }
+  .footerContacts {
+    font-size: 0.8rem;
+  }
+  .footerCopyright #footerCopy {
+    font-size: 1.5rem;
+  }
+  .footerCopyright #footerRights {
+    font-size: 1.2rem;
   }
 }
 

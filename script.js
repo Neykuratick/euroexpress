@@ -189,6 +189,7 @@ function getAdressAndDistance() {
     
     adress = geocode(markersPosition[0])
     document.getElementById("point1").innerHTML = "" + adress;
+    document.getElementById("firstData").innerHTML = "Ваша первая точка";
   }
 
   if (markers.length == 2) {
@@ -197,6 +198,7 @@ function getAdressAndDistance() {
 
     adress = geocode(markersPosition[1])
     document.getElementById("point2").innerHTML = "" + adress;
+    document.getElementById("secondData").innerHTML = "Ваша вторая точка";
 
     marker1 = markers[0].getPosition()
     marker2 = markers[1].getPosition()
