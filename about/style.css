@@ -73,6 +73,22 @@ header {
   color: white;
 }
 
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .newHeader {
   text-align: center;
   font-size: 3rem;
@@ -83,12 +99,80 @@ header {
   font-weight: 500;
 }
 
+p {
+  width: 50%;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  font-size: 1.3rem;
+}
+
+.partners {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 4rem;
+}
+
+.row2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.partner {
+  font-size: 7rem;
+  max-width: 25rem;
+  max-height: 20rem;
+}
+
+.partnerText {
+  padding-top: 3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.realText {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+#rzhd {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 footer {
   position: absolute;
   background-color: #1b1b1b;
   color: azure;
   margin: 0;
-  margin-top: 100vh;
+  margin-top: 4rem;
   height: 7.55rem;
   width: 100vw;
   padding-top: 1rem;
@@ -136,5 +220,57 @@ footer h1, footer h2 {
 
 #logoPNG {
   margin-right: auto;
+}
+
+@media (max-width: 1500px) {
+  #header_menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 0;
+    margin-left: 15rem;
+    margin-top: 0.5rem;
+  }
+  footer {
+    width: 100vw;
+    margin-top: 5rem;
+  }
+  .footerContacts {
+    font-size: 0.8rem;
+  }
+  .footerCopyright #footerCopy {
+    font-size: 1.5rem;
+  }
+  .footerCopyright #footerRights {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  #header_menu {
+    margin-left: 9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    overflow-x: visible;
+  }
+  footer {
+    width: 120vw;
+  }
+  .partners {
+    margin-left: 150vw;
+  }
+}
+
+@media (max-width: 400px) {
+  footer {
+    width: 500vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */

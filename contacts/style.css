@@ -83,12 +83,38 @@ header {
   font-weight: 500;
 }
 
+.contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 7rem;
+  font-size: 2rem;
+}
+
+.ours {
+  margin-top: 3rem;
+}
+
+.contactsContent {
+  font-size: 1.4rem;
+}
+
 footer {
   position: absolute;
   background-color: #1b1b1b;
   color: azure;
   margin: 0;
-  margin-top: 100vh;
+  margin-top: 30vh;
   height: 7.55rem;
   width: 100vw;
   padding-top: 1rem;
@@ -136,5 +162,17 @@ footer h1, footer h2 {
 
 #logoPNG {
   margin-right: auto;
+}
+
+@media (max-width: 1500px) {
+  #header_menu {
+    margin-left: 15rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  #header_menu {
+    margin-left: 0vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */
