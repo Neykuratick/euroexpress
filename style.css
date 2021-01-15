@@ -14,11 +14,11 @@ a {
 }
 
 a:hover {
-  color: #e94fe1;
+  color: white;
 }
 
 header {
-  margin-top: 1rem;
+  padding-top: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,6 +35,7 @@ header {
   font-size: 2rem;
   font-weight: 800;
   margin-left: 3rem;
+  margin-top: 1rem;
 }
 
 #header_menu {
@@ -58,8 +59,19 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 1rem;
   margin-left: 3rem;
   font-size: 1.2rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#header_menu li:hover {
+  background-color: #29a8e2;
+}
+
+#header_menu li:hover a {
+  color: white;
 }
 
 .newHeader {
@@ -101,19 +113,17 @@ header {
 }
 
 .slider .left-slide:hover, .slider .right-slide:hover {
-  -webkit-box-shadow: 0px 0px 10px black;
-          box-shadow: 0px 0px 10px black;
   background-color: #29a8e2;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .slider .left-slide:active, .slider .right-slide:active {
-  -webkit-box-shadow: 0px 0px 10px black;
-          box-shadow: 0px 0px 10px black;
+  -webkit-box-shadow: 0px 0px 13px black;
+          box-shadow: 0px 0px 13px black;
   background-color: #e22967;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   font-size: 1.5em;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -322,6 +332,7 @@ textarea {
 
 #submit:hover {
   background-color: #29a8e2;
+  color: white;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
