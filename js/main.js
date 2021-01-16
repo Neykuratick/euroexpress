@@ -268,6 +268,7 @@ function countCost() {
   document.getElementById("cost").innerHTML = "Итоговая стоимость: " + totalcost + " руб.";
 }
 
+var final_message = "";
 function submitData() {
   let nameData = document.getElementById("name").value;
   let cargoName = document.getElementById("cargoName").value;
@@ -278,39 +279,48 @@ function submitData() {
   let unloadDate = document.getElementById("unload").value;
   let phone = document.getElementById("phone").value;
   let comment = document.getElementById("comment").value;
+  let price = totalcost;
 
-  let final_message =
+  final_message =
   
   `
-  Новый отклик!
-
-  Фамилия Имя Отчество: ${nameData}
-  Номер телефона: ${phone}
-
-  Адрес куда: ${adress1}
-  Адрес откуда: ${adress2}
-
-  Наименование груза: ${cargoName}
-  Вес груза: ${cargoWeight}
-  Объём груза: ${cargoVolume}
-  Тип транспорта: ${vechicle_select}
-  Дата погрузки: ${loadDate}
-  Дата выгрузки: ${unloadDate}
-
-  Комментарий к заказу: ${comment}
-
+  Фамилия Имя Отчество: ${nameData}<br>
+  Номер телефона: ${phone}<br>
+  <br>
+  Адрес куда: ${adress1}<br>
+  Адрес откуда: ${adress2}<br>
+  <br>
+  Наименование груза: ${cargoName}<br>
+  Вес груза: ${cargoWeight}<br>
+  Объём груза: ${cargoVolume}<br>
+  Тип транспорта: ${vechicle_select}<br>
+  Дата погрузки: ${loadDate}<br>
+  Дата выгрузки: ${unloadDate}<br>
+  Итоговая цена: ${price} руб.<br>
+  <br>
+  Комментарий к заказу: ${comment}<br>
   `
   Email.send({
     Host : "smtp.iportfolio.site",
-    Username : "u1256308",
+    Username : "noreply@iportfolio.site",
     Password : "!jWxg5Kj",
     To : 'neykuratick@mail.ru',
     From : "noreply@iportfolio.site",
-    Subject : "This is the subject",
-    Body : "And this is the body"
+    Subject : "EuroExpress - Новый отклик!",
+    Body : final_message
 }).then(
-  message => alert(message)
+  message => checkSended(message), console.log(final_message)
 );
 }
 
 // ------------------------------------- /fourth section  -------------------------------------------------------
+
+function checkSended(message) {
+  if (message == "OK") {
+    localStorage.setItem('final-message', final_message)
+    window.open("/request/", "_parent");
+  }
+  else {
+    alert("Что-то пощло не так! Обратитесь в техническую поддержку. Ошибка:", message)
+  }
+}
