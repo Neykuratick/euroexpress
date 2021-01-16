@@ -172,7 +172,10 @@ footer h1, footer h2 {
 
 @media (max-width: 1100px) {
   #header_menu {
-    margin-left: 0vw;
+    margin-left: 0;
+  }
+  footer {
+    width: 150vmin;
   }
 }
 /*# sourceMappingURL=style.css.map */
