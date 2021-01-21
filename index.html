@@ -5,78 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕвроЭкспресс - доставка</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&language=ru&libraries=places&callback=initialize" defer></script>
     <script src="https://smtpjs.com/v3/smtp.js" defer></script>
 </head>
 <body>
-    <header>
-        <span id="logo"><a href="">ЕвроЭкспресс</a></span>
-        <ul id="header_menu">
-            <a href="/about/"><li>о компании</li></a>
-            <a href="/prices/"><li>прайс-лист</li></a>
-            <a href="/contacts/"><li>контакты</li></a>
-        </ul>
-    </header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fs-1" id="navBarLogo">ЕвроЭкспресс</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <section>
-
-        <div class="newHeader">
-            <span id="headerText">Расчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="container d-flex justify-content-center">
+                <ul class="navbar-nav fs-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about/">о компании</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/prices/">прайс-лист</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contacts/">контакты</a>
+                  </li>
+                </ul>
+              </div>
+              </div>
         </div>
+    </nav>
 
-        <div class="slider" id="slider">
-            <div class="slider-items">
-
-                <div class="item active" id="firstSection">
-                    <input id="pac-input" class="controls" type="text" placeholder="Введите адрес"/>
-                    <div id="map" style="width: 443px; height: 374px"></div>
-                    <h3 class="data" id="firstData"></h3> <!-- ваша первая точка -->
-                    <h3 id="point1" class="data outputData"></h3> <!-- адрес1 -->
-                    <h3 class="data" id="secondData"></h3> <!-- ваша вторая точка -->
-                    <h3 id="point2" class="data outputData"></h3> <!-- адрес2 -->
-                    <h3 id="distance" class="data distanceData"> </h3>
-                </div>
-
-                <div  class="item" id="secondSection">
-                    <input type="text" name="name" placeholder="Фамилия Имя Отчество" id="name">
-                    <input type="text" placeholder="Наименование груза" id="cargoName">
-                    <input type="number" placeholder="Вес груза (кг)" id="cargoWeight">
-                    <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume">
-                </div>
-
-                <div  class="item thirdSection">
-
-                    <select name="vechicle_select" id="vechicle_select">
-                        <option value="null" disabled selected hidden>Тип транспортного средства</option>
-                        <option value="1">Тент, изотерм, целмет.</option>
-                        <option value="2">Рефрижератор</option>
-                        <option value="3">Борт</option>
-                        <option value="4">Тент разборный, борт</option>
-                        <option value="5">Манипулятор</option>
-                    </select>
-
-                    <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
-                    <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
-                </div>
-                
-                <div  class="item fourthSection">
-                    <form action="">
-                        <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
-                    </form>
-                    <textarea name="" id="comment" cols="40" rows="10" placeholder="Комментарий к заказу"></textarea>
-                    <h1 id="cost"></h1>
-                    <button type="button" id="submit" onclick="submitData();">Отправить</button>
-                </div>
-      
+    <div class="container-fluid">
+        <section>
+            <div class="newHeader">
+                <span id="headerText">Расчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
             </div>
-              <!-- slider controls -->
-                <div class="left-slide"><</div>
-                <div class="right-slide">></div>
-              <!-- slider controls -->
-         </div>
 
-    </section>
+            <div class="slider" id="slider">
+                <div class="slider-items">
+
+                    <div class="item active" id="firstSection">
+                        <input id="pac-input" class="controls" type="text" placeholder="Введите адрес"/>
+                        <div id="map" style="width: 443px; height: 374px"></div>
+                        <h3 class="data" id="firstData"></h3> <!-- ваша первая точка -->
+                        <h3 id="point1" class="data outputData"></h3> <!-- адрес1 -->
+                        <h3 class="data" id="secondData"></h3> <!-- ваша вторая точка -->
+                        <h3 id="point2" class="data outputData"></h3> <!-- адрес2 -->
+                        <h3 id="distance" class="data distanceData"> </h3>
+                    </div>
+
+                    <div  class="item" id="secondSection">
+                        <input type="text" name="name" placeholder="Фамилия Имя Отчество" id="name">
+                        <input type="text" placeholder="Наименование груза" id="cargoName">
+                        <input type="number" placeholder="Вес груза (кг)" id="cargoWeight">
+                        <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume">
+                    </div>
+
+                    <div  class="item thirdSection">
+
+                        <select name="vechicle_select" id="vechicle_select">
+                            <option value="null" disabled selected hidden>Тип транспортного средства</option>
+                            <option value="1">Тент, изотерм, целмет.</option>
+                            <option value="2">Рефрижератор</option>
+                            <option value="3">Борт</option>
+                            <option value="4">Тент разборный, борт</option>
+                            <option value="5">Манипулятор</option>
+                        </select>
+
+                        <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
+                        <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
+                    </div>
+                    
+                    <div  class="item fourthSection">
+                        <form action="">
+                            <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
+                        </form>
+                        <textarea name="" id="comment" cols="40" rows="10" placeholder="Комментарий к заказу"></textarea>
+                        <h1 id="cost"></h1>
+                        <button type="button" id="submit" onclick="submitData();">Отправить</button>
+                    </div>
+        
+                </div>
+                <!-- slider controls -->
+                    <div class="left-slide"><</div>
+                    <div class="right-slide">></div>
+                <!-- slider controls -->
+            </div>
+
+        </section>
+    </div>
 
     <footer>
         <img src="/imgs/logo.png" alt="logo" id="logoPNG">
