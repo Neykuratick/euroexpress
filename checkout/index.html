@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЕвроЭкспресс - контакты</title>
-    
+    <title>ЕвроЭкспресс - доставка</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -39,26 +38,18 @@
     <section>
 
         <div class="newHeader">
-            <span id="headerText">Наши</span> <span id="headerTextContinuation">контакты</span>
+            <span id="headerText">Расчёт</span> <span id="headerTextContinuation">стомости доставки</span>
         </div>
 
-        <div class="contacts">
+        <p>
+            Благодарим вас за доверие! Ваша заявка принята в обработку.<br>
+            Мы вам перезвоним!
+        </p>
 
-            <div class="ours">
-                <span id="headerText">Наш</span> <span id="headerTextContinuation">телефон:</span>
-            </div>
-            <div class="contactsContent">+7 (977) 692 37-50</div>
-
-            <div class="ours">
-                <span id="headerText">Наша</span> <span id="headerTextContinuation">почта:</span>
-            </div>
-            <div class="contactsContent">euroexpress_buh@bk.ru</div>
-            
-            <div class="ours">
-                <span id="headerText">Наш</span> <span id="headerTextContinuation">график работы:</span>
-            </div>
-            <div class="contactsContent">с 8:00 до 20:00</div>
+        <div class="yours">
+            <span id="headerText">Ваше</span> <span id="headerTextContinuation">заявление:</span>
         </div>
+        <p id="application"></p>
 
     </section>
 
@@ -75,5 +66,6 @@
             <h2 id="footerEmail">euroexpress_buh@bk.ru</h2>
         </div>
     </footer>
+    <script src="/js/request.js"></script>
 </body>
 </html>

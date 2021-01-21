@@ -14,58 +14,38 @@ a {
   transition: all 0.4s;
 }
 
-header {
-  padding-top: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 1920px;
-  padding-bottom: 1rem;
-  border-bottom: black 1px solid;
-}
-
-#logo {
-  font-size: 2rem;
+#navBarLogo {
+  font-family: "Roboto";
   font-weight: 800;
-  margin-left: 3rem;
-  margin-top: 1rem;
 }
 
-#header_menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin: 0;
-  margin-left: 35rem;
-  margin-top: 0.5rem;
+#navBarLogo:hover {
+  color: black;
+  text-decoration: none;
 }
 
-#header_menu li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 1rem;
-  margin-left: 3rem;
-  font-size: 1.2rem;
+.navbar {
+  border-bottom: 1px solid black;
+}
+
+.nav-item {
+  margin-left: 5vmin;
+  padding: 1vmin;
   -webkit-transition: background-color 0.4s, color 0.4s;
   transition: background-color 0.4s, color 0.4s;
 }
 
-#header_menu li:hover {
+.nav-item:hover {
   background-color: #29a8e2;
   color: white;
+}
+
+.nav-item:hover a {
+  color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-01-512.png");
 }
 
 section {

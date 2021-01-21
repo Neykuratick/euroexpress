@@ -17,57 +17,42 @@ a {
     transition: all 0.4s;
 }
 
-//  ----------  header --------------------
+// ------------------------------- navbar -------------------------------
 
-header {
-    padding-top: 0.5rem;
-
-    display: flex;
-    flex-direction: row;
-
-    width: 1920px;
-
-    padding-bottom: 1rem;
-    border-bottom: black 1px solid;
-}
-
-#logo {
-    font-size: 2rem;
+#navBarLogo {
+    font-family: "Roboto";
     font-weight: 800;
-
-    margin-left: 3rem;
-    margin-top: 1rem;
+}
+#navBarLogo:hover {
+    color: black;
+    text-decoration: none;
 }
 
-#header_menu {
-    display: flex;
-    flex-direction: row;
-
-    margin: 0;
-    margin-left: 35rem;
-    margin-top: 0.5rem;
+.navbar {
+    border-bottom: 1px solid black;
 }
 
-#header_menu li {
-    display: flex;
-    flex-direction: row;
-
-    padding: 1rem;
-    margin-left: 3rem;
-
-    font-size: 1.2rem;
+.nav-item {
+    margin-left: 5vmin;
+    padding: 1vmin;
 
     transition: background-color 0.4s, color 0.4s;
 }
 
-#header_menu li:hover {
+.nav-item:hover {
     background-color: #29a8e2;
-    
     color: white;
+
+    a { 
+        color: white;
+    }
 }
 
+.navbar-toggler-icon {
+    background-image: url("https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-01-512.png");
+}
 
-//  ----------  /header --------------------
+// ------------------------------- /navbar -------------------------------
 
 
 
@@ -77,7 +62,7 @@ header {
 
 .newHeader {
     text-align: center;
-    font-size: 3rem;
+    font-size: 6vmin;
 
     margin-top: 2rem;
 }
@@ -369,11 +354,11 @@ footer {
     color: azure;
 
     margin: 0;
-    height: 7.55rem;
+    height: 11rem;
     width: 100vw;
 
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 
     display: flex;
     align-items: center;
@@ -456,5 +441,67 @@ footer h1, footer h2 {
 @media (max-width: 1100px) {
     section {
         width: 47rem;
+    }
+
+    #map {
+        width: 1x;
+        height: 1px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        overflow-x: visible;
+    }
+
+    .newHeader {
+        text-align: center;
+        font-size: 6vmin;
+    
+        margin-top: 2rem;
+    }
+
+    section {
+        margin-left: -20vmin;
+    }
+
+    footer {
+       height: 30rem;
+       flex-direction: column;
+       align-items: center;
+
+       #logoPNG {
+           margin: 0;
+       }
+
+       .footerContacts {
+           margin: 0;
+
+           #footerEmail {
+               margin: 0;
+           }
+
+           #footerNumber {
+               margin: 0;
+           }
+       }
+
+       .footerCopyright {
+           display: inline-block;
+
+           #footerCopy {
+               margin: 0;
+               text-align: center;
+           }
+
+           #footerRights {
+               margin: 0;
+           }
+       }
+    }
+
+    #map {
+        max-width: 300px;
+        max-height: 200px;
     }
 }

@@ -318,7 +318,7 @@ function submitData() {
 function checkSended(message) {
   if (message == "OK") {
     localStorage.setItem('final-message', final_message)
-    window.open("/request/", "_parent");
+    window.open("/checkout/", "_parent");
   }
   else {
     alert("Что-то пощло не так! Обратитесь в техническую поддержку. Ошибка:", message)
