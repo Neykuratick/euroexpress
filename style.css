@@ -386,6 +386,7 @@ textarea {
 
 #costLabel {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
   font-size: 1rem;
 }
@@ -442,6 +443,11 @@ footer h1, footer h2 {
 
 #logoPNG {
   margin-right: auto;
+}
+
+#personalData {
+  margin-top: -3rem;
+  text-align: center;
 }
 
 @media (max-width: 1500px) {

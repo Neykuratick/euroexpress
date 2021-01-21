@@ -747,7 +747,7 @@ function countCost() {
   // -- /countring total cost --
 
   document.getElementById("countCost").innerHTML = "Пересчитать стоимость"
-  document.getElementById("costLabel").innerHTML = "Итоговая стоимость: " + totalcost + " руб."; // displaying total cost
+  document.getElementById("costLabel").innerHTML = "Итоговая примерная стоимость: " + totalcost + " руб."; // displaying total cost
 }
 
 var final_message = "";
