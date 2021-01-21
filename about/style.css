@@ -81,49 +81,6 @@ p {
   font-size: 1.3rem;
 }
 
-.partners {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.row1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 4rem;
-}
-
-.row2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.partner {
-  font-size: 7rem;
-  max-width: 25rem;
-  max-height: 20rem;
-}
-
 .partnerText {
   padding-top: 3rem;
   -webkit-user-select: none;
@@ -196,7 +153,31 @@ footer h1, footer h2 {
   margin-right: auto;
 }
 
+@media (max-width: 1500px) {
+  footer {
+    width: 100vw;
+    margin-top: 5rem;
+  }
+  .footerContacts {
+    font-size: 0.8rem;
+  }
+  .footerCopyright #footerCopy {
+    font-size: 1.5rem;
+  }
+  .footerCopyright #footerRights {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 600px) {
+  body {
+    overflow-x: visible;
+  }
+  .newHeader {
+    text-align: center;
+    font-size: 6vmin;
+    margin-top: 2rem;
+  }
   footer {
     height: 30rem;
     -webkit-box-orient: vertical;

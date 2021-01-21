@@ -71,6 +71,17 @@ a {
 
 // -- /newHeader -- 
 
+// -- img --
+
+img {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10rem;
+}
+
+// -- /img --
+
 //  ----------  /section --------------------
 
 //  ----------  footer --------------------
@@ -81,12 +92,12 @@ footer {
     color: azure;
 
     margin: 0;
-    margin-top: 100vh;
+    margin-top: 20vmin;
     height: 11rem;
     width: 100vw;
 
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 12rem;
 
     display: flex;
     align-items: center;
@@ -129,9 +140,39 @@ footer h1, footer h2 {
     margin-right: auto;
 }
 
-//  ----------  /foter --------------------
+//  ----------  /footer --------------------
+@media (max-width: 1500px) {
+    footer {
+        width: 100vw;
+        margin-top: 5rem;
+    }
+
+    .footerContacts {
+        font-size: 0.8rem;
+    }
+
+    .footerCopyright {
+        #footerCopy {
+            font-size: 1.5rem;
+        }
+
+        #footerRights {
+            font-size: 1.2rem;
+        }
+    }
+}
 
 @media (max-width: 600px) {
+    body {
+        overflow-x: visible;
+    }
+
+    .newHeader {
+        text-align: center;
+        font-size: 6vmin;
+    
+        margin-top: 2rem;
+    }
     footer {
         height: 30rem;
         flex-direction: column;

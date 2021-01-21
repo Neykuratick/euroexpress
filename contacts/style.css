@@ -139,7 +139,31 @@ footer h1, footer h2 {
   margin-right: auto;
 }
 
+@media (max-width: 1500px) {
+  footer {
+    width: 100vw;
+    margin-top: 5rem;
+  }
+  .footerContacts {
+    font-size: 0.8rem;
+  }
+  .footerCopyright #footerCopy {
+    font-size: 1.5rem;
+  }
+  .footerCopyright #footerRights {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 600px) {
+  body {
+    overflow-x: visible;
+  }
+  .newHeader {
+    text-align: center;
+    font-size: 6vmin;
+    margin-top: 2rem;
+  }
   footer {
     height: 30rem;
     -webkit-box-orient: vertical;
