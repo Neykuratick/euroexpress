@@ -539,7 +539,7 @@ function limitOptions() {
 
 function TTK_pointsInput() {
   element = document.getElementById("TTK_pointsLabel");
-  element.innerHTML = 'Кол-во выездов в ТТК';
+  element.innerHTML = 'Въезд в ТТК';
 }
 
 function Sadovoe_pointsInput() {
@@ -582,20 +582,14 @@ function countCost() {
   }
 
   if (markers.length == 2) {
-    // if there are 2 markers, finding the one that is the most further away
+    // if there are 2 markers
 
     JSON_marker_one = markers[0].getPosition().toJSON() // getting coordinates of the first marker
     JSON_marker_two = markers[1].getPosition().toJSON() // getting coordinates of the second marker
 
-    if (getmyMKADdistance(JSON_marker_one) > getmyMKADdistance(JSON_marker_two)) {
-      // if the first marker is further
-
-      mkad_distance = getmyMKADdistance(JSON_marker_one)
-    } else {
-      // if the second marker is further
-
-      mkad_distance = getmyMKADdistance(JSON_marker_two)
-    }
+    mkad_distance_one = getmyMKADdistance(JSON_marker_one)
+    mkad_distance_two = getmyMKADdistance(JSON_marker_two)
+    mkad_distance = mkad_distance_one + mkad_distance_two
 
     mkad_distance = roundNumber(mkad_distance, 0) // rounding disrance in meters
     mkad_distance_km = mkad_distance / 1000 // converting into kilometers
@@ -742,6 +736,7 @@ function countCost() {
   mkad_cost = mkad_distance_km * mkad_rate
   console.log(mkad_distance_km, mkad_rate)
   totalcost = min_rate + mkad_cost + AltLoad_points_cost
+  totalcost = roundNumber(totalcost, 0)
 
   console.log(
     "min_rate", min_rate,
@@ -768,14 +763,39 @@ function submitData() {
   let comment = document.getElementById("comment").value;
   let price = totalcost;
 
+  Sadovoe_points_undef = Number.parseInt(document.getElementById("Sadovoe_points").value)
+  if (Number.isNaN(Sadovoe_points_undef) == false) {
+    Sadovoe_points = Sadovoe_points_undef
+  } else {
+    Sadovoe_points = 0
+  }
+
+  TTK_points_undef = Number.parseInt(document.getElementById("TTK_points").value)
+  if (Number.isNaN(TTK_points_undef) == false) {
+    TTK_points = TTK_points_undef
+  } else {
+    TTK_points = 0
+  }
+
+  AltLoad_points_undef = Number.parseInt(document.getElementById("AltLoad_points").value)
+  if (Number.isNaN(AltLoad_points_undef) == false) {
+    AltLoad_points = AltLoad_points_undef
+  } else {
+    AltLoad_points = 0
+  }
+
   final_message =
   
   `
-  Фамилия Имя Отчество: ${nameData}<br>
+  Контактное лицо: ${nameData}<br>
   Номер телефона: ${phone}<br>
   <br>
   Адрес куда: ${adress1}<br>
   Адрес откуда: ${adress2}<br>
+  <br>
+  Въезд в ТТК: ${Sadovoe_points}<br>
+  Выезд в Садовое кольцо: ${TTK_points}<br>
+  Доп. точки выгрузки ${AltLoad_points}<br>
   <br>
   Наименование груза: ${cargoName}<br>
   Вес груза: ${cargoWeight}<br>
@@ -791,7 +811,7 @@ function submitData() {
     Host : "smtp.iportfolio.site",
     Username : "noreply@iportfolio.site",
     Password : "!jWxg5Kj",
-    To : 'neykuratick@mail.ru',
+    To : 'euroexpress_buh@bk.ru ',
     From : "noreply@iportfolio.site",
     Subject : "EuroExpress - Новый отклик!",
     Body : final_message
