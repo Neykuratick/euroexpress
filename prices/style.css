@@ -59,8 +59,8 @@ header {
   padding: 1rem;
   margin-left: 3rem;
   font-size: 1.2rem;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: background-color 0.4s, color 0.4s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 #header_menu li:hover {

@@ -442,13 +442,8 @@ footer h1, footer h2 {
 }
 
 @media (max-width: 1100px) {
-  body {
-    overflow-x: visible;
-    -webkit-transform: scale(0.5, 0.5);
-            transform: scale(0.5, 0.5);
-  }
-  html {
-    margin-right: 50rem;
+  section {
+    width: 47rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
