@@ -200,7 +200,7 @@ input::-webkit-inner-spin-button {
 }
 
 #firstSection {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 #map {
@@ -243,7 +243,7 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
-  margin-top: 13.5rem;
+  margin-top: 14rem;
 }
 
 select {
@@ -260,7 +260,7 @@ select {
 }
 
 .thirdSection {
-  margin-top: 15.5rem;
+  margin-top: 14rem;
 }
 
 .loadUnloadDate {
@@ -270,11 +270,11 @@ select {
 }
 
 .newThirdSection {
-  margin-top: 15.5rem;
+  margin-top: 16rem;
 }
 
 .fourthSection {
-  margin-top: 12.5rem;
+  margin-top: 10rem;
 }
 
 textarea {
@@ -335,7 +335,6 @@ textarea {
   font-size: 1rem;
   font-weight: 500;
   color: #949494;
-  min-height: 5rem;
   margin: 0;
   margin-top: 1rem;
 }
