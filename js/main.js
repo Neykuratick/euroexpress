@@ -423,6 +423,20 @@ function getmyMKADdistance(latLngCords) {
 
 // ------------------------------------- /map -------------------------------------------------------
 
+// ------------------------------------- second section -------------------------------------------------------
+
+function cargoInput() {
+  cargoWeightLabel = document.getElementById("cargoWeightLabel");
+  cargoWeightLabel.innerHTML = 'Вес груза (кг)';
+}
+
+function cargoVolumeInput() {
+  cargoVolumeLabel = document.getElementById("cargoVolumeLabel");
+  cargoVolumeLabel.innerHTML = 'Объём груза (м²)';
+}
+
+// ------------------------------------- /second section -------------------------------------------------------
+
 
 // ------------------------------------- third section -------------------------------------------------------
 
@@ -520,6 +534,25 @@ function limitOptions() {
 }
 
 // ------------------------------------- /third section -------------------------------------------------------
+
+// ------------------------------------- newThird section -------------------------------------------------------
+
+function TTK_pointsInput() {
+  element = document.getElementById("TTK_pointsLabel");
+  element.innerHTML = 'Кол-во выездов в ТТК';
+}
+
+function Sadovoe_pointsInput() {
+  element = document.getElementById("Sadovoe_pointsLabel");
+  element.innerHTML = 'Кол-во выездов в Садовое';
+}
+
+function AltLoad_pointsInput() {
+  element = document.getElementById("AltLoad_pointsLabel");
+  element.innerHTML = 'Кол-во доп. точек выгрузки';
+}
+
+// ------------------------------------- /newThird section -------------------------------------------------------
 
 
 // ------------------------------------- fourth section -------------------------------------------------------

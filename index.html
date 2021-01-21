@@ -60,8 +60,10 @@
                     <div  class="item" id="secondSection">
                         <input type="text" name="name" placeholder="Фамилия Имя Отчество" id="name">
                         <input type="text" placeholder="Наименование груза" id="cargoName">
-                        <input type="number" placeholder="Вес груза (кг)" id="cargoWeight">
-                        <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume">
+                        <input type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()">
+                        <p class="inputlabel" id="cargoWeightLabel"></p>
+                        <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume" oninput="cargoVolumeInput()">
+                        <p class="inputlabel" id="cargoVolumeLabel"></p>
                     </div>
 
                     <div  class="item thirdSection">
@@ -86,9 +88,12 @@
 
                     <div  class="item newThirdSection">
 
-                        <input type="number" placeholder="Кол-во выездов в ТТК" id="TTK_points">
-                        <input type="number" class="" placeholder="Кол-во выездов в Садовое" id="Sadovoe_points">
-                        <input type="number" class="" placeholder="Кол-во доп. точек выгрузки" id="AltLoad_points">
+                        <input type="number" placeholder="Кол-во выездов в ТТК" id="TTK_points" oninput="TTK_pointsInput()">
+                        <p class="inputlabel" id="TTK_pointsLabel"></p>
+                        <input type="number" placeholder="Кол-во выездов в Садовое" id="Sadovoe_points" oninput="Sadovoe_pointsInput()">
+                        <p class="inputlabel" id="Sadovoe_pointsLabel"></p>
+                        <input type="number" placeholder="Кол-во доп. точек выгрузки" id="AltLoad_points" oninput="AltLoad_pointsInput()">
+                        <p class="inputlabel" id="AltLoad_pointsLabel"></p>
 
                     </div>
                     

@@ -246,6 +246,13 @@ input::-webkit-inner-spin-button {
   margin-top: 14rem;
 }
 
+.inputlabel {
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  color: #949494;
+}
+
 select {
   font-size: 1rem;
   width: 19rem;

@@ -172,7 +172,7 @@ input:focus {
 
 input::placeholder {
     outline: none;
-    color: rgb(148, 148, 148);
+    color: #949494;
     font-size: 1rem;
 }
 
@@ -235,6 +235,14 @@ input::-webkit-inner-spin-button {
     justify-content: stretch;
 
     margin-top: 14rem;
+}
+
+.inputlabel {
+    margin: 0;
+    padding: 0;
+
+    text-align: start;
+    color: #949494;
 }
 
 // -- /second section -- 
