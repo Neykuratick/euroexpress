@@ -17,56 +17,42 @@ a {
     transition: all 0.4s;
 }
 
-//  ----------  header --------------------
+// ------------------------------- navbar -------------------------------
 
-header {
-    padding-top: 0.5rem;
-
-    display: flex;
-    flex-direction: row;
-
-    width: 1920px;
-
-    padding-bottom: 1rem;
-    border-bottom: black 1px solid;
-}
-
-#logo {
-    font-size: 2rem;
+#navBarLogo {
+    font-family: "Roboto";
     font-weight: 800;
-
-    margin-left: 3rem;
-    margin-top: 1rem;
+}
+#navBarLogo:hover {
+    color: black;
+    text-decoration: none;
 }
 
-#header_menu {
-    display: flex;
-    flex-direction: row;
-
-    margin: 0;
-    margin-left: 35rem;
-    margin-top: 0.5rem;
+.navbar {
+    border-bottom: 1px solid black;
 }
 
-#header_menu li {
-    display: flex;
-    flex-direction: row;
-
-    padding: 1rem;
-    margin-left: 3rem;
-
-    font-size: 1.2rem;
+.nav-item {
+    margin-left: 5vmin;
+    padding: 1vmin;
 
     transition: background-color 0.4s, color 0.4s;
 }
 
-#header_menu li:hover {
+.nav-item:hover {
     background-color: #29a8e2;
     color: white;
+
+    a { 
+        color: white;
+    }
 }
 
+.navbar-toggler-icon {
+    background-image: url("https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-01-512.png");
+}
 
-//  ----------  /header --------------------
+// ------------------------------- /navbar -------------------------------
 
 //  ----------  section --------------------
 
@@ -116,7 +102,7 @@ footer {
 
     margin: 0;
     margin-top: 30vh;
-    height: 7.55rem;
+    height: 11rem;
     width: 100vw;
 
     padding-top: 1rem;
@@ -165,18 +151,39 @@ footer h1, footer h2 {
 
 //  ----------  /foter --------------------
 
-@media (max-width: 1500px) {
-    #header_menu {
-        margin-left: 15rem;
-    }
-}
-
-@media (max-width: 1100px) {
-    #header_menu {
-        margin-left: 0;
-    }
-
+@media (max-width: 600px) {
     footer {
-        width: 150vmin;
-    }
+        height: 30rem;
+        flex-direction: column;
+        align-items: center;
+ 
+        #logoPNG {
+            margin: 0;
+        }
+ 
+        .footerContacts {
+            margin: 0;
+ 
+            #footerEmail {
+                margin: 0;
+            }
+ 
+            #footerNumber {
+                margin: 0;
+            }
+        }
+ 
+        .footerCopyright {
+            display: inline-block;
+ 
+            #footerCopy {
+                margin: 0;
+                text-align: center;
+            }
+ 
+            #footerRights {
+                margin: 0;
+            }
+        }
+     }
 }

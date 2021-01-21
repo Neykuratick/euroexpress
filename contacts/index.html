@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕвроЭкспресс - контакты</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <span id="logo"><a href="/">ЕвроЭкспресс</a></span>
-        <ul id="header_menu">
-            <a href="/about/"><li id="about">о компании</li></a>
-            <a href="/prices/"><li>прайс-лист</li></a>
-            <a href="/contacts/"><li id="contactss">контакты</li></a>
-        </ul>
-    </header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand fs-1" id="navBarLogo">ЕвроЭкспресс</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="container d-flex justify-content-center">
+                <ul class="navbar-nav fs-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about/">о компании</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/prices/">прайс-лист</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contacts/">контакты</a>
+                  </li>
+                </ul>
+              </div>
+              </div>
+        </div>
+    </nav>
 
 
     <section>
@@ -56,5 +76,8 @@
             <h2 id="footerEmail">euroexpress_buh@bk.ru</h2>
         </div>
     </footer>
+    
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
