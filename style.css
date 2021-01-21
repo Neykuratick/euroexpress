@@ -269,6 +269,10 @@ select {
   font-family: "Roboto", sans-serif;
 }
 
+.newThirdSection {
+  margin-top: 15.5rem;
+}
+
 .fourthSection {
   margin-top: 12.5rem;
 }
@@ -294,7 +298,6 @@ textarea {
   border-radius: 11px;
   border: none;
   width: 19rem;
-  margin-top: 1.5rem;
   margin-bottom: 7vmin;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -332,8 +335,53 @@ textarea {
   font-size: 1rem;
   font-weight: 500;
   color: #949494;
+  min-height: 5rem;
   margin: 0;
   margin-top: 1rem;
+}
+
+#countCost {
+  display: block;
+  margin: auto;
+  border-radius: 11px;
+  border: none;
+  width: 13rem;
+  height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  background-color: #444444;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  color: white;
+}
+
+#countCost:hover {
+  background-color: #29a8e2;
+  color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#countCost:active {
+  -webkit-box-shadow: 0px 0px 10px black;
+          box-shadow: 0px 0px 10px black;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#countCost:focus {
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#costLabel {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
 }
 
 footer {

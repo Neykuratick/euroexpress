@@ -66,17 +66,30 @@
 
                     <div  class="item thirdSection">
 
-                        <select name="vechicle_select" id="vechicle_select">
-                            <option value="null" disabled selected hidden>Тип транспортного средства</option>
-                            <option value="1">Тент, изотерм, целмет.</option>
-                            <option value="2">Рефрижератор</option>
-                            <option value="3">Борт</option>
-                            <option value="4">Тент разборный, борт</option>
-                            <option value="5">Манипулятор</option>
+                        <select name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
+                            <option value="0" disabled selected hidden>Тип транспортного средства</option>
+                            <option value="Тент, изотерм, целмет.">Тент, изотерм, целмет.</option>
+                            <option value="Рефрижератор">Рефрижератор</option>
+                            <option value="Борт">Борт</option>
+                            <option value="Тент разборный, борт">Тент разборный, борт</option>
+                            <option value="Манипулятор">Манипулятор</option>
+                        </select>
+
+                        <select name="cargo_select" id="cargo_select">
+                            <option value="1" disabled selected hidden>Грузоподъёмность т/c</option>
+                            <option value="1" disabled>Сначала выберите т/с</option>
                         </select>
 
                         <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
                         <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
+                    </div>
+
+                    <div  class="item newThirdSection">
+
+                        <input type="number" placeholder="Кол-во выездов в ТТК" id="TTK_points">
+                        <input type="number" class="" placeholder="Кол-во выездов в Садовое" id="Sadovoe_points">
+                        <input type="number" class="" placeholder="Кол-во доп. точек выгрузки" id="AltLoad_points">
+
                     </div>
                     
                     <div  class="item fourthSection">
@@ -84,7 +97,10 @@
                             <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
                         </form>
                         <textarea name="" id="comment" cols="40" rows="10" placeholder="Комментарий к заказу"></textarea>
-                        <h1 id="cost"></h1>
+                        <div id="cost">
+                            <button type="button" id="countCost" onclick="countCost();">Расчитать стоимость</button>
+                            <h1 id='costLabel'></h1>
+                        </div>
                         <button type="button" id="submit" onclick="submitData();">Отправить</button>
                     </div>
         

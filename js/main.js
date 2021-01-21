@@ -92,17 +92,18 @@ function initMap() {
     clear()
     markers.push(placeMarkerAndPanTo(e.latLng, map))
     getAdressAndDistance()
+    // markerJsonOne = markers[0].getPosition().toJSON()
+    // console.log(getmyMKADdistance(markerJsonOne))
 
-
-    if (markers.length == 2) {
-      markerJsonOne = markers[0].getPosition().toJSON()
-      markerJsonTwo = markers[1].getPosition().toJSON()
-      console.log(markerJsonTwo.lat, markerJsonTwo.lng) // todo delete
-      console.log(inPoly(markerJsonOne), "first") // todo delete
-      console.log(inPoly(markerJsonTwo), "second") // todo delete
-      console.log(getMKADDistance(markerJsonTwo)) // todo delete
-      console.log(getmyMKADdistance(markerJsonTwo))
-    }
+    // if (markers.length == 2) {
+    //   markerJsonOne = markers[0].getPosition().toJSON()
+    //   markerJsonTwo = markers[1].getPosition().toJSON()
+    //   console.log(markerJsonTwo.lat, markerJsonTwo.lng) // todo delete
+    //   console.log(inPoly(markerJsonOne), "first") // todo delete
+    //   console.log(inPoly(markerJsonTwo), "second") // todo delete
+    //   console.log(getmyMKADdistance(markerJsonTwo))
+    //   console.log(getmyMKADdistance(markerJsonOne))
+    // }
 
     // -------------------------------------------------------
   })
@@ -229,7 +230,6 @@ function getAdressAndDistance() {
   
   // console.log("markersPosition", markersPosition)
   // console.log("markers", markers)
-  countCost() // TODO DELETE TO-DO
 }
 
 function placeMarkerAndPanTo(latLng, map) {
@@ -381,7 +381,7 @@ function inPoly(latLngCords){
   let y = latLngCords.lat
   let x = latLngCords.lng
 	var j = mkad_points.length - 1,
-  c = false; // true/false - внутри или вне полигона
+  c = false; // true/false - inside or outside of the polygon
 	for (i = 0; i < mkad_points.length; i++){
 		if ((((mkad_points[i][1]<=y) && (y<mkad_points[j][1])) || ((mkad_points[j][1]<=y) && (y<mkad_points[i][1]))) && (x > (mkad_points[j][0] - mkad_points[i][0]) * (y - mkad_points[i][1]) / (mkad_points[j][1] - mkad_points[i][1]) + mkad_points[i][0])) {
 			c = !c
@@ -417,46 +417,110 @@ function getmyMKADdistance(latLngCords) {
       closestLatLng = mkad_points[j]
     }
   }
-  console.log("closest", mkad_points[j], closestDistace)
+  console.log(closestLatLng)
   return closestDistace;
-}
-
-function getMKADDistance(latLngCords) {
-  // cords - coordinates of the object
-  // shir - latitude
-  // dolg - longitude
- 
-  Shir = latLngCords.lat
-  Dolg = latLngCords.lng
-	minShir = mkad_points[0][0];
-	minDolg = mkad_points[0][1];
-	minDelta = 10000;
-	minJ = 0;
-	delta = 100000;
- 
-  if (!inPoly(Shir,Dolg)) { // точка за мкадом, считаем маршрут					
-    console.log("Точка за пределами МКАД");
-
-    for (var j=0; j < mkad_points.length; j++) { // проверяем, какая из точек ближе всего
-      delta = (mkad_points[j][0]-Shir)*(mkad_points[j][0]-Shir) + (mkad_points[j][1]-Dolg)*(mkad_points[j][1]-Dolg);
-      // console.log(delta + ' ' + minDelta);
-
-      if(delta < minDelta) {
-          minShir = mkad_points[j][0]; // широта ближайшей точки
-          minDolg = mkad_points[j][1]; // долгота ближайшей точки
-          minJ = j;
-          minDelta = delta;
-      }
-    }
-    
-    console.log(minDolg, minShir)
-    return getDistanceArray([minShir, minDolg], [markers[1].getPosition().toJSON().lat, markers[1].getPosition().toJSON().lng])
-  }
 }
 
 // ------------------------------------- /map -------------------------------------------------------
 
-// ------------------------------------- second section -------------------------------------------------------
+
+// ------------------------------------- third section -------------------------------------------------------
+
+function limitOptions() {
+  let vechicle_select = document.getElementById("vechicle_select");
+  let cargo_select = document.getElementById("cargo_select");
+
+  cargo_select.remove(0)
+  cargo_select.remove(0)
+  cargo_select.remove(0)
+  cargo_select.remove(0)
+  cargo_select.remove(0)
+  cargo_select.remove(0)
+
+  if (vechicle_select.selectedIndex != 0) {
+    cargo_select.remove(1)
+  }
+
+  let option1 = document.createElement("option");
+  let option2 = document.createElement("option");
+  let option3 = document.createElement("option");
+  let option4 = document.createElement("option");
+  let option5 = document.createElement("option");
+
+  if (vechicle_select.selectedIndex == 1) { // if Тент, изотерм, целмет.
+    option1.text = '1,5т / 6-16м3, 4м'
+    option1.value = 5000
+    option2.text = '3т / 14-21м3'
+    option2.value = 6000
+    option3.text = '5 т / 18-35м3'
+    option3.value = 8000
+    option4.text = '10тн / 40-50м3'
+    option4.value = 10000
+    option5.text = '20т / 82/96м3'
+    option5.value = 12000
+
+    cargo_select.add(option1)
+    cargo_select.add(option2)
+    cargo_select.add(option3)
+    cargo_select.add(option4)
+    cargo_select.add(option5)
+  }
+
+  if (vechicle_select.selectedIndex == 2) { // if Рефрижератор
+    option1.text = '1-1,5 т /6-12м3'
+    option1.value = 6000
+    option2.text = '3т / 14-21м3'
+    option2.value = 7000
+    option3.text = '5 т / 18-25м3'
+    option3.value = 9000
+    option4.text = '10т / 35м3'
+    option4.value = 11000
+    option5.text = '20т / 82м3'
+    option5.value = 13000
+
+    cargo_select.add(option1)
+    cargo_select.add(option2)
+    cargo_select.add(option3)
+    cargo_select.add(option4)
+    cargo_select.add(option5)
+  }
+
+  if (vechicle_select.selectedIndex == 3) { // if Борт
+    option1.text = '1,5 т. 3м'
+    option1.value = 6000
+    option2.text = '3т. 4м'
+    option2.value = 7000
+
+    cargo_select.add(option1)
+    cargo_select.add(option2)
+  }
+
+  if (vechicle_select.selectedIndex == 4) { // if Тент разборный, борт
+    option1.text = '5 т. 6м'
+    option1.value = 9000
+    option2.text = '10т. 6м-7м'
+    option2.value = 11000
+    option3.text = '20т. 12м-13.5м'
+    option3.value = 13000
+
+    cargo_select.add(option1)
+    cargo_select.add(option2)
+    cargo_select.add(option3)
+  }
+
+  if (vechicle_select.selectedIndex == 5) { // if Манипулятор
+    option1.text = '5т. 5-6м'
+    option1.value = 10000
+    option2.text = '10т. 6-7,20м'
+    option2.value = 14000
+
+    cargo_select.add(option1)
+    cargo_select.add(option2)
+  }
+}
+
+// ------------------------------------- /third section -------------------------------------------------------
+
 
 // ------------------------------------- fourth section -------------------------------------------------------
 
@@ -467,8 +531,195 @@ var maskOptions = {
 var mask = IMask(element, maskOptions);
 
 function countCost() {
-  totalcost = distance;
-  document.getElementById("cost").innerHTML = "Итоговая стоимость: " + totalcost + " руб.";
+  // -- base variables to count cost --
+  let mkad_distance = 0; let mkad_distance_km = 0
+  let mkad_rate = 30
+  let min_rate = 4000
+  let points_cost = 500
+  // -- /base variables to count cost --
+
+  // -- checking if there's one or two markers on the map --
+  if (markers.length == 1) {
+    // if there's only one
+
+    JSON_marker_one = markers[0].getPosition().toJSON() // getting coordinates of the marker
+    mkad_distance = getmyMKADdistance(JSON_marker_one) // measuring distance
+    mkad_distance = roundNumber(mkad_distance, 0) // rounding distance
+    mkad_distance_km = mkad_distance / 1000 // converting into kilometers
+  }
+
+  if (markers.length == 2) {
+    // if there are 2 markers, finding the one that is the most further away
+
+    JSON_marker_one = markers[0].getPosition().toJSON() // getting coordinates of the first marker
+    JSON_marker_two = markers[1].getPosition().toJSON() // getting coordinates of the second marker
+
+    if (getmyMKADdistance(JSON_marker_one) > getmyMKADdistance(JSON_marker_two)) {
+      // if the first marker is further
+
+      mkad_distance = getmyMKADdistance(JSON_marker_one)
+    } else {
+      // if the second marker is further
+
+      mkad_distance = getmyMKADdistance(JSON_marker_two)
+    }
+
+    mkad_distance = roundNumber(mkad_distance, 0) // rounding disrance in meters
+    mkad_distance_km = mkad_distance / 1000 // converting into kilometers
+  }
+  // -- /checking if there's one or two markers on the map --
+
+  // -- getting vehicle_select and cargo_select input -- 
+  let vechicle_select = document.getElementById("vechicle_select").value;
+  let cargo_select = document.getElementById("cargo_select").value;
+  min_rate = cargo_select
+  
+  vechicle_type = 0
+  switch(vechicle_select) {
+    // counting min mkad_rate based on vehivle type
+
+    case 'Тент, изотерм, целмет.':
+      vechicle_type = 1
+      break;
+    case 'Рефрижератор':
+      vechicle_type = 2
+      break;
+    case 'Борт':
+      vechicle_type = 3
+      break;
+    case 'Тент разборный, борт':
+      vechicle_type = 4
+      break;
+    case 'Манипулятор':
+      vechicle_type = 5
+      break;
+  }
+
+  switch (true) {
+    // Тент, изотерм, целмет.
+    case (vechicle_type == 1 && cargo_select == 5000):
+      points_cost = 500
+      mkad_rate = 30
+      break;
+    case (vechicle_type == 1 && cargo_select == 6000):
+      points_cost = 500
+      mkad_rate = 40
+      break;
+    case (vechicle_type == 1 && cargo_select == 8000):
+      points_cost = 1000
+      mkad_rate = 50
+      break;
+    case (vechicle_type == 1 && cargo_select == 10000):
+      points_cost = 1000
+      mkad_rate = 50
+      break;
+    case (vechicle_type == 1 && cargo_select == 12000):
+      points_cost = 1500
+      mkad_rate = 60
+      break;
+
+    // Рефрижератор
+    case (vechicle_type == 2 && cargo_select == 6000):
+      points_cost = 1000
+      mkad_rate = 40
+      break;
+    case (vechicle_type == 2 && cargo_select == 7000):
+      points_cost = 1000
+      mkad_rate = 50
+      break;
+    case (vechicle_type == 2 && cargo_select == 9000):
+      points_cost = 1500
+      mkad_rate = 60
+      break;
+    case (vechicle_type == 2 && cargo_select == 11000):
+      points_cost = 1500
+      mkad_rate = 60
+      break;
+    case (vechicle_type == 2 && cargo_select == 13000):
+      points_cost = 2000
+      mkad_rate = 70
+      break;
+
+    // Борт
+    case (vechicle_type == 3 && cargo_select == 6000):
+      points_cost = 500
+      mkad_rate = 30
+      break;
+    case (vechicle_type == 3 && cargo_select == 7000):
+      points_cost = 500
+      mkad_rate = 40
+      break;
+
+    // Тент разборный, борт
+    case (vechicle_type == 4 && cargo_select == 9000):
+      points_cost = 1000
+      mkad_rate = 50
+      break;
+    case (vechicle_type == 4 && cargo_select == 11000):
+      points_cost = 1000
+      mkad_rate = 50
+      break;
+    case (vechicle_type == 4 && cargo_select == 13000):
+      points_cost = 1500
+      mkad_rate = 60
+      break;
+
+    // Манипулятор
+    case (vechicle_type == 5 && cargo_select == 10000):
+      points_cost = 1500
+      mkad_rate = 60
+      break;
+    case (vechicle_type == 5 && cargo_select == 14000):
+      points_cost = 2000
+      mkad_rate = 90
+      break;
+  }
+  // -- /getting vehicle_select and cargo_select input -- 
+  
+  // -- getting input from newThirdSection --
+  Sadovoe_points_undef = Number.parseInt(document.getElementById("Sadovoe_points").value)
+  if (Number.isNaN(Sadovoe_points_undef) == false) {
+    Sadovoe_points = Sadovoe_points_undef
+  } else {
+    Sadovoe_points = 0
+  }
+
+  TTK_points_undef = Number.parseInt(document.getElementById("TTK_points").value)
+  if (Number.isNaN(TTK_points_undef) == false) {
+    TTK_points = TTK_points_undef
+  } else {
+    TTK_points = 0
+  }
+
+  AltLoad_points_undef = Number.parseInt(document.getElementById("AltLoad_points").value)
+  if (Number.isNaN(AltLoad_points_undef) == false) {
+    AltLoad_points = AltLoad_points_undef
+  } else {
+    AltLoad_points = 0
+  }
+
+  AltLoad_points += Sadovoe_points
+  AltLoad_points += TTK_points
+
+  AltLoad_points_cost = AltLoad_points * points_cost
+  // -- /getting input from newThirdSection --
+
+  // -- counting total cost --
+  min_rate = Number.parseInt(min_rate)
+  mkad_cost = mkad_distance_km * mkad_rate
+  console.log(mkad_distance_km, mkad_rate)
+  totalcost = min_rate + mkad_cost + AltLoad_points_cost
+
+  console.log(
+    "min_rate", min_rate,
+    "mkad_distance_km", mkad_distance_km,
+    "mkad_cost", mkad_cost,
+    "AltLoad_points_cost", AltLoad_points_cost
+  )
+  // -- /countring total cost --
+
+  document.getElementById("countCost").innerHTML = "Пересчитать стоимость"
+  document.getElementById("costLabel").innerHTML = "Итоговая стоимость: " + totalcost + " руб."; // displaying total cost
 }
 
 var final_message = "";
