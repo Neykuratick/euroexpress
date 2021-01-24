@@ -73,6 +73,16 @@ a {
 
 // -- /newHeader -- 
 
+// -- p --
+
+.euroexpress_p {
+    width: 50%;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+}
+
+// -- /p --
+
 
 // -- slider section -- 
 
@@ -151,7 +161,7 @@ a {
     align-items: center;
 }
 
-input {
+input[type=text], input[type=number] {
     font-size: 1rem;
 
     width: 18rem;
@@ -183,7 +193,7 @@ input::-webkit-inner-spin-button {
 }
 
 .slider {
-    min-height: 47rem;
+    min-height: 50rem;
     margin-top: -2rem;
 }
 
@@ -279,6 +289,67 @@ select {
 .newThirdSection {
     margin-top: 16rem;
 }
+
+// input[type=checkbox] {
+//     border-radius: 11px;
+//     opacity: 0;
+// }
+
+// .checkmark {
+//     display: inline-block;
+//     position: relative;
+
+//     width: 4vmin;
+//     height: 4vmin;
+//     margin: 0;
+
+//     background-color: #444444;
+//     border-radius: 50%;
+
+
+//     transition: background-color 0.4s;
+// }
+
+// .checkboxInput:checked + .checkmark {
+//     background-color: #23b072;
+// }
+
+// .checkboxClass {
+//     display: table;
+//     text-align: start!important;
+// }
+
+// .checkText {
+//     display: table-cell;
+//     vertical-align: middle;
+// }
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.form-check {
+    width: 18rem;
+    height: 2rem;
+
+    margin-top: 2rem;
+    padding-top: 0.3rem;
+
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    border-radius: 7px;
+}
+
+.checkboxAndLabel {
+    margin-left: 0.3rem;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    color: #949494;
+}
+
 
 // -- /newThirdSection section -- 
 
@@ -418,8 +489,8 @@ footer {
     height: 11rem;
     width: 100vw;
 
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    // padding-top: 2rem;
+    // padding-bottom: 2rem;
 
     display: flex;
     align-items: center;
@@ -450,8 +521,14 @@ footer h1, footer h2 {
 .footerCopyright {
     margin: auto;
 
+    #footerCopy {
+        // font-size: 0.5rem;
+        white-space: nowrap;
+    }
+
     #footerRights {
         text-align: center;
+        white-space: nowrap;
 
         font-size: 1.5rem;
         font-weight: 300;
@@ -460,6 +537,7 @@ footer h1, footer h2 {
 
 #logoPNG {
     margin-right: auto;
+    height: 100%; // todo delete if you wanna accurate logo size
 }
 
 //  ----------  /foter --------------------
@@ -499,70 +577,63 @@ footer h1, footer h2 {
     }
 }
 
-@media (max-width: 1100px) {
-    section {
-        width: 47rem;
-    }
-
-    #map {
-        width: 1x;
-        height: 1px;
-    }
-}
-
-@media (max-width: 600px) {
-    body {
-        overflow-x: visible;
-    }
-
-    .newHeader {
-        text-align: center;
-        font-size: 6vmin;
-    
-        margin-top: 2rem;
-    }
-
+@media (max-width: 1150px) {
     section {
         margin-left: -20vmin;
     }
 
+    
+    body {
+        overflow-x: visible;
+    }
+
     footer {
-       height: 30rem;
-       flex-direction: column;
-       align-items: center;
-
-       #logoPNG {
-           margin: 0;
-       }
-
-       .footerContacts {
-           margin: 0;
-
-           #footerEmail {
-               margin: 0;
-           }
-
-           #footerNumber {
-               margin: 0;
-           }
-       }
-
-       .footerCopyright {
-           display: inline-block;
-
-           #footerCopy {
-               margin: 0;
-               text-align: center;
-           }
-
-           #footerRights {
-               margin: 0;
-           }
-       }
+        height: 30rem;
+        flex-direction: column;
+        align-items: center;
+ 
+        #logoPNG {
+            margin: 0;
+        }
+ 
+        .footerContacts {
+            margin: 0;
+ 
+            #footerEmail {
+                margin: 0;
+            }
+ 
+            #footerNumber {
+                margin: 0;
+            }
+        }
+ 
+        .footerCopyright {
+            display: inline-block;
+ 
+            #footerCopy {
+                margin: 0;
+                text-align: center;
+            }
+ 
+            #footerRights {
+                margin: 0;
+            }
+        }
     }
 
     #map {
-        max-width: 300px;
-        max-height: 200px;
+        max-width: 400px;
+        max-height: 300px;
+    }
+
+    .newHeader {
+        display: flex;
+        justify-content: center;
+        font-size: 3vmin;
+    }
+
+    .slider {
+        margin-left: 30vmin;
     }
 }

@@ -616,21 +616,6 @@ function limitOptions() {
 
 // ------------------------------------- newThird section -------------------------------------------------------
 
-function TTK_pointsInput() {
-    element = document.getElementById('TTK_pointsLabel');
-    element.innerHTML = 'Въезд в ТТК';
-}
-
-function Sadovoe_pointsInput() {
-    element = document.getElementById('Sadovoe_pointsLabel');
-    element.innerHTML = 'Кол-во выездов в Садовое';
-}
-
-function AltLoad_pointsInput() {
-    element = document.getElementById('AltLoad_pointsLabel');
-    element.innerHTML = 'Кол-во доп. точек выгрузки';
-}
-
 // ------------------------------------- /newThird section -------------------------------------------------------
 
 // ------------------------------------- fourth section -------------------------------------------------------
@@ -783,22 +768,16 @@ function countCost() {
     // -- /getting vehicle_select and cargo_select input --
 
     // -- getting input from newThirdSection --
-    Sadovoe_points_undef = Number.parseInt(
-        document.getElementById('Sadovoe_points').value
-    );
-    if (Number.isNaN(Sadovoe_points_undef) == false) {
-        Sadovoe_points = Sadovoe_points_undef;
+    if (document.getElementById("to_Sadovoe").checked) {
+        Sadovoe_points = 1
     } else {
-        Sadovoe_points = 0;
+        Sadovoe_points = 0
     }
 
-    TTK_points_undef = Number.parseInt(
-        document.getElementById('TTK_points').value
-    );
-    if (Number.isNaN(TTK_points_undef) == false) {
-        TTK_points = TTK_points_undef;
+    if (document.getElementById("to_TTK").checked) {
+        TTK_points = 1
     } else {
-        TTK_points = 0;
+        TTK_points = 0
     }
 
     AltLoad_points_undef = Number.parseInt(
@@ -853,22 +832,16 @@ function submitData() {
     let comment = document.getElementById('comment').value;
     let price = totalcost;
 
-    Sadovoe_points_undef = Number.parseInt(
-        document.getElementById('Sadovoe_points').value
-    );
-    if (Number.isNaN(Sadovoe_points_undef) == false) {
-        Sadovoe_points = Sadovoe_points_undef;
+    if (document.getElementById("to_Sadovoe").checked) {
+        Sadovoe_points = "Да"
     } else {
-        Sadovoe_points = 0;
+        Sadovoe_points = "Нет"
     }
 
-    TTK_points_undef = Number.parseInt(
-        document.getElementById('TTK_points').value
-    );
-    if (Number.isNaN(TTK_points_undef) == false) {
-        TTK_points = TTK_points_undef;
+    if (document.getElementById("to_TTK").checked) {
+        TTK_points = "Да"
     } else {
-        TTK_points = 0;
+        TTK_points = "Нет"
     }
 
     AltLoad_points_undef = Number.parseInt(
@@ -905,7 +878,7 @@ function submitData() {
         Host: 'smtp.iportfolio.site',
         Username: 'noreply@iportfolio.site',
         Password: '!jWxg5Kj',
-        To: 'euroexpress_buh@bk.ru ',
+        To: 'euroexpress_buh@bk.ru',
         From: 'noreply@iportfolio.site',
         Subject: 'EuroExpress - Новый отклик!',
         Body: final_message,

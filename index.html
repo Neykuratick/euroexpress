@@ -46,10 +46,14 @@
                 <span id="headerText">Расчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
             </div>
 
-            <div class="slider" id="slider">
+            <P class="euroexpress_p mx-auto">
+                ЕвроЭкспресс - это гарант качества грузоперевозок. Доставим быстро и без задержек. Наша система расчёта итоговой стоимости позволяет клиентам получать полное представление о цене доставки в автоматическом порядке. Всё, что вам нужно - это только "вбить" свои данные в поля ниже, а мы посчитаем всё за вас! Можно даже заполнить только некоторые из них. Все необязательно.
+            </P>
+
+            <div class="slider container-fluid" id="slider">
                 <div class="slider-items">
 
-                    <div class="item active" id="firstSection">
+                    <div class="item active container-fluid" id="firstSection">
                         <input id="pac-input" class="controls" type="text" placeholder="Адрес откуда"/>
                         <input id="pac-inputTwo" class="controls" type="text" placeholder="Адрес куда"/>
                         <div id="map" style="width: 443px; height: 374px"></div>
@@ -81,7 +85,7 @@
                         </select>
 
                         <select name="cargo_select" id="cargo_select">
-                            <option value="1" disabled selected hidden>Грузоподъёмность т/c</option>
+                            <option value="0" disabled selected hidden>Грузоподъёмность т/c</option>
                             <option value="1" disabled>Сначала выберите т/с</option>
                         </select>
 
@@ -89,15 +93,44 @@
                         <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
                     </div>
 
-                    <div  class="item newThirdSection">
+                    <div  class="container item newThirdSection">
+                        <!-- <div class="checkboxes">
+                            <div class="checkboxClass">
+                                <input type="checkbox" value="age" id="age" class="checkboxInput">
+                                <label for="age" class="checkmark"></label>
+                                <Span class="checkText">Выезд в ТТК</Span>
+                            </div>
+                            
+                            <div class="checkboxClass">
+                                <input type="checkbox" value="age" id="age" class="checkboxInput">
+                                <label for="age" class="checkmark"></label>
+                                <Span class="checkText">Выезд в Садовое кольцо</Span>
+                            </div>
+                        </div> -->
+                        
+                        <div class="checkboxes">
+                            <div class="form-check">
+                                <div class="checkboxAndLabel">
+                                    <input class="form-check-input" type="checkbox" value="" id="to_TTK">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Выезд в ТТК
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check">
+                                <div class="checkboxAndLabel">
+                                    <input class="form-check-input" type="checkbox" value="" id="to_Sadovoe">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Выезд за Садовое кольцо
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                            
 
-                        <input type="number" placeholder="Въезд в ТТК" id="TTK_points" oninput="TTK_pointsInput()">
-                        <p class="inputlabel" id="TTK_pointsLabel"></p>
-                        <input type="number" placeholder="Кол-во выездов в Садовое" id="Sadovoe_points" oninput="Sadovoe_pointsInput()">
-                        <p class="inputlabel" id="Sadovoe_pointsLabel"></p>
                         <input type="number" placeholder="Кол-во доп. точек выгрузки" id="AltLoad_points" oninput="AltLoad_pointsInput()">
                         <p class="inputlabel" id="AltLoad_pointsLabel"></p>
-
                     </div>
                     
                     <div  class="item fourthSection">
