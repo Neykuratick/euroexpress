@@ -200,15 +200,11 @@ input::-webkit-inner-spin-button {
 }
 
 #firstSection {
-  margin-top: 4rem;
+  margin-top: 10vmin;
 }
 
 #map {
   margin-top: 1rem;
-}
-
-#pac-input {
-  margin-top: 5rem;
 }
 
 .data {
@@ -391,6 +387,11 @@ textarea {
   font-size: 1rem;
 }
 
+.personalDataBaboomkaDva {
+  margin-top: -3rem;
+  text-align: center;
+}
+
 footer {
   position: absolute;
   background-color: #1b1b1b;
@@ -443,11 +444,6 @@ footer h1, footer h2 {
 
 #logoPNG {
   margin-right: auto;
-}
-
-#personalData {
-  margin-top: -3rem;
-  text-align: center;
 }
 
 @media (max-width: 1500px) {
