@@ -22,6 +22,7 @@ a {
 #navBarLogo {
     font-family: "Roboto";
     font-weight: 800;
+    color: white;
 }
 #navBarLogo:hover {
     color: black;
@@ -29,7 +30,8 @@ a {
 }
 
 .navbar {
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
+    background-color: #29a8e2;
 }
 
 .nav-item {
@@ -39,12 +41,16 @@ a {
     transition: background-color 0.4s, color 0.4s;
 }
 
-.nav-item:hover {
-    background-color: #29a8e2;
+.nav-link {
     color: white;
+}
+
+.nav-item:hover {
+    // background-color: white;
+    color: black;
 
     a { 
-        color: white;
+        color: black;
     }
 }
 
@@ -196,7 +202,6 @@ input::-webkit-inner-spin-button {
     min-height: 50rem;
     margin-top: -2rem;
 }
-
 // -- /slider section -- 
 
 
@@ -240,7 +245,7 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     justify-content: stretch;
 
-    margin-top: 14rem;
+    margin-top: 16rem;
 }
 
 .inputlabel {
@@ -273,7 +278,7 @@ select {
 }
 
 .thirdSection {
-    margin-top: 14rem;
+    margin-top: 16rem;
 }
 
 .loadUnloadDate {
@@ -287,7 +292,7 @@ select {
 // -- newThirdSection section -- 
 
 .newThirdSection {
-    margin-top: 16rem;
+    margin-top: 18rem;
 }
 
 // input[type=checkbox] {
@@ -450,6 +455,7 @@ textarea {
 }
 
 #countCost:active {
+    background-color: #e22967;
     box-shadow: 0px 0px 10px black;
     transition: all 0.3s;
 }
@@ -482,7 +488,8 @@ textarea {
 
 footer {
     position: absolute;
-    background-color: #1b1b1b;
+    // background-color: #1b1b1b;
+    background-color: #29a8e2;
     color: azure;
 
     margin: 0;

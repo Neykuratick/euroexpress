@@ -5,11 +5,6 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  background-image: url(/imgs/bg-img.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-position: top 100rem;
 }
 
 a {
@@ -19,9 +14,22 @@ a {
   transition: all 0.4s;
 }
 
+.videoOverlay {
+  background-color: #ffffff36;
+  z-index: 1;
+}
+
+#myVideo {
+  position: absolute;
+  z-index: -1;
+  margin-top: 5rem !important;
+  width: 230vmin;
+}
+
 #navBarLogo {
   font-family: "Roboto";
   font-weight: 800;
+  color: white;
 }
 
 #navBarLogo:hover {
@@ -30,7 +38,7 @@ a {
 }
 
 .navbar {
-  border-bottom: 1px solid black;
+  background-color: #29a8e2;
 }
 
 .nav-item {
@@ -40,13 +48,16 @@ a {
   transition: background-color 0.4s, color 0.4s;
 }
 
-.nav-item:hover {
-  background-color: #29a8e2;
+.nav-link {
   color: white;
 }
 
+.nav-item:hover {
+  color: black;
+}
+
 .nav-item:hover a {
-  color: white;
+  color: black;
 }
 
 .navbar-toggler-icon {
@@ -61,12 +72,21 @@ a {
 
 #headerText {
   font-weight: 500;
+  color: white;
+  text-shadow: 0px 0px 6px #5e5e5e;
+}
+
+#headerTextContinuation {
+  color: white;
+  text-shadow: 0px 0px 6px #7e7e7e;
 }
 
 .euroexpress_p {
   width: 50%;
   margin-top: 2rem;
   font-size: 1.3rem;
+  color: white;
+  text-shadow: 0px 0px 6px #3a3a3a;
 }
 
 .slider {
@@ -206,7 +226,7 @@ input::-webkit-inner-spin-button {
 }
 
 .slider {
-  min-height: 47rem;
+  min-height: 50rem;
   margin-top: -2rem;
 }
 
@@ -250,7 +270,7 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
-  margin-top: 14rem;
+  margin-top: 16rem;
 }
 
 .inputlabel {
@@ -274,7 +294,7 @@ select {
 }
 
 .thirdSection {
-  margin-top: 14rem;
+  margin-top: 16rem;
 }
 
 .loadUnloadDate {
@@ -284,7 +304,7 @@ select {
 }
 
 .newThirdSection {
-  margin-top: 16rem;
+  margin-top: 18rem;
 }
 
 .checkboxes {
@@ -411,6 +431,7 @@ textarea {
 }
 
 #countCost:active {
+  background-color: #e22967;
   -webkit-box-shadow: 0px 0px 10px black;
           box-shadow: 0px 0px 10px black;
   -webkit-transition: all 0.3s;
@@ -437,7 +458,7 @@ textarea {
 
 footer {
   position: absolute;
-  background-color: #1b1b1b;
+  background-color: #29a8e2;
   color: azure;
   margin: 0;
   height: 11rem;

@@ -616,6 +616,13 @@ function limitOptions() {
 
 // ------------------------------------- newThird section -------------------------------------------------------
 
+function checkCheckbox(id) {
+    if (document.getElementById(id).checked) {
+        document.getElementById(id).checked = false;
+    } else {
+        document.getElementById(id).checked = true;
+    }
+}
 // ------------------------------------- /newThird section -------------------------------------------------------
 
 // ------------------------------------- fourth section -------------------------------------------------------
