@@ -17,6 +17,7 @@ a {
 #navBarLogo {
   font-family: "Roboto";
   font-weight: 800;
+  color: white;
 }
 
 #navBarLogo:hover {
@@ -25,7 +26,7 @@ a {
 }
 
 .navbar {
-  border-bottom: 1px solid black;
+  background-color: #29a8e2;
 }
 
 .nav-item {
@@ -35,13 +36,16 @@ a {
   transition: background-color 0.4s, color 0.4s;
 }
 
-.nav-item:hover {
-  background-color: #29a8e2;
+.nav-link {
   color: white;
 }
 
+.nav-item:hover {
+  color: black;
+}
+
 .nav-item:hover a {
-  color: white;
+  color: black;
 }
 
 .navbar-toggler-icon {
@@ -87,14 +91,11 @@ p {
 
 footer {
   position: absolute;
-  background-color: #1b1b1b;
+  background-color: #29a8e2;
   color: azure;
   margin: 0;
-  margin-top: 30vh;
   height: 11rem;
   width: 100vw;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,14 +131,20 @@ footer h1, footer h2 {
   margin: auto;
 }
 
+.footerCopyright #footerCopy {
+  white-space: nowrap;
+}
+
 .footerCopyright #footerRights {
   text-align: center;
+  white-space: nowrap;
   font-size: 1.5rem;
   font-weight: 300;
 }
 
 #logoPNG {
   margin-right: auto;
+  height: 100%;
 }
 
 @media (max-width: 600px) {

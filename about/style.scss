@@ -22,6 +22,7 @@ a {
 #navBarLogo {
     font-family: "Roboto";
     font-weight: 800;
+    color: white;
 }
 #navBarLogo:hover {
     color: black;
@@ -29,7 +30,8 @@ a {
 }
 
 .navbar {
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
+    background-color: #29a8e2;
 }
 
 .nav-item {
@@ -39,12 +41,16 @@ a {
     transition: background-color 0.4s, color 0.4s;
 }
 
-.nav-item:hover {
-    background-color: #29a8e2;
+.nav-link {
     color: white;
+}
+
+.nav-item:hover {
+    // background-color: white;
+    color: black;
 
     a { 
-        color: white;
+        color: black;
     }
 }
 
@@ -147,15 +153,16 @@ p {
 
 footer {
     position: absolute;
-    background-color: #1b1b1b;
+    // background-color: #1b1b1b;
+    background-color: #29a8e2;
     color: azure;
 
     margin: 0;
     height: 11rem;
     width: 100vw;
 
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    // padding-top: 2rem;
+    // padding-bottom: 2rem;
 
     display: flex;
     align-items: center;
@@ -186,8 +193,14 @@ footer h1, footer h2 {
 .footerCopyright {
     margin: auto;
 
+    #footerCopy {
+        // font-size: 0.5rem;
+        white-space: nowrap;
+    }
+
     #footerRights {
         text-align: center;
+        white-space: nowrap;
 
         font-size: 1.5rem;
         font-weight: 300;
@@ -196,6 +209,7 @@ footer h1, footer h2 {
 
 #logoPNG {
     margin-right: auto;
+    height: 100%; // todo delete if you wanna accurate logo size
 }
 
 //  ----------  /foter --------------------
