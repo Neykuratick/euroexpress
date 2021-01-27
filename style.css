@@ -23,7 +23,7 @@ a {
   position: absolute;
   z-index: -1;
   margin-top: 5rem !important;
-  width: 256vh;
+  width: 283vh;
 }
 
 #navBarLogo {
@@ -273,6 +273,7 @@ input::-webkit-inner-spin-button {
       -ms-flex-pack: stretch;
           justify-content: stretch;
   margin-top: 16rem;
+  margin-bottom: 1.5rem;
 }
 
 .inputlabel {
@@ -297,6 +298,7 @@ select {
 
 .thirdSection {
   margin-top: 16rem;
+  margin-bottom: 1.5rem;
 }
 
 .loadUnloadDate {
@@ -307,6 +309,7 @@ select {
 
 .newThirdSection {
   margin-top: 18rem;
+  margin-bottom: 1.5rem;
 }
 
 .checkboxes {
@@ -462,11 +465,19 @@ textarea {
   color: white;
 }
 
+.under {
+  z-index: 100;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 0px 6px #5e5e5e;
+}
+
 footer {
   position: absolute;
   background-color: #29a8e2;
   color: azure;
   margin: 0;
+  margin-top: 9rem;
   height: 11rem;
   width: 100vw;
   display: -webkit-box;
@@ -533,12 +544,9 @@ footer h1, footer h2 {
     margin-left: 15rem;
     margin-top: 0.5rem;
   }
-  section {
-    width: 1500px;
-  }
   footer {
     width: 100vw;
-    margin-top: 5rem;
+    margin-top: 9rem;
   }
   .footerContacts {
     font-size: 0.8rem;
@@ -608,24 +616,42 @@ footer h1, footer h2 {
   }
 }
 
-@media (max-height: 900px) {
+@media (max-height: 842px) {
   #myVideo {
-    width: 290vh;
+    width: 330vh;
   }
   footer {
     z-index: 2;
   }
 }
 
-@media (max-height: 782px) {
+@media (max-height: 807px) {
   #myVideo {
     width: 350vh;
   }
 }
 
-@media (max-height: 641px) {
+@media (max-height: 758px) {
   #myVideo {
-    width: 397vh;
+    width: 390vh;
+  }
+}
+
+@media (max-height: 672px) {
+  #myVideo {
+    width: 435vh;
+  }
+}
+
+@media (max-height: 598px) {
+  #myVideo {
+    width: 485vh;
+  }
+}
+
+@media (max-height: 532px) {
+  #myVideo {
+    width: 541vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

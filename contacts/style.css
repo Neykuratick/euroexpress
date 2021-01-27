@@ -88,6 +88,10 @@ a {
   font-size: 1.4rem;
 }
 
+#adress {
+  text-align: center;
+}
+
 footer {
   position: absolute;
   background-color: #29a8e2;
