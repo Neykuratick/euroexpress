@@ -885,7 +885,7 @@ function submitData() {
         Host: 'smtp.iportfolio.site',
         Username: 'noreply@iportfolio.site',
         Password: '!jWxg5Kj',
-        To: 'euroexpress_buh@bk.ru',
+        To: 'euroexpress_logist@bk.ru',
         From: 'noreply@iportfolio.site',
         Subject: 'EuroExpress - Новый отклик!',
         Body: final_message,
