@@ -23,7 +23,7 @@ a {
   position: absolute;
   z-index: -1;
   margin-top: 5rem !important;
-  width: 283vh;
+  width: 328vh;
 }
 
 #navBarLogo {
@@ -84,6 +84,7 @@ a {
 .euroexpress_p {
   width: 50%;
   margin-top: 2rem;
+  text-align: start;
   font-size: 1.3rem;
   color: white;
   text-shadow: 0px 0px 6px #3a3a3a;
@@ -472,6 +473,17 @@ textarea {
   text-shadow: 0px 0px 6px #5e5e5e;
 }
 
+.newPar {
+  color: white;
+  text-shadow: 0px 0px 6px #5e5e5e;
+}
+
+.white {
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 6px #5e5e5e;
+}
+
 footer {
   position: absolute;
   background-color: #29a8e2;
@@ -618,7 +630,7 @@ footer h1, footer h2 {
 
 @media (max-height: 842px) {
   #myVideo {
-    width: 330vh;
+    width: 368vh;
   }
   footer {
     z-index: 2;
@@ -627,31 +639,31 @@ footer h1, footer h2 {
 
 @media (max-height: 807px) {
   #myVideo {
-    width: 350vh;
+    width: 382vh;
   }
 }
 
 @media (max-height: 758px) {
   #myVideo {
-    width: 390vh;
+    width: 404vh;
   }
 }
 
 @media (max-height: 672px) {
   #myVideo {
-    width: 435vh;
+    width: 449vh;
   }
 }
 
 @media (max-height: 598px) {
   #myVideo {
-    width: 485vh;
+    width: 500vh;
   }
 }
 
 @media (max-height: 532px) {
   #myVideo {
-    width: 541vh;
+    width: 555vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

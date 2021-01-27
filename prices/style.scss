@@ -88,6 +88,31 @@ img {
 
 // -- /img --
 
+section {
+    margin-bottom: 20rem;
+}
+
+.under {
+    margin-top: 5rem;
+    width: 50%;
+
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.newPar {
+    text-align: start;
+    width: 50%;
+    font-size: 1.3rem;
+}
+
+.white {
+    text-align: center;
+    width: 50%;
+    font-size: 1.3rem;
+}
+
+
 //  ----------  /section --------------------
 
 //  ----------  footer --------------------
@@ -152,10 +177,6 @@ footer h1, footer h2 {
     margin-bottom: 10rem;
     margin-right: auto;
     height: 100%; // todo delete if you wanna accurate logo size
-}
-
-section {
-    margin-bottom: 20rem;
 }
 
 //  ----------  /foter --------------------
