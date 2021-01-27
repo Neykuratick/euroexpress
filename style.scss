@@ -243,13 +243,15 @@ input::-webkit-inner-spin-button {
     margin: 0;
     font-family: "Roboto";
     font-weight: 400;
-
-    transition: all 10s;
+    color: white;
+    text-shadow: 0px 0px 6px #3a3a3a
 }
 
 .outputData {
     font-size: 1rem;
     font-weight: 300;
+    color: white;
+    text-shadow: 0px 0px 6px #3a3a3a
 }
 
 .distanceData {
