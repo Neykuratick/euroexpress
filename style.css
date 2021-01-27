@@ -628,9 +628,33 @@ footer h1, footer h2 {
   }
 }
 
+@media (max-height: 1100px) and (min-height: 1061px) {
+  #myVideo {
+    width: 285vh;
+  }
+}
+
+@media (max-height: 1060px) and (min-height: 961px) {
+  #myVideo {
+    width: 290vh;
+  }
+}
+
+@media (max-height: 960px) and (min-height: 843px) {
+  #myVideo {
+    width: 323.5vh;
+  }
+}
+
 @media (max-height: 842px) {
   #myVideo {
-    width: 368vh;
+    width: 361vh;
+  }
+}
+
+@media (max-height: 841px) and (min-height: 808px) {
+  #myVideo {
+    width: 360vh;
   }
   footer {
     z-index: 2;
@@ -639,31 +663,31 @@ footer h1, footer h2 {
 
 @media (max-height: 807px) {
   #myVideo {
-    width: 382vh;
+    width: 375vh;
   }
 }
 
 @media (max-height: 758px) {
   #myVideo {
-    width: 404vh;
+    width: 397vh;
   }
 }
 
 @media (max-height: 672px) {
   #myVideo {
-    width: 449vh;
+    width: 440vh;
   }
 }
 
 @media (max-height: 598px) {
   #myVideo {
-    width: 500vh;
+    width: 490vh;
   }
 }
 
 @media (max-height: 532px) {
   #myVideo {
-    width: 555vh;
+    width: 550vh;
   }
 }
 /*# sourceMappingURL=style.css.map */
