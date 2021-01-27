@@ -20,14 +20,15 @@ a {
 .videoOverlay {
     // position: absolute;
     background-color: #ffffff36;
-    z-index: 1;
+    z-index: 0;
 }
 
 #myVideo {
     position: absolute;
     z-index: -1;
-    margin-top: 5rem!important;
-    width: 328vh;
+    // width: 328vh;
+    width: 2880px;
+    height: 1620px;
 }
 
 // ------------------------------- navbar -------------------------------
@@ -133,7 +134,7 @@ a {
     border-radius: 50%;
     color:black;
     font-size: 20px;
-    top:50%;
+    top: 33rem;
     cursor: pointer;
     margin-top: -20px;
     text-align: center;
@@ -224,8 +225,16 @@ input::-webkit-inner-spin-button {
 }
 
 .slider {
-    min-height: 50rem;
     margin-top: -2rem;
+    margin-bottom: 0 !important;
+}
+
+.before-footer {
+    min-height: 60rem;
+}
+
+section {
+    min-height: 83rem;
 }
 // -- /slider section -- 
 
@@ -233,7 +242,7 @@ input::-webkit-inner-spin-button {
 // -- first section -- 
 
 #firstSection {
-    margin-top: 10vmin;
+    margin-top: 15rem;
 }
 
 #map {
@@ -272,7 +281,7 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     justify-content: stretch;
 
-    margin-top: 16rem;
+    margin-top: 25rem;
     margin-bottom: 1.5rem;
 }
 
@@ -306,7 +315,7 @@ select {
 }
 
 .thirdSection {
-    margin-top: 16rem;
+    margin-top: 25rem;
     margin-bottom: 1.5rem;
 }
 
@@ -321,7 +330,7 @@ select {
 // -- newThirdSection section -- 
 
 .newThirdSection {
-    margin-top: 18rem;
+    margin-top: 27rem;
     margin-bottom: 1.5rem;
 }
 
@@ -392,7 +401,7 @@ select {
 // -- fourth section -- 
 
 .fourthSection {
-    margin-top: 10rem;
+    margin-top: 20rem;
 }
 
 textarea {
@@ -418,7 +427,7 @@ textarea {
     border: none;
     width: 19rem;
 
-    margin-bottom: 7vmin;
+    margin-bottom: 4rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -518,21 +527,27 @@ textarea {
 //  ----------  /section --------------------
 
 .under {
-    z-index: 100;
+    font-size: 1.3rem;
     color: white;
     text-align: center;
     text-shadow: 0px 0px 6px #5e5e5e;
 }
 
 .newPar {
+    font-size: 1.3rem;
     color: white;
     text-shadow: 0px 0px 6px #5e5e5e;
 }
 
 .white {
+    font-size: 1.3rem;
     text-align: center;
     color: white;
     text-shadow: 0px 0px 6px #5e5e5e;
+}
+
+.underDiv {
+    width: 49rem;
 }
 
 //  ----------  footer --------------------
@@ -614,7 +629,6 @@ footer h1, footer h2 {
 
     footer {
         width: 100vw;
-        margin-top: 9rem;
     }
 
     .footerContacts {
@@ -693,66 +707,108 @@ footer h1, footer h2 {
     }
 }
 
-@media (max-height: 1100px) and (min-height: 1061px) {
-    #myVideo {
-        width: 285vh;
-    }
-}
+// @media (max-height: 1300) and (min-height: 1334) {
+//     #myVideo {
+//         width: 272.9vh;
+//     }
 
-@media (max-height: 1060px) and (min-height: 961px) {
-    #myVideo {
-        width: 290vh;
-    }
-}
+//     footer {
+//         z-index: -1;
+//         margin-top: 17rem;
+//     }
+// }
 
-@media (max-height: 960px) and (min-height: 843px) {
-    #myVideo {
-        width: 323.5vh;
-    }
-}
+// @media (max-height: 1333px) and (min-height: 1110px) {
+//     #myVideo {
+//         width: 272.9vh;
+//     }
 
-@media (max-height: 842px) {
-    #myVideo {
-        width: 361vh;
-    }
-}
+//     footer {
+//         z-index: -1;
+//         margin-top: 16rem;
+//     }
+// }
 
-@media (max-height: 841px) and (min-height: 808px) {
+// @media (max-height: 1109px) and (min-height: 1061px) {
+//     #myVideo {
+//         width: 285vh;
+//     }
+
+//     footer {
+//         z-index: -1;
+//         margin-top: 16rem;
+//     }
+// }
+
+// @media (max-height: 1060px) and (min-height: 961px) {
+//     #myVideo {
+//         width: 290vh;
+//     }
+// }
+
+// @media (max-height: 960px) and (min-height: 843px) {
+//     #myVideo {
+//         width: 323.5vh;
+//     }
+// }
+
+@media (min-height: 701px) {
     #myVideo {
-        width: 360vh;
+        width: 3656px;
+        height: 2224px;
     }
 
     footer {
-        z-index: 2;
+    }
+
+    html {
+        min-height: 1719px;
     }
 }
 
-@media (max-height: 807px) {
+@media (max-height: 700px) {
     #myVideo {
-        width: 375vh;
+        width: 3959px;
+        height: 2235px;
     }
 }
 
-@media (max-height: 758px) {
-    #myVideo {
-        width: 397vh;
-    }
-}
+// @media (max-height: 841px) and (min-height: 808px) {
+//     #myVideo {
+//         width: 360vh;
+//     }
 
-@media (max-height: 672px) {
-    #myVideo {
-        width: 440vh;
-    }
-}
+//     footer {
+//         z-index: 2;
+//     }
+// }
 
-@media (max-height: 598px) {
-    #myVideo {
-        width: 490vh;
-    }
-}
+// @media (max-height: 807px) {
+//     #myVideo {
+//         width: 375vh;
+//     }
+// }
 
-@media (max-height: 532px) {
-    #myVideo {
-        width: 550vh;
-    }
-}
+// @media (max-height: 758px) {
+//     #myVideo {
+//         width: 397vh;
+//     }
+// }
+
+// @media (max-height: 672px) {
+//     #myVideo {
+//         width: 440vh;
+//     }
+// }
+
+// @media (max-height: 598px) {
+//     #myVideo {
+//         width: 490vh;
+//     }
+// }
+
+// @media (max-height: 532px) {
+//     #myVideo {
+//         width: 550vh;
+//     }
+// }

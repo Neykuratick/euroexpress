@@ -581,23 +581,38 @@ function limitOptions() {
         option1.value = 6000;
         option2.text = '3т. 4м';
         option2.value = 7000;
-
-        cargo_select.add(option1);
-        cargo_select.add(option2);
-    }
-
-    if (vechicle_select.selectedIndex == 4) {
-        // if Тент разборный, борт
-        option1.text = '5 т. 6м';
-        option1.value = 9000;
-        option2.text = '10т. 6м-7м';
-        option2.value = 11000;
-        option3.text = '20т. 12м-13.5м';
-        option3.value = 13000;
+        option3.text = '5 т. 6м';
+        option3.value = 9000;
+        option4.text = '10т. 6м-7м';
+        option4.value = 11000;
+        option5.text = '20т. 12м-13.5м';
+        option5.value = 13000;
 
         cargo_select.add(option1);
         cargo_select.add(option2);
         cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
+    }
+
+    if (vechicle_select.selectedIndex == 4) {
+        // if Тент разборный, борт
+        option1.text = '1,5 т. 3м';
+        option1.value = 6000;
+        option2.text = '3т. 4м';
+        option2.value = 7000;
+        option3.text = '5 т. 6м';
+        option3.value = 9000;
+        option4.text = '10т. 6м-7м';
+        option4.value = 11000;
+        option5.text = '20т. 12м-13.5м';
+        option5.value = 13000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+        cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
     }
 
     if (vechicle_select.selectedIndex == 5) {
@@ -882,11 +897,11 @@ function submitData() {
   Комментарий к заказу: ${comment}<br>
   `;
     Email.send({
-        Host: 'smtp.iportfolio.site',
-        Username: 'noreply@iportfolio.site',
-        Password: '!jWxg5Kj',
+        Host: 'smtp.euroexpress.msk.ru',
+        Username: 'noreply@euroexpress.msk.ru',
+        Password: 'D8r8M9y6',
         To: 'euroexpress_logist@bk.ru',
-        From: 'noreply@iportfolio.site',
+        From: 'noreply@euroexpress.msk.ru',
         Subject: 'EuroExpress - Новый отклик!',
         Body: final_message,
     }).then((message) => checkSended(message), console.log(final_message));
