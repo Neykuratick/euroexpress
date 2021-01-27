@@ -27,7 +27,7 @@ a {
     position: absolute;
     z-index: -1;
     margin-top: 5rem!important;
-    width: 230vmin;
+    width: 256vh;
 }
 
 // ------------------------------- navbar -------------------------------
@@ -670,5 +670,27 @@ footer h1, footer h2 {
 
     .slider {
         margin-left: 30vmin;
+    }
+}
+
+@media (max-height: 900px) {
+    #myVideo {
+        width: 290vh;
+    }
+
+    footer {
+        z-index: 2;
+    }
+}
+
+@media (max-height: 782px) {
+    #myVideo {
+        width: 350vh;
+    }
+}
+
+@media (max-height: 641px) {
+    #myVideo {
+        width: 397vh;
     }
 }
