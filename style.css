@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 html, body {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   font-family: 'Roboto';
@@ -15,11 +16,15 @@ h1, h2 {
   padding: 0;
 }
 
-.myblue_bg {
+.bg_blue {
   background: #6bc4ee;
 }
 
-.myText_wh {
+.bg_white {
+  background: white;
+}
+
+.text_wh {
   color: white;
 }
 
@@ -29,11 +34,6 @@ h1, h2 {
   width: 1920px !important;
 }
 
-nav {
-  position: -webkit-sticky;
-  position: sticky;
-}
-
 .navigation_text {
   margin: 2rem;
 }
@@ -41,6 +41,47 @@ nav {
 #navbar_brand {
   color: white !important;
   margin: 1rem 2rem;
+  padding-right: 15%;
+  padding-bottom: 0.5%;
+}
+
+#euroexpress_nav_logo {
+  padding-right: 28%;
+}
+
+.navbar-toggler {
+  border: hidden;
+}
+
+.maintext {
+  margin: 0;
+  padding: 0;
+}
+
+.maintext h1 {
+  margin: 2rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 1000px) {
+  .maintext h1 {
+    font-size: 5rem;
+    text-shadow: 0px 0px 6px #5e5e5e;
+  }
+}
+
+.maintext p {
+  margin-top: 1rem;
+  margin-left: 2vw;
+}
+
+@media (min-width: 1000px) {
+  .maintext p {
+    font-size: 1.5rem;
+    width: 85%;
+    padding-left: 15vw;
+    text-shadow: 0px 0px 6px #000000;
+  }
 }
 
 #logo_footer {
@@ -52,11 +93,17 @@ nav {
   padding-top: 2rem;
 }
 
+@media (min-width: 1000px) {
+  #copyright_footer {
+    padding-left: 15%;
+  }
+}
+
 #contacts {
   padding-top: 2rem;
 }
 
-#contacts #contact {
+#contacts .contact {
   padding: 0.8rem;
 }
 /*# sourceMappingURL=style.css.map */
