@@ -84,6 +84,11 @@ h1, h2 {
   }
 }
 
+#map {
+  width: 35vw;
+  height: 40vh;
+}
+
 #logo_footer {
   width: 200px;
   height: 200px;
