@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html, body {
+    //overflow-x: hidden;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto';
+    //border: 1px solid red;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+h1, h2{
+    margin: 0;
+    padding: 0;
+}
+
+// ------------------------------------------ general_tags ------------------------------------------
+
+.myblue_bg {
+    background: #6bc4ee;
+}
+
+.myText_wh {
+    color: white;
+}
+
+// ------------------------------------------ /general_tags ------------------------------------------
+
+#videoBG {
+    position: fixed;
+    z-index: -1;
+
+    width: 1920px !important
+}
+
+
+// ------------------------------------------ navbar ------------------------------------------
+
+nav {
+    position: sticky;
+}
+
+.navbar-item {
+    // color: white;
+
+    // margin: auto 2rem; // top and bottom - auto \n right and left - 2rem
+}
+
+.navigation_text {
+    // font-size: 2.5rem;
+
+    margin: 2rem;
+}
+
+#navbar_brand {
+    // font-size: 3rem;
+
+    color: white !important;
+    margin: 1rem 2rem; // top and bottom - auto \n right and left - 2rem
+}
+
+// ------------------------------------------ /navbar ------------------------------------------
+
+
+
+// ------------------------------------------ footer ------------------------------------------
+
+#logo_footer {
+    width: 200px;
+    height: 200px;
+}
+
+#copyright_footer {
+    padding-top: 2rem;
+}
+
+#contacts {
+    padding-top: 2rem;
+
+    #contact {
+        padding: 0.8rem;
+    }
+}
+
+// ------------------------------------------ /footer ------------------------------------------
