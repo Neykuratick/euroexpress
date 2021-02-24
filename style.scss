@@ -34,6 +34,32 @@ h1, h2{
     color: white;
 }
 
+.div_center {
+    margin: 0 auto;
+}
+
+.box_input {
+    font-size: 1rem;
+    
+    width: 18rem;
+    height: 2rem;
+
+    border-radius: 7px;
+    border: none;
+
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+}
+
+.box_input:focus {
+    outline: none;
+}
+
+.box_input::placeholder {
+    outline: none;
+    color: #949494;
+    font-size: 1rem;
+}
+
 // ------------------------------------------ /general_tags ------------------------------------------
 
 #videoBG {
@@ -74,7 +100,7 @@ h1, h2{
     padding: 0;
 
     h1 {
-        margin: 2rem;
+        margin-top: 2rem;
         white-space: nowrap;
 
         @media (min-width: 1000px) {
@@ -96,10 +122,40 @@ h1, h2{
     }
 }
 
+// ---- carousel ----
+
+// .carousel_container {
+//     min-height: 25rem;
+
+//     @media (min-width: 1000px) {
+//         margin-top: 7rem;
+//         min-height: 50rem;
+//     }
+// }
+
 #map {
-    width: 35vw;
-    height: 40vh;
+    min-width: 100px;
+    min-height: 200px;
+
+    @media (min-width: 1000px) {
+        max-width: 900px;
+        min-height: 600px;
+    }
 }
+
+.box_adress {
+    display: block;
+    margin: 1rem auto;
+
+    width: 60%;
+    height: 2rem;
+
+    @media (max-width: 700px) {
+        width: 100%;
+    }
+}
+
+// ---- /carousel ----
 
 // ------------------------------------------ /main-section ------------------------------------------
 
@@ -128,17 +184,5 @@ h1, h2{
     }
 
 }
-
-// @media (min-width: 1000px) {
-//     #contacts {
-//         padding-left: 7%;
-//         white-space: nowrap;
-    
-//         #phone_number {
-//             padding-left: 34%;
-//         }
-    
-//     }   
-// }
 
 // ------------------------------------------ /footer ------------------------------------------

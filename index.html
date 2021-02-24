@@ -27,15 +27,12 @@
     <nav class="navbar navbar-light navbar-expand-md bg_blue">
 
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_target">
-            <!-- <span class="navbar-toggler-icon text_wh"></span> -->
             <i class="fas fa-bars fa-lg text_wh" id="ham_ico"></i>
         </button>
 
         <h1 class="text-center text_wh" id="navbar_brand">ЕвроЭкспресс</h1>
 
         <div class="collapse navbar-collapse" id="collapse_target">
-            <!-- <a class="navbar-brand h5"><h1 id="navbar_brand">ЕвроЭкспресс</h1></a> -->
-
             <ul class="navbar-nav d-flex justify-content-center">
                 <li class="navbar-item">
                     <a href=""><h2 class="navigation_text h2">о компании</h2></a>
@@ -61,7 +58,7 @@
         </p>
     </div>
 
-    <div class="container">
+    <div class="container carousel_container">
         <div class="row">
             <div class="col-sm-12">
                 <div id="slider" class="carousel slide" data-ride="carousel">
@@ -73,24 +70,14 @@
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <input id="pac-input" class="controls" type="text" placeholder="Адрес откуда"/>
-                            <input id="pac-inputTwo" class="controls" type="text" placeholder="Адрес куда"/>
-                            <div id="map"></div>
+                            <div class="container-fluid" id="box_adresses">
+                                <input id="pac-input" class="box_adress box_input div_center" type="text" placeholder="Адрес откуда"/>
+                                <input id="pac-inputTwo" class="box_adress box_input div_center" type="text" placeholder="Адрес куда"/>
 
-                            <!-- Адрес откуда -->
-                            <h3 id="firstData" class="data text_wh"></h3>
-
-                            <!-- Сам адрес откуда -->
-                            <h3 id="point1" class="data outputData text_wh"></h3>
-
-                            <!-- Адрес куда -->
-                            <h3 id="secondData"  class="data text_wh"></h3>
-
-                            <!-- Сам адрес куда -->
-                            <h3 id="point2" class="data outputData text_wh"></h3>
-
-                            <!-- Расстояние -->
-                            <h3 id="distance" class="data distanceData text_wh"> </h3>
+                                <!-- Расстояние -->
+                                <h3 id="distance" class="data distanceData text_wh text-center"> </h3>
+                            </div>
+                            <div id="map" class="div_center"></div>
                         </div>
                         
                         <div class="item"></div>

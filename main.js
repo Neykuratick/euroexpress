@@ -28,7 +28,8 @@ var totalcost = 0;
 
 // ------------------------------------- map -------------------------------------------------------
 
-let markers = [];
+var markers = [];
+var markersLocal = [];
 let markersPosition = [];
 let distance;
 
@@ -48,25 +49,9 @@ function initMap() {
     });
 
     map.addListener('click', (e) => {
-        // -------------------------------------------------------
-
         clear();
         markers.push(placeMarkerAndPanTo(e.latLng, map));
         getAdressAndDistance();
-        // markerJsonOne = markers[0].getPosition().toJSON()
-        // console.log(getmyMKADdistance(markerJsonOne))
-
-        // if (markers.length == 2) {
-        //   markerJsonOne = markers[0].getPosition().toJSON()
-        //   markerJsonTwo = markers[1].getPosition().toJSON()
-        //   console.log(markerJsonTwo.lat, markerJsonTwo.lng) // todo delete
-        //   console.log(inPoly(markerJsonOne), "first") // todo delete
-        //   console.log(inPoly(markerJsonTwo), "second") // todo delete
-        //   console.log(getmyMKADdistance(markerJsonTwo))
-        //   console.log(getmyMKADdistance(markerJsonOne))
-        // }
-
-        // -------------------------------------------------------
     });
 }
 
@@ -79,26 +64,29 @@ function initAutocomplete() {
     
     var input2 = document.getElementById('pac-inputTwo');
     const searchBox2 = new google.maps.places.SearchBox(input2);
+
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', () => {
         searchBox.setBounds(map.getBounds());
         searchBox2.setBounds(map.getBounds());
     });
-
-    let markersLocal = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
+
+    
     searchBox.addListener('places_changed', () => {
         const places = searchBox.getPlaces();
 
         if (places.length == 0) {
             return;
         }
+
         // Clear out the old markersLocal.
         markersLocal.forEach((marker) => {
             marker.setMap(null);
         });
         markersLocal = [];
+
         // For each place, get the icon, name and location.
         const bounds = new google.maps.LatLngBounds();
         places.forEach((place) => {
@@ -113,6 +101,7 @@ function initAutocomplete() {
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(25, 25),
             };
+
             // Create a marker for each place.
             markersLocal.push(
                 new google.maps.Marker({
@@ -202,7 +191,12 @@ function initAutocomplete() {
 function clear() {
     if (markers.length > 1) {
         // Clear out the old markers on the map.
+
         markers.forEach((marker) => {
+            marker.setMap(null);
+        });
+
+        markersLocal.forEach((marker) => {
             marker.setMap(null);
         });
 
@@ -211,9 +205,11 @@ function clear() {
         adress1 = '';
         adress2 = '';
         distance = 0;
-        document.getElementById('point2').innerHTML = ''; // адрес второй точки
-        document.getElementById('secondData').innerHTML = ''; // Ваша вторая точка:
+        // document.getElementById('point2').innerHTML = ''; // адрес второй точки
+        // document.getElementById('secondData').innerHTML = ''; // Ваша вторая точка:
         document.getElementById('distance').innerHTML = ''; // Расстояние
+        document.getElementById('pac-input').value = '';
+        document.getElementById('pac-inputTwo').value = '';
     }
 }
 
@@ -229,8 +225,7 @@ function getAdressAndDistance() {
         markersPosition.push(jsonToArray(marPos));
 
         adress1 = geocode(markersPosition[0]);
-        document.getElementById('point1').innerHTML = '' + adress1;
-        document.getElementById('firstData').innerHTML = 'Адрес откуда';
+        document.getElementById('pac-input').value = adress1;
     }
 
     if (markers.length == 2) {
@@ -238,8 +233,7 @@ function getAdressAndDistance() {
         markersPosition.push(jsonToArray(marPos));
 
         adress2 = geocode(markersPosition[1]);
-        document.getElementById('point2').innerHTML = '' + adress2;
-        document.getElementById('secondData').innerHTML = 'Адрес куда';
+        document.getElementById('pac-inputTwo').value = adress2;
 
         marker1 = markers[0].getPosition();
         marker2 = markers[1].getPosition();
@@ -247,9 +241,6 @@ function getAdressAndDistance() {
         document.getElementById('distance').innerHTML =
             'Расстояние: ' + roundNumber(distance / 1000, 3) + ' километров';
     }
-
-    // console.log("markersPosition", markersPosition)
-    // console.log("markers", markers)
 }
 
 function placeMarkerAndPanTo(latLng, map) {
