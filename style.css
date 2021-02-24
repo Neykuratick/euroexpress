@@ -126,8 +126,31 @@ h1, h2 {
   }
 }
 
+.carousel-item {
+  min-height: 25rem;
+}
+
+@media (min-width: 1000px) {
+  .carousel-item {
+    margin-top: 7rem;
+    min-height: 50rem;
+  }
+}
+
+.carousel-indicators {
+  color: white;
+}
+
+.carousel-indicators .active {
+  color: #6bc4ee;
+}
+
+.carousel_indicator {
+  margin: auto 0.2rem;
+}
+
 #map {
-  min-width: 100px;
+  max-width: 250px;
   min-height: 200px;
 }
 
@@ -147,7 +170,7 @@ h1, h2 {
 
 @media (max-width: 700px) {
   .box_adress {
-    width: 100%;
+    width: 80%;
   }
 }
 

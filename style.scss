@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+$base_color: #6bc4ee;
+
 html, body {
     overflow-x: hidden;
 
@@ -23,7 +25,7 @@ h1, h2{
 // ------------------------------------------ general_tags ------------------------------------------
 
 .bg_blue {
-    background: #6bc4ee;
+    background: $base_color;
 }
 
 .bg_white {
@@ -124,17 +126,29 @@ h1, h2{
 
 // ---- carousel ----
 
-// .carousel_container {
-//     min-height: 25rem;
+.carousel-item {
+    min-height: 25rem;
 
-//     @media (min-width: 1000px) {
-//         margin-top: 7rem;
-//         min-height: 50rem;
-//     }
-// }
+    @media (min-width: 1000px) {
+        margin-top: 7rem;
+        min-height: 50rem;
+    }
+}
+
+.carousel-indicators {
+    color: white;
+
+    .active {
+        color: $base_color;
+    }
+}
+
+.carousel_indicator {
+    margin: auto 0.2rem;
+}
 
 #map {
-    min-width: 100px;
+    max-width: 250px;
     min-height: 200px;
 
     @media (min-width: 1000px) {
@@ -151,7 +165,7 @@ h1, h2{
     height: 2rem;
 
     @media (max-width: 700px) {
-        width: 100%;
+        width: 80%;
     }
 }
 

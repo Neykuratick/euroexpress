@@ -45,7 +45,7 @@ function initMap() {
         zoom: 10,
         gestureHandling: 'greedy',
         streetViewControl: false,
-        mapTypeControl: true,
+        mapTypeControl: false,
     });
 
     map.addListener('click', (e) => {
