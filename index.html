@@ -90,10 +90,10 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
 
-                        <div class="carousel-item active">
-                            <div class="container-fluid" id="box_adresses">
-                                <input id="pac-input" class="box_adress box_input div_center" type="text" placeholder="Адрес откуда"/>
-                                <input id="pac-inputTwo" class="box_adress box_input div_center" type="text" placeholder="Адрес куда"/>
+                        <div class="carousel-item">
+                            <div class="container-fluid">
+                                <input id="pac-input" class="box_adress input_box div_center" type="text" placeholder="Адрес откуда"/>
+                                <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда"/>
 
                                 <!-- Расстояние -->
                                 <h3 id="distance" class="data distanceData text_wh text-center"> </h3>
@@ -101,10 +101,69 @@
                             <div id="map" class="div_center"></div>
                         </div>
                         
-                        <div class="carousel-item"><h1>grgrgr</h1></div>
-                        <div class="carousel-item"></div>
-                        <div class="carousel-item"></div>
-                        <div class="carousel-item"></div>
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
+                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName">
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()">
+                                <p class="inputlabel" id="cargoWeightLabel"></p>
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Объём груза (м²)" id="cargoVolume" oninput="cargoVolumeInput()">
+                                <p class="inputlabel" id="cargoVolumeLabel"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <select class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
+                                    <option value="0" disabled selected hidden>Тип транспортного средства</option>
+                                    <option value="Тент, изотерм, целмет.">Тент, изотерм, целмет.</option>
+                                    <option value="Рефрижератор">Рефрижератор</option>
+                                    <option value="Борт">Борт</option>
+                                    <option value="Тент разборный, борт">Тент разборный, борт</option>
+                                    <option value="Манипулятор">Манипулятор</option>
+                                </select>
+        
+                                <select class="input_box div_center carousel_input" name="cargo_select" id="cargo_select">
+                                    <option value="0" disabled selected hidden>Грузоподъёмность т/c</option>
+                                    <option value="1" disabled>Сначала выберите т/с</option>
+                                </select>
+        
+                                <input class="input_box div_center carousel_input loadUnloadDate" placeholder="Выберите день погрузки" type="text" onfocus="(this.type='date')" min="2021-01-01" id="load">
+                                <input class="input_box div_center carousel_input loadUnloadDate" placeholder="Выберите день выгрузки" type="text" onfocus="(this.type='date')" min="2021-01-01" id="unload">
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <div class="input_checkbox div_center carousel_input" onclick="checkCheckbox('to_TTK')">
+                                    <input class="checkbox fancy_checkbox" type="checkbox" value="" id="to_TTK">
+                                    <label class="label user-select-none" for="flexCheckDefault">Выезд в ТТК</label>
+                                </div>
+                                
+                                <div class="input_checkbox div_center carousel_input" onclick="checkCheckbox('to_Sadovoe')">
+                                    <input class="checkbox fancy_checkbox" type="checkbox" value="" id="to_Sadovoe">
+                                    <label class="label user-select-none" for="flexCheckChecked">Выезд за Садовое кольцо</label>
+                                </div>
+
+                                <input class="input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
+                                <p class="inputlabel" id="AltLoad_pointsLabel"></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item active">
+                            <div class="container-fluid">
+                                <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00"></form>
+                                <textarea class="input_box div_center carousel_input" id="comment" placeholder="Комментарий к заказу"></textarea>
+
+                                <div id="cost">
+                                    <button class="d-block div_center" type="button" id="countCost" onclick="countCost();">Расчитать стоимость</button>
+                                    <h1 id='costLabel'></h1>
+                                </div>
+
+                                <button class="d-block div_center" type="button" id="submit" onclick="submitData();">Отправить</button>
+                                <a href="/imgs/data.docx"><p class="personalDataBaboomkaDva text-center">Нажимая на кнопку "Отправить", вы соглашаетесь <br> на обработку персональных данных</p></a>
+                            </div>
+                        </div>
 
                     </div>
 

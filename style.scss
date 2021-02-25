@@ -40,27 +40,58 @@ h1, h2{
     margin: 0 auto;
 }
 
-.box_input {
-    font-size: 1rem;
-    
+.input_box {
+    display: block;
+
     width: 18rem;
     height: 2rem;
 
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
     border-radius: 7px;
     border: none;
 
-    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    font-size: 1rem;
 }
 
-.box_input:focus {
+.input_box:focus {
     outline: none;
 }
 
-.box_input::placeholder {
+.input_box::placeholder {
     outline: none;
     color: #949494;
     font-size: 1rem;
+    padding-left: 0.3rem;
 }
+
+.input_checkbox {
+    width: 18rem;
+    height: 2rem;
+
+    background-color: white;
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    border-radius: 7px;
+
+    .label {
+        font-size: 1rem;
+        color: #949494;
+    }
+
+    .checkbox {
+        margin-left: 0.5rem;
+    }
+}
+
+.fancy_checkbox {
+    appearance: none;
+    
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+    background: #d5d5d5;
+}
+
 
 // ------------------------------------------ /general_tags ------------------------------------------
 
@@ -158,7 +189,6 @@ h1, h2{
 }
 
 .box_adress {
-    display: block;
     margin: 1rem auto;
 
     width: 60%;
@@ -170,6 +200,51 @@ h1, h2{
 }
 
 // ---- /carousel ----
+.carousel_input {
+    margin: 1rem auto;
+}
+
+.inputGroup {
+    margin-top: 25%;
+
+    @media (min-width: 1000px) {
+        margin-top: 15rem;
+    }
+
+    .input_box, .input_checkbox {
+        width: 70%;
+        height: 3rem;
+    }
+
+    .input_checkbox {
+        display: flex;
+        flex-direction: row;
+
+        .checkbox {
+            margin-top: 0.65rem;
+
+            @media (max-width: 418px) {
+                display: none;
+            }
+        }
+
+        .label {
+            margin-left: 0.3rem;
+            margin-top: 0.5rem;
+
+            font-size: 1.3rem;
+
+            @media (max-width: 508px) {
+                font-size: 1rem;
+                margin-top: 0.75rem;
+            }
+        }
+
+        @media (max-width: 418px) {
+            min-height: 4rem;
+        }
+    }
+}
 
 // ------------------------------------------ /main-section ------------------------------------------
 

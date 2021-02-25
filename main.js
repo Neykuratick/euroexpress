@@ -452,3 +452,426 @@ function getmyMKADdistance(latLngCords) {
 }
 
 // ------------------------------------- /map -------------------------------------------------------
+
+
+// ------------------------------------- second section -------------------------------------------------------
+
+function cargoInput() {
+    cargoWeightLabel = document.getElementById('cargoWeightLabel');
+    cargoWeightLabel.innerHTML = 'Вес груза (кг)';
+}
+
+function cargoVolumeInput() {
+    cargoVolumeLabel = document.getElementById('cargoVolumeLabel');
+    cargoVolumeLabel.innerHTML = 'Объём груза (м²)';
+}
+
+// ------------------------------------- /second section -------------------------------------------------------
+
+// ------------------------------------- third section -------------------------------------------------------
+
+function limitOptions() {
+    let vechicle_select = document.getElementById('vechicle_select');
+    let cargo_select = document.getElementById('cargo_select');
+
+    cargo_select.remove(0);
+    cargo_select.remove(0);
+    cargo_select.remove(0);
+    cargo_select.remove(0);
+    cargo_select.remove(0);
+    cargo_select.remove(0);
+
+    if (vechicle_select.selectedIndex != 0) {
+        cargo_select.remove(1);
+    }
+
+    let option1 = document.createElement('option');
+    let option2 = document.createElement('option');
+    let option3 = document.createElement('option');
+    let option4 = document.createElement('option');
+    let option5 = document.createElement('option');
+
+    if (vechicle_select.selectedIndex == 1) {
+        // if Тент, изотерм, целмет.
+        option1.text = '1,5т / 6-16м3, 4м';
+        option1.value = 5000;
+        option2.text = '3т / 14-21м3';
+        option2.value = 6000;
+        option3.text = '5 т / 18-35м3';
+        option3.value = 8000;
+        option4.text = '10тн / 40-50м3';
+        option4.value = 10000;
+        option5.text = '20т / 82/96м3';
+        option5.value = 12000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+        cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
+    }
+
+    if (vechicle_select.selectedIndex == 2) {
+        // if Рефрижератор
+        option1.text = '1-1,5 т /6-12м3';
+        option1.value = 6000;
+        option2.text = '3т / 14-21м3';
+        option2.value = 7000;
+        option3.text = '5 т / 18-25м3';
+        option3.value = 9000;
+        option4.text = '10т / 35м3';
+        option4.value = 11000;
+        option5.text = '20т / 82м3';
+        option5.value = 13000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+        cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
+    }
+
+    if (vechicle_select.selectedIndex == 3) {
+        // if Борт
+        option1.text = '1,5 т. 3м';
+        option1.value = 6000;
+        option2.text = '3т. 4м';
+        option2.value = 7000;
+        option3.text = '5 т. 6м';
+        option3.value = 9000;
+        option4.text = '10т. 6м-7м';
+        option4.value = 11000;
+        option5.text = '20т. 12м-13.5м';
+        option5.value = 13000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+        cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
+    }
+
+    if (vechicle_select.selectedIndex == 4) {
+        // if Тент разборный, борт
+        option1.text = '1,5 т. 3м';
+        option1.value = 6000;
+        option2.text = '3т. 4м';
+        option2.value = 7000;
+        option3.text = '5 т. 6м';
+        option3.value = 9000;
+        option4.text = '10т. 6м-7м';
+        option4.value = 11000;
+        option5.text = '20т. 12м-13.5м';
+        option5.value = 13000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+        cargo_select.add(option3);
+        cargo_select.add(option4);
+        cargo_select.add(option5);
+    }
+
+    if (vechicle_select.selectedIndex == 5) {
+        // if Манипулятор
+        option1.text = '5т. 5-6м';
+        option1.value = 10000;
+        option2.text = '10т. 6-7,20м';
+        option2.value = 14000;
+
+        cargo_select.add(option1);
+        cargo_select.add(option2);
+    }
+}
+
+// ------------------------------------- /third section -------------------------------------------------------
+
+// ------------------------------------- newThird section -------------------------------------------------------
+
+function checkCheckbox(id) {
+    if (document.getElementById(id).checked) {
+        document.getElementById(id).checked = false;
+    } else {
+        document.getElementById(id).checked = true;
+    }
+}
+// ------------------------------------- /newThird section -------------------------------------------------------
+
+// ------------------------------------- fourth section -------------------------------------------------------
+
+var element = document.getElementById('phone');
+var maskOptions = {
+    mask: '{+7} (000) 000 00-00',
+};
+var mask = IMask(element, maskOptions);
+
+function countCost() {
+    // -- base variables to count cost --
+    let mkad_distance = 0;
+    let mkad_distance_km = 0;
+    let mkad_rate = 30;
+    let min_rate = 4000;
+    let points_cost = 500;
+    // -- /base variables to count cost --
+
+    // -- checking if there's one or two markers on the map --
+    if (markers.length == 1) {
+        // if there's only one
+
+        JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the marker
+        mkad_distance = getmyMKADdistance(JSON_marker_one); // measuring distance
+        mkad_distance = roundNumber(mkad_distance, 0); // rounding distance
+        mkad_distance_km = mkad_distance / 1000; // converting into kilometers
+    }
+
+    if (markers.length == 2) {
+        // if there are 2 markers
+
+        JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
+        JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
+
+        mkad_distance_one = getmyMKADdistance(JSON_marker_one);
+        mkad_distance_two = getmyMKADdistance(JSON_marker_two);
+        mkad_distance = mkad_distance_one + mkad_distance_two;
+
+        mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
+        mkad_distance_km = mkad_distance / 1000; // converting into kilometers
+    }
+    // -- /checking if there's one or two markers on the map --
+
+    // -- getting vehicle_select and cargo_select input --
+    let vechicle_select = document.getElementById('vechicle_select').value;
+    let cargo_select = document.getElementById('cargo_select').value;
+    min_rate = cargo_select;
+
+    vechicle_type = 0;
+    switch (vechicle_select) {
+        // counting min mkad_rate based on vehivle type
+
+        case 'Тент, изотерм, целмет.':
+            vechicle_type = 1;
+            break;
+        case 'Рефрижератор':
+            vechicle_type = 2;
+            break;
+        case 'Борт':
+            vechicle_type = 3;
+            break;
+        case 'Тент разборный, борт':
+            vechicle_type = 4;
+            break;
+        case 'Манипулятор':
+            vechicle_type = 5;
+            break;
+    }
+
+    switch (true) {
+        // Тент, изотерм, целмет.
+        case vechicle_type == 1 && cargo_select == 5000:
+            points_cost = 500;
+            mkad_rate = 30;
+            break;
+        case vechicle_type == 1 && cargo_select == 6000:
+            points_cost = 500;
+            mkad_rate = 40;
+            break;
+        case vechicle_type == 1 && cargo_select == 8000:
+            points_cost = 1000;
+            mkad_rate = 50;
+            break;
+        case vechicle_type == 1 && cargo_select == 10000:
+            points_cost = 1000;
+            mkad_rate = 50;
+            break;
+        case vechicle_type == 1 && cargo_select == 12000:
+            points_cost = 1500;
+            mkad_rate = 60;
+            break;
+
+        // Рефрижератор
+        case vechicle_type == 2 && cargo_select == 6000:
+            points_cost = 1000;
+            mkad_rate = 40;
+            break;
+        case vechicle_type == 2 && cargo_select == 7000:
+            points_cost = 1000;
+            mkad_rate = 50;
+            break;
+        case vechicle_type == 2 && cargo_select == 9000:
+            points_cost = 1500;
+            mkad_rate = 60;
+            break;
+        case vechicle_type == 2 && cargo_select == 11000:
+            points_cost = 1500;
+            mkad_rate = 60;
+            break;
+        case vechicle_type == 2 && cargo_select == 13000:
+            points_cost = 2000;
+            mkad_rate = 70;
+            break;
+
+        // Борт
+        case vechicle_type == 3 && cargo_select == 6000:
+            points_cost = 500;
+            mkad_rate = 30;
+            break;
+        case vechicle_type == 3 && cargo_select == 7000:
+            points_cost = 500;
+            mkad_rate = 40;
+            break;
+
+        // Тент разборный, борт
+        case vechicle_type == 4 && cargo_select == 9000:
+            points_cost = 1000;
+            mkad_rate = 50;
+            break;
+        case vechicle_type == 4 && cargo_select == 11000:
+            points_cost = 1000;
+            mkad_rate = 50;
+            break;
+        case vechicle_type == 4 && cargo_select == 13000:
+            points_cost = 1500;
+            mkad_rate = 60;
+            break;
+
+        // Манипулятор
+        case vechicle_type == 5 && cargo_select == 10000:
+            points_cost = 1500;
+            mkad_rate = 60;
+            break;
+        case vechicle_type == 5 && cargo_select == 14000:
+            points_cost = 2000;
+            mkad_rate = 90;
+            break;
+    }
+    // -- /getting vehicle_select and cargo_select input --
+
+    // -- getting input from newThirdSection --
+    if (document.getElementById("to_Sadovoe").checked) {
+        Sadovoe_points = 1
+    } else {
+        Sadovoe_points = 0
+    }
+
+    if (document.getElementById("to_TTK").checked) {
+        TTK_points = 1
+    } else {
+        TTK_points = 0
+    }
+
+    AltLoad_points_undef = Number.parseInt(
+        document.getElementById('AltLoad_points').value
+    );
+    if (Number.isNaN(AltLoad_points_undef) == false) {
+        AltLoad_points = AltLoad_points_undef;
+    } else {
+        AltLoad_points = 0;
+    }
+
+    AltLoad_points += Sadovoe_points;
+    AltLoad_points += TTK_points;
+
+    AltLoad_points_cost = AltLoad_points * points_cost;
+    // -- /getting input from newThirdSection --
+
+    // -- counting total cost --
+    min_rate = Number.parseInt(min_rate);
+    mkad_cost = mkad_distance_km * mkad_rate;
+    console.log(mkad_distance_km, mkad_rate);
+    totalcost = min_rate + mkad_cost + AltLoad_points_cost;
+    totalcost = roundNumber(totalcost, 0);
+
+    console.log(
+        'min_rate',
+        min_rate,
+        'mkad_distance_km',
+        mkad_distance_km,
+        'mkad_cost',
+        mkad_cost,
+        'AltLoad_points_cost',
+        AltLoad_points_cost
+    );
+    // -- /countring total cost --
+
+    document.getElementById('countCost').innerHTML = 'Пересчитать стоимость';
+    document.getElementById('costLabel').innerHTML =
+        'Итоговая примерная стоимость: ' + totalcost + ' руб.'; // displaying total cost
+}
+
+var final_message = '';
+function submitData() {
+    let nameData = document.getElementById('name').value;
+    let cargoName = document.getElementById('cargoName').value;
+    let cargoWeight = document.getElementById('cargoWeight').value;
+    let cargoVolume = document.getElementById('cargoVolume').value;
+    let vechicle_select = document.getElementById('vechicle_select').value;
+    let loadDate = document.getElementById('load').value;
+    let unloadDate = document.getElementById('unload').value;
+    let phone = document.getElementById('phone').value;
+    let comment = document.getElementById('comment').value;
+    let price = totalcost;
+
+    if (document.getElementById("to_Sadovoe").checked) {
+        Sadovoe_points = "Да"
+    } else {
+        Sadovoe_points = "Нет"
+    }
+
+    if (document.getElementById("to_TTK").checked) {
+        TTK_points = "Да"
+    } else {
+        TTK_points = "Нет"
+    }
+
+    AltLoad_points_undef = Number.parseInt(
+        document.getElementById('AltLoad_points').value
+    );
+    if (Number.isNaN(AltLoad_points_undef) == false) {
+        AltLoad_points = AltLoad_points_undef;
+    } else {
+        AltLoad_points = 0;
+    }
+
+    final_message = `
+  Контактное лицо: ${nameData}<br>
+  Номер телефона: ${phone}<br>
+  <br>
+  Адрес куда: ${adress1}<br>
+  Адрес откуда: ${adress2}<br>
+  <br>
+  Въезд в ТТК: ${Sadovoe_points}<br>
+  Выезд в Садовое кольцо: ${TTK_points}<br>
+  Доп. точки выгрузки ${AltLoad_points}<br>
+  <br>
+  Наименование груза: ${cargoName}<br>
+  Вес груза: ${cargoWeight}<br>
+  Объём груза: ${cargoVolume}<br>
+  Тип транспорта: ${vechicle_select}<br>
+  Дата погрузки: ${loadDate}<br>
+  Дата выгрузки: ${unloadDate}<br>
+  Итоговая цена: ${price} руб.<br>
+  <br>
+  Комментарий к заказу: ${comment}<br>
+  `;
+    Email.send({
+        Host: 'smtp.euroexpress.msk.ru',
+        Username: 'noreply@euroexpress.msk.ru',
+        Password: 'D8r8M9y6',
+        To: 'euroexpress_logist@bk.ru',
+        From: 'noreply@euroexpress.msk.ru',
+        Subject: 'EuroExpress - Новый отклик!',
+        Body: final_message,
+    }).then((message) => checkSended(message), console.log(final_message));
+}
+// ------------------------------------- /fourth section  -------------------------------------------------------
+
+function checkSended(message) {
+    if (message == 'OK') {
+        localStorage.setItem('final-message', final_message);
+        window.open('/request/', '_parent');
+    } else {
+        alert(
+            'Что-то пощло не так! Обратитесь в техническую поддержку. Ошибка:',
+            message
+        );
+    }
+}

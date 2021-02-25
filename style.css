@@ -32,42 +32,75 @@ h1, h2 {
   margin: 0 auto;
 }
 
-.box_input {
-  font-size: 1rem;
+.input_box {
+  display: block;
   width: 18rem;
   height: 2rem;
-  border-radius: 7px;
-  border: none;
   -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
           box-shadow: 3px 3px 11px 0px #6d6d6d33;
-}
-
-.box_input:focus {
-  outline: none;
-}
-
-.box_input::-webkit-input-placeholder {
-  outline: none;
-  color: #949494;
+  border-radius: 7px;
+  border: none;
   font-size: 1rem;
 }
 
-.box_input:-ms-input-placeholder {
+.input_box:focus {
   outline: none;
-  color: #949494;
-  font-size: 1rem;
 }
 
-.box_input::-ms-input-placeholder {
+.input_box::-webkit-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
+  padding-left: 0.3rem;
 }
 
-.box_input::placeholder {
+.input_box:-ms-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
+  padding-left: 0.3rem;
+}
+
+.input_box::-ms-input-placeholder {
+  outline: none;
+  color: #949494;
+  font-size: 1rem;
+  padding-left: 0.3rem;
+}
+
+.input_box::placeholder {
+  outline: none;
+  color: #949494;
+  font-size: 1rem;
+  padding-left: 0.3rem;
+}
+
+.input_checkbox {
+  width: 18rem;
+  height: 2rem;
+  background-color: white;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  border-radius: 7px;
+}
+
+.input_checkbox .label {
+  font-size: 1rem;
+  color: #949494;
+}
+
+.input_checkbox .checkbox {
+  margin-left: 0.5rem;
+}
+
+.fancy_checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: #d5d5d5;
 }
 
 #videoBG {
@@ -162,7 +195,6 @@ h1, h2 {
 }
 
 .box_adress {
-  display: block;
   margin: 1rem auto;
   width: 60%;
   height: 2rem;
@@ -171,6 +203,64 @@ h1, h2 {
 @media (max-width: 700px) {
   .box_adress {
     width: 80%;
+  }
+}
+
+.carousel_input {
+  margin: 1rem auto;
+}
+
+.inputGroup {
+  margin-top: 25%;
+}
+
+@media (min-width: 1000px) {
+  .inputGroup {
+    margin-top: 15rem;
+  }
+}
+
+.inputGroup .input_box, .inputGroup .input_checkbox {
+  width: 70%;
+  height: 3rem;
+}
+
+.inputGroup .input_checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.inputGroup .input_checkbox .checkbox {
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 418px) {
+  .inputGroup .input_checkbox .checkbox {
+    display: none;
+  }
+}
+
+.inputGroup .input_checkbox .label {
+  margin-left: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 508px) {
+  .inputGroup .input_checkbox .label {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 418px) {
+  .inputGroup .input_checkbox {
+    min-height: 4rem;
   }
 }
 
