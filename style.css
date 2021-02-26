@@ -185,6 +185,7 @@ h1, h2, h3, h4 {
 
 #navbar_brand {
   color: white !important;
+  font-weight: 600;
   margin: 1rem 2rem;
   padding-right: 15%;
   padding-bottom: 0.5%;
