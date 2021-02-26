@@ -2,7 +2,7 @@
 
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('GET', theUrl, false); // false for synchronous request
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send(null);
     return xmlHttp.response;
 }
@@ -15,10 +15,10 @@ function jsonToArray(json) {
 }
 
 function roundNumber(num, dec) {
-    const [sv, ev] = num.toString().split('e');
+    const [sv, ev] = num.toString().split("e");
     return Number(
-        Number(Math.round(parseFloat(sv + 'e' + dec)) + 'e-' + dec) +
-            'e' +
+        Number(Math.round(parseFloat(sv + "e" + dec)) + "e-" + dec) +
+            "e" +
             (ev || 0)
     );
 }
@@ -40,15 +40,15 @@ function initialize() {
 
 let map;
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 55.754652859190074, lng: 37.62576896153753 },
         zoom: 10,
-        gestureHandling: 'greedy',
+        gestureHandling: "greedy",
         streetViewControl: false,
         mapTypeControl: false,
     });
 
-    map.addListener('click', (e) => {
+    map.addListener("click", (e) => {
         clear();
         markers.push(placeMarkerAndPanTo(e.latLng, map));
         getAdressAndDistance();
@@ -59,22 +59,21 @@ function initMap() {
 
 function initAutocomplete() {
     // Create the search box and link it to the UI element.
-    const input = document.getElementById('pac-input');
+    const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
-    
-    var input2 = document.getElementById('pac-inputTwo');
+
+    var input2 = document.getElementById("pac-inputTwo");
     const searchBox2 = new google.maps.places.SearchBox(input2);
 
     // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', () => {
+    map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
         searchBox2.setBounds(map.getBounds());
     });
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
 
-    
-    searchBox.addListener('places_changed', () => {
+    searchBox.addListener("places_changed", () => {
         const places = searchBox.getPlaces();
 
         if (places.length == 0) {
@@ -91,7 +90,7 @@ function initAutocomplete() {
         const bounds = new google.maps.LatLngBounds();
         places.forEach((place) => {
             if (!place.geometry) {
-                console.log('Returned place contains no geometry');
+                console.log("Returned place contains no geometry");
                 return;
             }
             const icon = {
@@ -131,7 +130,7 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 
-    searchBox2.addListener('places_changed', () => {
+    searchBox2.addListener("places_changed", () => {
         const places = searchBox2.getPlaces();
 
         if (places.length == 0) {
@@ -146,7 +145,7 @@ function initAutocomplete() {
         const bounds = new google.maps.LatLngBounds();
         places.forEach((place) => {
             if (!place.geometry) {
-                console.log('Returned place contains no geometry');
+                console.log("Returned place contains no geometry");
                 return;
             }
             const icon = {
@@ -202,19 +201,19 @@ function clear() {
 
         markers = [];
         markersPosition = [];
-        adress1 = '';
-        adress2 = '';
+        adress1 = "";
+        adress2 = "";
         distance = 0;
         // document.getElementById('point2').innerHTML = ''; // адрес второй точки
         // document.getElementById('secondData').innerHTML = ''; // Ваша вторая точка:
-        document.getElementById('distance').innerHTML = ''; // Расстояние
-        document.getElementById('pac-input').value = '';
-        document.getElementById('pac-inputTwo').value = '';
+        document.getElementById("distance").innerHTML = ""; // Расстояние
+        document.getElementById("pac-input").value = "";
+        document.getElementById("pac-inputTwo").value = "";
     }
 }
 
-var adress1 = '';
-var adress2 = '';
+var adress1 = "";
+var adress2 = "";
 function getAdressAndDistance() {
     // does all the work.
     // gets coordinates of 2 markers
@@ -225,7 +224,7 @@ function getAdressAndDistance() {
         markersPosition.push(jsonToArray(marPos));
 
         adress1 = geocode(markersPosition[0]);
-        document.getElementById('pac-input').value = adress1;
+        document.getElementById("pac-input").value = adress1;
     }
 
     if (markers.length == 2) {
@@ -233,13 +232,13 @@ function getAdressAndDistance() {
         markersPosition.push(jsonToArray(marPos));
 
         adress2 = geocode(markersPosition[1]);
-        document.getElementById('pac-inputTwo').value = adress2;
+        document.getElementById("pac-inputTwo").value = adress2;
 
         marker1 = markers[0].getPosition();
         marker2 = markers[1].getPosition();
         distance = getDistance(marker1, marker2);
-        document.getElementById('distance').innerHTML =
-            'Расстояние: ' + roundNumber(distance / 1000, 3) + ' километров';
+        document.getElementById("distance").innerHTML =
+            "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
     }
 }
 
@@ -256,11 +255,11 @@ function geocode(latLngArray) {
     // getting human readable adress based on lattitute and longtittude
 
     requestURL =
-        'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+        "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
         latLngArray[0] +
-        ',' +
+        "," +
         latLngArray[1] +
-        '&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&language=ru';
+        "&key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&language=ru";
     apiResponse = JSON.parse(httpGet(requestURL));
     return apiResponse.results[0].formatted_address;
 }
@@ -453,17 +452,16 @@ function getmyMKADdistance(latLngCords) {
 
 // ------------------------------------- /map -------------------------------------------------------
 
-
 // ------------------------------------- second section -------------------------------------------------------
 
 function cargoInput() {
-    cargoWeightLabel = document.getElementById('cargoWeightLabel');
-    cargoWeightLabel.innerHTML = 'Вес груза (кг)';
+    cargoWeightLabel = document.getElementById("cargoWeightLabel");
+    cargoWeightLabel.innerHTML = "Вес груза (кг)";
 }
 
 function cargoVolumeInput() {
-    cargoVolumeLabel = document.getElementById('cargoVolumeLabel');
-    cargoVolumeLabel.innerHTML = 'Объём груза (м²)';
+    cargoVolumeLabel = document.getElementById("cargoVolumeLabel");
+    cargoVolumeLabel.innerHTML = "Объём груза (м²)";
 }
 
 // ------------------------------------- /second section -------------------------------------------------------
@@ -471,8 +469,8 @@ function cargoVolumeInput() {
 // ------------------------------------- third section -------------------------------------------------------
 
 function limitOptions() {
-    let vechicle_select = document.getElementById('vechicle_select');
-    let cargo_select = document.getElementById('cargo_select');
+    let vechicle_select = document.getElementById("vechicle_select");
+    let cargo_select = document.getElementById("cargo_select");
 
     cargo_select.remove(0);
     cargo_select.remove(0);
@@ -485,23 +483,23 @@ function limitOptions() {
         cargo_select.remove(1);
     }
 
-    let option1 = document.createElement('option');
-    let option2 = document.createElement('option');
-    let option3 = document.createElement('option');
-    let option4 = document.createElement('option');
-    let option5 = document.createElement('option');
+    let option1 = document.createElement("option");
+    let option2 = document.createElement("option");
+    let option3 = document.createElement("option");
+    let option4 = document.createElement("option");
+    let option5 = document.createElement("option");
 
     if (vechicle_select.selectedIndex == 1) {
         // if Тент, изотерм, целмет.
-        option1.text = '1,5т / 6-16м3, 4м';
+        option1.text = "1,5т / 6-16м3, 4м";
         option1.value = 5000;
-        option2.text = '3т / 14-21м3';
+        option2.text = "3т / 14-21м3";
         option2.value = 6000;
-        option3.text = '5 т / 18-35м3';
+        option3.text = "5 т / 18-35м3";
         option3.value = 8000;
-        option4.text = '10тн / 40-50м3';
+        option4.text = "10тн / 40-50м3";
         option4.value = 10000;
-        option5.text = '20т / 82/96м3';
+        option5.text = "20т / 82/96м3";
         option5.value = 12000;
 
         cargo_select.add(option1);
@@ -513,15 +511,15 @@ function limitOptions() {
 
     if (vechicle_select.selectedIndex == 2) {
         // if Рефрижератор
-        option1.text = '1-1,5 т /6-12м3';
+        option1.text = "1-1,5 т /6-12м3";
         option1.value = 6000;
-        option2.text = '3т / 14-21м3';
+        option2.text = "3т / 14-21м3";
         option2.value = 7000;
-        option3.text = '5 т / 18-25м3';
+        option3.text = "5 т / 18-25м3";
         option3.value = 9000;
-        option4.text = '10т / 35м3';
+        option4.text = "10т / 35м3";
         option4.value = 11000;
-        option5.text = '20т / 82м3';
+        option5.text = "20т / 82м3";
         option5.value = 13000;
 
         cargo_select.add(option1);
@@ -533,15 +531,15 @@ function limitOptions() {
 
     if (vechicle_select.selectedIndex == 3) {
         // if Борт
-        option1.text = '1,5 т. 3м';
+        option1.text = "1,5 т. 3м";
         option1.value = 6000;
-        option2.text = '3т. 4м';
+        option2.text = "3т. 4м";
         option2.value = 7000;
-        option3.text = '5 т. 6м';
+        option3.text = "5 т. 6м";
         option3.value = 9000;
-        option4.text = '10т. 6м-7м';
+        option4.text = "10т. 6м-7м";
         option4.value = 11000;
-        option5.text = '20т. 12м-13.5м';
+        option5.text = "20т. 12м-13.5м";
         option5.value = 13000;
 
         cargo_select.add(option1);
@@ -553,15 +551,15 @@ function limitOptions() {
 
     if (vechicle_select.selectedIndex == 4) {
         // if Тент разборный, борт
-        option1.text = '1,5 т. 3м';
+        option1.text = "1,5 т. 3м";
         option1.value = 6000;
-        option2.text = '3т. 4м';
+        option2.text = "3т. 4м";
         option2.value = 7000;
-        option3.text = '5 т. 6м';
+        option3.text = "5 т. 6м";
         option3.value = 9000;
-        option4.text = '10т. 6м-7м';
+        option4.text = "10т. 6м-7м";
         option4.value = 11000;
-        option5.text = '20т. 12м-13.5м';
+        option5.text = "20т. 12м-13.5м";
         option5.value = 13000;
 
         cargo_select.add(option1);
@@ -573,9 +571,9 @@ function limitOptions() {
 
     if (vechicle_select.selectedIndex == 5) {
         // if Манипулятор
-        option1.text = '5т. 5-6м';
+        option1.text = "5т. 5-6м";
         option1.value = 10000;
-        option2.text = '10т. 6-7,20м';
+        option2.text = "10т. 6-7,20м";
         option2.value = 14000;
 
         cargo_select.add(option1);
@@ -588,19 +586,27 @@ function limitOptions() {
 // ------------------------------------- newThird section -------------------------------------------------------
 
 function checkCheckbox(id) {
-    if (document.getElementById(id).checked) {
+    input_checkbox_checkmark = document.getElementById(id);
+
+    if (input_checkbox_checkmark.checked) {
+        input_checkbox_checkmark.parentElement.classList.toggle("input_checkbox_checked")
+
         document.getElementById(id).checked = false;
+        classToApply = 'input_checkbox_UNchecked'
     } else {
+        input_checkbox_checkmark.parentElement.classList.toggle("input_checkbox_checked")
+        
         document.getElementById(id).checked = true;
+        classToApply = 'input_checkbox_checked'
     }
 }
 // ------------------------------------- /newThird section -------------------------------------------------------
 
 // ------------------------------------- fourth section -------------------------------------------------------
 
-var element = document.getElementById('phone');
+var element = document.getElementById("phone");
 var maskOptions = {
-    mask: '{+7} (000) 000 00-00',
+    mask: "{+7} (000) 000 00-00",
 };
 var mask = IMask(element, maskOptions);
 
@@ -639,27 +645,27 @@ function countCost() {
     // -- /checking if there's one or two markers on the map --
 
     // -- getting vehicle_select and cargo_select input --
-    let vechicle_select = document.getElementById('vechicle_select').value;
-    let cargo_select = document.getElementById('cargo_select').value;
+    let vechicle_select = document.getElementById("vechicle_select").value;
+    let cargo_select = document.getElementById("cargo_select").value;
     min_rate = cargo_select;
 
     vechicle_type = 0;
     switch (vechicle_select) {
         // counting min mkad_rate based on vehivle type
 
-        case 'Тент, изотерм, целмет.':
+        case "Тент, изотерм, целмет.":
             vechicle_type = 1;
             break;
-        case 'Рефрижератор':
+        case "Рефрижератор":
             vechicle_type = 2;
             break;
-        case 'Борт':
+        case "Борт":
             vechicle_type = 3;
             break;
-        case 'Тент разборный, борт':
+        case "Тент разборный, борт":
             vechicle_type = 4;
             break;
-        case 'Манипулятор':
+        case "Манипулятор":
             vechicle_type = 5;
             break;
     }
@@ -747,19 +753,19 @@ function countCost() {
 
     // -- getting input from newThirdSection --
     if (document.getElementById("to_Sadovoe").checked) {
-        Sadovoe_points = 1
+        Sadovoe_points = 1;
     } else {
-        Sadovoe_points = 0
+        Sadovoe_points = 0;
     }
 
     if (document.getElementById("to_TTK").checked) {
-        TTK_points = 1
+        TTK_points = 1;
     } else {
-        TTK_points = 0
+        TTK_points = 0;
     }
 
     AltLoad_points_undef = Number.parseInt(
-        document.getElementById('AltLoad_points').value
+        document.getElementById("AltLoad_points").value
     );
     if (Number.isNaN(AltLoad_points_undef) == false) {
         AltLoad_points = AltLoad_points_undef;
@@ -781,49 +787,49 @@ function countCost() {
     totalcost = roundNumber(totalcost, 0);
 
     console.log(
-        'min_rate',
+        "min_rate",
         min_rate,
-        'mkad_distance_km',
+        "mkad_distance_km",
         mkad_distance_km,
-        'mkad_cost',
+        "mkad_cost",
         mkad_cost,
-        'AltLoad_points_cost',
+        "AltLoad_points_cost",
         AltLoad_points_cost
     );
     // -- /countring total cost --
 
-    document.getElementById('countCost').innerHTML = 'Пересчитать стоимость';
-    document.getElementById('costLabel').innerHTML =
-        'Итоговая примерная стоимость: ' + totalcost + ' руб.'; // displaying total cost
+    document.getElementById("countCost").innerHTML = "Пересчитать стоимость";
+    document.getElementById("costLabel").innerHTML =
+        "Итоговая примерная стоимость: " + totalcost + " руб."; // displaying total cost
 }
 
-var final_message = '';
+var final_message = "";
 function submitData() {
-    let nameData = document.getElementById('name').value;
-    let cargoName = document.getElementById('cargoName').value;
-    let cargoWeight = document.getElementById('cargoWeight').value;
-    let cargoVolume = document.getElementById('cargoVolume').value;
-    let vechicle_select = document.getElementById('vechicle_select').value;
-    let loadDate = document.getElementById('load').value;
-    let unloadDate = document.getElementById('unload').value;
-    let phone = document.getElementById('phone').value;
-    let comment = document.getElementById('comment').value;
+    let nameData = document.getElementById("name").value;
+    let cargoName = document.getElementById("cargoName").value;
+    let cargoWeight = document.getElementById("cargoWeight").value;
+    let cargoVolume = document.getElementById("cargoVolume").value;
+    let vechicle_select = document.getElementById("vechicle_select").value;
+    let loadDate = document.getElementById("load").value;
+    let unloadDate = document.getElementById("unload").value;
+    let phone = document.getElementById("phone").value;
+    let comment = document.getElementById("comment").value;
     let price = totalcost;
 
     if (document.getElementById("to_Sadovoe").checked) {
-        Sadovoe_points = "Да"
+        Sadovoe_points = "Да";
     } else {
-        Sadovoe_points = "Нет"
+        Sadovoe_points = "Нет";
     }
 
     if (document.getElementById("to_TTK").checked) {
-        TTK_points = "Да"
+        TTK_points = "Да";
     } else {
-        TTK_points = "Нет"
+        TTK_points = "Нет";
     }
 
     AltLoad_points_undef = Number.parseInt(
-        document.getElementById('AltLoad_points').value
+        document.getElementById("AltLoad_points").value
     );
     if (Number.isNaN(AltLoad_points_undef) == false) {
         AltLoad_points = AltLoad_points_undef;
@@ -853,24 +859,24 @@ function submitData() {
   Комментарий к заказу: ${comment}<br>
   `;
     Email.send({
-        Host: 'smtp.euroexpress.msk.ru',
-        Username: 'noreply@euroexpress.msk.ru',
-        Password: 'D8r8M9y6',
-        To: 'euroexpress_logist@bk.ru',
-        From: 'noreply@euroexpress.msk.ru',
-        Subject: 'EuroExpress - Новый отклик!',
+        Host: "smtp.euroexpress.msk.ru",
+        Username: "noreply@euroexpress.msk.ru",
+        Password: "D8r8M9y6",
+        To: "neykuratick@mail.ru",
+        From: "noreply@euroexpress.msk.ru",
+        Subject: "EuroExpress - Новый отклик!",
         Body: final_message,
     }).then((message) => checkSended(message), console.log(final_message));
 }
 // ------------------------------------- /fourth section  -------------------------------------------------------
 
 function checkSended(message) {
-    if (message == 'OK') {
-        localStorage.setItem('final-message', final_message);
-        window.open('/request/', '_parent');
+    if (message == "OK") {
+        localStorage.setItem("final_message", final_message);
+        window.open("/new_order/", "_parent");
     } else {
         alert(
-            'Что-то пощло не так! Обратитесь в техническую поддержку. Ошибка:',
+            "Что-то пощло не так! Обратитесь в техническую поддержку. Ошибка:",
             message
         );
     }

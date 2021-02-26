@@ -9,11 +9,23 @@ html, body {
 a {
   color: white;
   text-decoration: none;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
-h1, h2 {
+a:hover {
+  color: #000000;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
+}
+
+.checkbox {
+  display: none;
 }
 
 .bg_blue {
@@ -32,6 +44,14 @@ h1, h2 {
   margin: 0 auto;
 }
 
+.text_shadow {
+  text-shadow: 0px 0px 6px #5e5e5e;
+}
+
+.text_shadow_black {
+  text-shadow: 0px 0px 6px #000000;
+}
+
 .input_box {
   display: block;
   width: 18rem;
@@ -41,6 +61,7 @@ h1, h2 {
   border-radius: 7px;
   border: none;
   font-size: 1rem;
+  padding-left: 0.5rem;
 }
 
 .input_box:focus {
@@ -51,28 +72,24 @@ h1, h2 {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.3rem;
 }
 
 .input_box:-ms-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.3rem;
 }
 
 .input_box::-ms-input-placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.3rem;
 }
 
 .input_box::placeholder {
   outline: none;
   color: #949494;
   font-size: 1rem;
-  padding-left: 0.3rem;
 }
 
 .input_checkbox {
@@ -93,7 +110,15 @@ h1, h2 {
   margin-left: 0.5rem;
 }
 
-.fancy_checkbox {
+.input_checkbox_checked {
+  background-color: #6bc4ee;
+}
+
+.input_checkbox_checked .label {
+  color: white;
+}
+
+.checkbox_fancy {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -101,6 +126,32 @@ h1, h2 {
   width: 25px;
   border-radius: 50%;
   background: #d5d5d5;
+}
+
+.input_button {
+  display: block;
+  width: 18rem;
+  height: 2rem;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  border-radius: 7px;
+  border: none;
+  font-size: 1rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.input_button:hover {
+  background-color: #6bc4ee;
+  color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.input_button:active {
+  background-color: white;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 #videoBG {
@@ -118,6 +169,10 @@ h1, h2 {
   margin: 1rem 2rem;
   padding-right: 15%;
   padding-bottom: 0.5%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #euroexpress_nav_logo {
@@ -261,6 +316,50 @@ h1, h2 {
 @media (max-width: 418px) {
   .inputGroup .input_checkbox {
     min-height: 4rem;
+  }
+}
+
+#cost {
+  margin: 2rem auto;
+  height: 2rem;
+}
+
+#cost h1 {
+  color: white;
+  font-size: 1rem;
+}
+
+#submit {
+  margin-bottom: 1rem;
+}
+
+.last_carousel_item {
+  margin-top: 15rem;
+}
+
+.last_carousel_item textarea {
+  min-height: 10rem;
+  max-height: 15rem;
+}
+
+@media (max-width: 999px) {
+  .last_carousel_item {
+    margin-top: -1rem;
+  }
+  .last_carousel_item #cost {
+    height: 3.5rem;
+  }
+  .last_carousel_item #cost h1 {
+    width: 60%;
+    font-size: 0.9rem;
+  }
+  .last_carousel_item textarea {
+    min-height: 3rem;
+    max-height: 12rem;
+  }
+  .last_carousel_item .input_button {
+    width: 70%;
+    height: 3rem;
   }
 }
 

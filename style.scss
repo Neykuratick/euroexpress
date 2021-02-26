@@ -15,11 +15,21 @@ html, body {
 a {
     color: white;
     text-decoration: none;
+    transition: color 0.5s;
 }
 
-h1, h2{
+a:hover {
+    color: #000000;
+    transition: color 0.5s;
+}
+
+h1, h2, h3, h4{
     margin: 0;
     padding: 0;
+}
+
+.checkbox {
+    display: none;
 }
 
 // ------------------------------------------ general_tags ------------------------------------------
@@ -40,6 +50,14 @@ h1, h2{
     margin: 0 auto;
 }
 
+.text_shadow {
+    text-shadow: 0px 0px 6px #5e5e5e;
+}
+
+.text_shadow_black {
+    text-shadow: 0px 0px 6px #000000;
+}
+
 .input_box {
     display: block;
 
@@ -51,6 +69,7 @@ h1, h2{
     border: none;
 
     font-size: 1rem;
+    padding-left: 0.5rem;
 }
 
 .input_box:focus {
@@ -61,7 +80,6 @@ h1, h2{
     outline: none;
     color: #949494;
     font-size: 1rem;
-    padding-left: 0.3rem;
 }
 
 .input_checkbox {
@@ -82,7 +100,15 @@ h1, h2{
     }
 }
 
-.fancy_checkbox {
+.input_checkbox_checked {
+    background-color: $base_color;
+    
+    .label {
+        color: white;
+    }
+}
+
+.checkbox_fancy {
     appearance: none;
     
     height: 25px;
@@ -90,6 +116,32 @@ h1, h2{
     border-radius: 50%;
 
     background: #d5d5d5;
+}
+
+.input_button {
+    display: block;
+
+    width: 18rem;
+    height: 2rem;
+
+    box-shadow: 3px 3px 11px 0px #6d6d6d33;
+    border-radius: 7px;
+    border: none;
+
+    font-size: 1rem;
+
+    transition: all 0.5s;
+}
+
+.input_button:hover {
+    background-color: $base_color;
+    color: white;
+    transition: all 0.5s;
+}
+
+.input_button:active {
+    background-color: white;
+    transition: all 0.3s;
 }
 
 
@@ -114,6 +166,8 @@ h1, h2{
     margin: 1rem 2rem; // top and bottom - auto \n right and left - 2rem
     padding-right: 15%;
     padding-bottom: 0.5%;
+
+    user-select: none;
 }
 
 #euroexpress_nav_logo {
@@ -242,6 +296,53 @@ h1, h2{
 
         @media (max-width: 418px) {
             min-height: 4rem;
+        }
+    }
+}
+
+#cost {
+    margin: 2rem auto;
+
+    height: 2rem;
+
+    h1 {
+        color: white;
+        font-size: 1rem;
+    }
+}
+
+#submit {
+    margin-bottom: 1rem;
+}
+
+.last_carousel_item {
+    margin-top: 15rem;
+
+    textarea {
+        min-height: 10rem;
+        max-height: 15rem;
+    }
+
+    @media (max-width: 999px) {
+        margin-top: -1rem;
+
+        #cost {
+            height: 3.5rem;
+
+            h1 {
+                width: 60%;
+                font-size: 0.9rem;
+            }
+        }
+
+        textarea {
+            min-height: 3rem;
+            max-height: 12rem;
+        }
+
+        .input_button {
+            width: 70%;
+            height: 3rem;
         }
     }
 }
