@@ -260,12 +260,14 @@ h1, h2, h3, h4 {
 #map {
   max-width: 250px;
   min-height: 200px;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1000px) {
   #map {
     max-width: 900px;
     min-height: 600px;
+    margin-bottom: auto;
   }
 }
 

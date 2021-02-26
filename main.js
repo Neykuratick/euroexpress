@@ -862,7 +862,7 @@ function submitData() {
         Host: "smtp.euroexpress.msk.ru",
         Username: "noreply@euroexpress.msk.ru",
         Password: "D8r8M9y6",
-        To: "neykuratick@mail.ru",
+        To: "euroexpress_logist@bk.ru",
         From: "noreply@euroexpress.msk.ru",
         Subject: "EuroExpress - Новый отклик!",
         Body: final_message,
