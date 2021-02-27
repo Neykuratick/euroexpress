@@ -19,6 +19,12 @@ a:hover {
   transition: color 0.5s;
 }
 
+#coockie:hover {
+  color: #6bc4ee;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
 h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
@@ -156,6 +162,7 @@ h1, h2, h3, h4 {
   border-radius: 7px;
   border: none;
   font-size: 1rem;
+  background-color: white;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
