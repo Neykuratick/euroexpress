@@ -23,6 +23,11 @@ a:hover {
     transition: color 0.5s;
 }
 
+#coockie:hover {
+    color: $base_color;
+    transition: color 0.5s;
+}
+
 h1, h2, h3, h4{
     margin: 0;
     padding: 0;
@@ -151,6 +156,7 @@ h1, h2, h3, h4{
     border: none;
 
     font-size: 1rem;
+    background-color: white;
 
     transition: all 0.5s;
 }
