@@ -5,114 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕвроЭкспресс - доставка</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS Dependences -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- Other Dependences -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqQWVdLdaFiMVjeVJY9nCrG617KMJoPa0&language=ru&libraries=places&callback=initialize" defer></script>
     <script src="https://smtpjs.com/v3/smtp.js" defer></script>
+
+    <!-- My own Dependences -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/logo.svg" type="image/png">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand fs-1" id="navBarLogo">ЕвроЭкспресс</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <div class="container d-flex justify-content-center">
-                <ul class="navbar-nav fs-4">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/about/">о компании</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/prices/">прайс-лист</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/contacts/">контакты</a>
-                  </li>
-                </ul>
-              </div>
-              </div>
+     <!--— Yandex.Metrika counter —-->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");ym(71963509, "init", {clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,ecommerce:"dataLayer"});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/71963509" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!--— /Yandex.Metrika counter —-->    
+
+    <video id="videoBG" autoplay muted loop style="background-image: url(/imgs/Snipaste.png);">
+        <source src="imgs/video.mp4" type="Video/mp4" id="video">
+    </video>
+
+
+    <nav class="navbar navbar-light navbar-expand-md bg_blue">
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_target">
+            <i class="fas fa-bars fa-lg text_wh" id="ham_ico"></i>
+        </button>
+
+        <h1 class="text-center text_wh" id="navbar_brand">ЕвроЭкспресс</h1>
+
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <ul class="navbar-nav d-flex justify-content-center">
+                <li class="navbar-item">
+                    <a href="/about/index.html"><h2 class="navigation_text h2">о компании</h2></a>
+                </li>
+    
+                <li class="navbar-item">
+                    <a href="/prices/index.html"><h2 class="navigation_text h2">прайс-лист</h2></a>
+                </li>
+    
+                <li class="navbar-item">
+                    <a href="/contacts/index.html"><h2 class="navigation_text h2">контакты</h2></a>
+                </li>
+            </ul>
         </div>
     </nav>
-
-    <div class="container-fluid">
-        <section>
-            <div class="newHeader">
-                <span id="headerText">Расчёт</span> <span id="headerTextContinuation">стоимости доставки</span>
-            </div>
-
-            <div class="slider" id="slider">
-                <div class="slider-items">
-
-                    <div class="item active" id="firstSection">
-                        <input id="pac-input" class="controls" type="text" placeholder="Введите адрес"/>
-                        <div id="map" style="width: 443px; height: 374px"></div>
-                        <h3 class="data" id="firstData"></h3> <!-- ваша первая точка -->
-                        <h3 id="point1" class="data outputData"></h3> <!-- адрес1 -->
-                        <h3 class="data" id="secondData"></h3> <!-- ваша вторая точка -->
-                        <h3 id="point2" class="data outputData"></h3> <!-- адрес2 -->
-                        <h3 id="distance" class="data distanceData"> </h3>
-                    </div>
-
-                    <div  class="item" id="secondSection">
-                        <input type="text" name="name" placeholder="Фамилия Имя Отчество" id="name">
-                        <input type="text" placeholder="Наименование груза" id="cargoName">
-                        <input type="number" placeholder="Вес груза (кг)" id="cargoWeight">
-                        <input type="number" class="" placeholder="Объём груза (м²)" id="cargoVolume">
-                    </div>
-
-                    <div  class="item thirdSection">
-
-                        <select name="vechicle_select" id="vechicle_select">
-                            <option value="null" disabled selected hidden>Тип транспортного средства</option>
-                            <option value="1">Тент, изотерм, целмет.</option>
-                            <option value="2">Рефрижератор</option>
-                            <option value="3">Борт</option>
-                            <option value="4">Тент разборный, борт</option>
-                            <option value="5">Манипулятор</option>
-                        </select>
-
-                        <input placeholder="Выберите день погрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="load">
-                        <input placeholder="Выберите день выгрузки" class="loadUnloadDate" type="text" onfocus="(this.type='date')" min="2021-01-01" max="2030-12-31" id="unload">
-                    </div>
-                    
-                    <div  class="item fourthSection">
-                        <form action="">
-                            <input type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00">
-                        </form>
-                        <textarea name="" id="comment" cols="40" rows="10" placeholder="Комментарий к заказу"></textarea>
-                        <h1 id="cost"></h1>
-                        <button type="button" id="submit" onclick="submitData();">Отправить</button>
-                    </div>
-        
-                </div>
-                <!-- slider controls -->
-                    <div class="left-slide"><</div>
-                    <div class="right-slide">></div>
-                <!-- slider controls -->
-            </div>
-
-        </section>
+    
+    <div class="container-fluid maintext">
+        <h1 class="text_wh text-center">Расчёт стоимости доставки</h1>
+        <p class="text_wh">
+            ЕвроЭкспресс - это гарант качества грузоперевозок. Доставим быстро и без задержек. Наша система расчёта итоговой стоимости позволяет клиентам получать полное представление о цене
+            доставки в автоматическом порядке. Всё, что вам нужно - это только "вбить" свои данные в поля ниже, а мы посчитаем всё за вас! Можно даже заполнить только некоторые из них.
+            Все необязательно.
+        </p>
     </div>
 
-    <footer>
-        <img src="/imgs/logo.png" alt="logo" id="logoPNG">
+    <div class="container carousel_container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider" class="carousel slide" data-interval="false">
+                    
+                    <!-- Indicators dot nov -->
+                    <ol class="carousel-indicators">
 
-        <div class="footerCopyright">
-            <h1 id="footerCopy">© Транспортная компания «ЕвроЭкспресс»</h1>
-            <h1 id="footerRights">Все права защищены</h1>
+                        <li data-target="#slider" data-slide-to="0" class="active">
+                            <i class="fas fa-circle carousel_indicator"></i>
+                        </li>
+
+                        <li data-target="#slider" data-slide-to="1">
+                            <i class="fas fa-circle carousel_indicator"></i>
+                        </li>
+
+                        <li data-target="#slider" data-slide-to="2">
+                            <i class="fas fa-circle carousel_indicator"></i>
+                        </li>
+
+                        <li data-target="#slider" data-slide-to="3">
+                            <i class="fas fa-circle carousel_indicator"></i>
+                        </li>
+
+                        <li data-target="#slider" data-slide-to="4">
+                            <i class="fas fa-circle carousel_indicator"></i>
+                        </li>
+                      </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="carousel-item active">
+                            <div class="container-fluid">
+                                <input id="pac-input" class="box_adress input_box div_center" type="text" placeholder="Адрес откуда"/>
+                                <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда"/>
+
+                                <!-- Расстояние -->
+                                <h3 id="distance" class="data distanceData text_wh text-center"> </h3>
+                            </div>
+                            <div id="map" class="div_center"></div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
+                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName">
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()">
+                                <p class="inputlabel" id="cargoWeightLabel"></p>
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Объём груза (м²)" id="cargoVolume" oninput="cargoVolumeInput()">
+                                <p class="inputlabel" id="cargoVolumeLabel"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <select class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
+                                    <option value="0" disabled selected hidden>Тип т/с</option>
+                                    <option value="Тент, изотерм, целмет.">Тент, изотерм, целмет.</option>
+                                    <option value="Рефрижератор">Рефрижератор</option>
+                                    <option value="Борт">Борт</option>
+                                    <option value="Тент разборный, борт">Тент разборный, борт</option>
+                                    <option value="Манипулятор">Манипулятор</option>
+                                </select>
+        
+                                <select class="input_box div_center carousel_input" name="cargo_select" id="cargo_select">
+                                    <option value="0" disabled selected hidden>Грузоподъёмность т/c</option>
+                                    <option value="1" disabled>Сначала выберите т/с</option>
+                                </select>
+        
+                                <input class="input_box div_center carousel_input loadUnloadDate" placeholder="Выберите день погрузки" type="text" onfocus="(this.type='date')" min="2021-01-01" id="load">
+                                <input class="input_box div_center carousel_input loadUnloadDate" placeholder="Выберите день выгрузки" type="text" onfocus="(this.type='date')" min="2021-01-01" id="unload">
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="container-fluid inputGroup">
+                                <div class="input_checkbox div_center carousel_input" onclick="checkCheckbox('to_TTK')">
+                                    <input class="checkbox" type="checkbox" value="" id="to_TTK">
+                                    <label class="label user-select-none" for="flexCheckDefault">Выезд в ТТК</label>
+                                </div>
+                                
+                                <div class="input_checkbox div_center carousel_input" onclick="checkCheckbox('to_Sadovoe')">
+                                    <input class="checkbox" type="checkbox" value="" id="to_Sadovoe">
+                                    <label class="label user-select-none" for="flexCheckChecked">Выезд за Садовое кольцо</label>
+                                </div>
+
+                                <input class="input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
+                                <p class="inputlabel" id="AltLoad_pointsLabel"></p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="container-fluid last_carousel_item">
+                                <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00"></form>
+                                <textarea class="input_box div_center carousel_input" id="comment" placeholder="Комментарий к заказу"></textarea>
+
+                                <div id="cost">
+                                    <button class="div_center input_button" type="button" id="countCost" onclick="countCost();">Расчитать стоимость</button>
+                                    <h1 id='costLabel' class="text-center div_center text_shadow"></h1>
+                                </div>
+
+                                <button class="div_center input_button" type="button" id="submit" onclick="submitData();">Отправить</button>
+                                <a href="/imgs/data.docx"><p class="personalDataBaboomkaDva text-center text_shadow" id="coockie">Нажимая на кнопку "Отправить", вы соглашаетесь <br> на обработку персональных данных</p></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Next/prev controls -->
+                    <a href="#slider" class="carousel-control-prev" role="button" data-slide="prev">
+                        <!-- <i class="fas fa-arrow-alt-circle-left"></i> -->
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a href="#slider" class="carousel-control-next" role="button" data-slide="next">
+                        <!-- <i class="fas fa-arrow-alt-circle-right"></i> -->
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg_blue row">
+        <img src="imgs/logo.svg" alt="" id="logo_footer" class="center-block col col-md-3">
+
+        <div class="container text-center text_wh col col-md-6" id="copyright_footer">
+            <h2>© Транспортная компания «ЕвроЭкспресс»</h2>
+            <h3 class="text-nowrap">Все права защищены</h3>
         </div>
 
-        <div class="footerContacts">
-            <h2 id="footerNumber">+7 (977) 692 37-50</h2>
-            <h2 id="footerEmail">euroexpress_buh@bk.ru</h2>
+        <div class="container text-center text_wh col col-md-3" id="contacts">
+            <h2 class="contact" id="phone_number">+7 (977) 692 37-50</h2>
+            <h2 class="contact">euroexpress_logist@bk.ru</h2>
         </div>
     </footer>
 
+    <!-- JS Dependences -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/imask"></script>
-    <script src="/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- My own Dependences -->
+    <script src="main.js"></script>
+
 </body>
 </html>

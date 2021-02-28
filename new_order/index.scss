@@ -1,0 +1,8 @@
+#aplication {
+    margin-left: 2rem;
+    font-size: 1rem;
+
+    @media (min-width: 910px) {
+        margin-left: 20rem;
+    }
+}

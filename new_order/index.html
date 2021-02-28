@@ -12,7 +12,7 @@
 
     <!-- My own Dependences -->
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="prices.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="imgs/logo.svg" type="image/png">
 </head>
 <body>
@@ -24,6 +24,10 @@
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/71963509" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!--— /Yandex.Metrika counter —-->   
+
+    <video id="videoBG" autoplay muted loop style="background-image: url(/imgs/Snipaste.png);">
+        <source src="/imgs/video.mp4" type="Video/mp4" id="video">
+    </video>
 
     <nav class="navbar navbar-light navbar-expand-md bg_blue">
 
@@ -50,23 +54,17 @@
         </div>
     </nav>
 
-    <h1 class="text-center header"><span>Наши </span>цены</h1>
 
-    <img src="tz.png" class="img-fluid mx-auto d-block" style="margin-top: 2rem;">
 
-    <h3 class="text-center" style=" margin-top: 1rem; font-weight: 400; font-size: 1.5rem;">Цены указаны с учетом НДС (20%)</h3>
+    <h1 class="text-center text_wh header text_shadow_darker"><span>Расчёт</span> стоимости доставки</h1>
 
-    <p class="text-start paragraph div_center" style="margin-top: 10rem; width: 70%; font-size: 1.7rem;">
-        Работа транспортного средства за пределами МКАД оплачивается согласно тарифа за каждый километр пробега туда и обратно от МКАД.
-        Цена по регионам по договоренности. При перевозке негабаритных грузов ставки обсуждаются по договоренности. Осуществляем перевозки
-        грузов спецтехникой, ставки по договоренности.<br><br>
+    <h3 class="text-center paragraph text_shadow_darker text_wh">Благодарим вас за доверие! Ваша заявка принята в обработку.
+        <br> Мы вам перезвоним!</h3>
 
-        Работаем без перерыва и выходных, в любую погоду! Мы будем рады ответить на все Ваши вопросы, и всегда готовы обсудить тарифы на грузоперевозки по Москве,
-        Московской области и России.
-    </p>
+    <h1 class="text-center header text_wh"><span>Ваше</span> заявление</h1>
 
-    <h2 class="text-center best_wishes">С уважением, ООО ЕВРОЭКСПРЕСС</h2>
-    
+    <p class="text-start paragraph text_wh" id="aplication"></p>
+
     <footer class="footer bg_blue row">
         <img src="/imgs/logo.svg" alt="" id="logo_footer" class="center-block col col-md-3">
 
@@ -86,5 +84,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- My own Dependences -->
+    <script src="index.js"></script>
 </body>
 </html>

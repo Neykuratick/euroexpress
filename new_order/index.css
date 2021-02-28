@@ -1,0 +1,11 @@
+#aplication {
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 910px) {
+  #aplication {
+    margin-left: 20rem;
+  }
+}
+/*# sourceMappingURL=index.css.map */
