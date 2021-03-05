@@ -405,6 +405,10 @@ h1, h2, h3, h4{
 
     .contact {
         padding: 0.8rem;
+
+        @media (max-width: 1444px) and (min-width: 844px) {
+            font-size: 2vw;
+        }
     }
 
 }
