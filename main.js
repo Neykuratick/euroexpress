@@ -48,11 +48,11 @@ function initMap() {
         mapTypeControl: false,
     });
 
-    map.addListener("click", (e) => {
-        clear();
-        markers.push(placeMarkerAndPanTo(e.latLng, map));
-        getAdressAndDistance();
-    });
+    // map.addListener("click", (e) => {
+    //     clear();
+    //     markers.push(placeMarkerAndPanTo(e.latLng, map));
+    //     getAdressAndDistance();
+    // });
 }
 
 // ----------------------------- search box ---------------------------------------
