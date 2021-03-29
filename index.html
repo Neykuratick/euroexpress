@@ -26,7 +26,18 @@
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");ym(71963509, "init", {clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,ecommerce:"dataLayer"});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/71963509" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!--— /Yandex.Metrika counter —-->    
+    <!--— /Yandex.Metrika counter —-->
+
+    <!-- Font import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+      google: {
+      families: ["Lato:100,300,400,700,900","Karla:regular","Cookie:regular"]
+    }
+    });
+    </script>
+    <!-- /Font import -->
 
     <video id="videoBG" autoplay muted loop style="background-image: url(/imgs/Snipaste.png);">
         <source src="imgs/video.mp4" type="Video/mp4" id="video">
@@ -99,9 +110,9 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
 
-                        <div class="carousel-item active">
+                        <div class="carousel-item">
                             <div class="container-fluid">
-                                <input id="pac-input" class="box_adress input_box div_center" type="text" placeholder="Адрес откуда"/>
+                                <input id="pac-input" class="box_adress input_box div_center form-control" type="text" placeholder="Адрес откуда"/>
                                 <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда"/>
 
                                 <!-- Расстояние -->
@@ -112,12 +123,11 @@
                         
                         <div class="carousel-item">
                             <div class="container-fluid inputGroup">
-                                <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
-                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName">
-                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()">
-                                <p class="inputlabel" id="cargoWeightLabel"></p>
+                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName" required>
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()" required>
+                                <!-- <p class="inputlabel" id="cargoWeightLabel"></p> -->
                                 <input class="input_box div_center carousel_input" type="number" placeholder="Объём груза (м²)" id="cargoVolume" oninput="cargoVolumeInput()">
-                                <p class="inputlabel" id="cargoVolumeLabel"></p>
+                                <!-- <p class="inputlabel" id="cargoVolumeLabel"></p> -->
                             </div>
                         </div>
 
@@ -160,17 +170,23 @@
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div class="carousel-item active">
                             <div class="container-fluid last_carousel_item">
+                                <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
                                 <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00"></form>
                                 <textarea class="input_box div_center carousel_input" id="comment" placeholder="Комментарий к заказу"></textarea>
 
-                                <div id="cost">
+                                <!-- <div id="cost">
                                     <button class="div_center input_button" type="button" id="countCost" onclick="countCost();">Расчитать стоимость</button>
+                                    <h1 id='costLabel' class="text-center div_center text_shadow"></h1>
+                                </div> -->
+                                
+                                <div id="cost">
                                     <h1 id='costLabel' class="text-center div_center text_shadow"></h1>
                                 </div>
 
-                                <button class="div_center input_button" type="button" id="submit" onclick="submitData();">Отправить</button>
+                                <button class="div_center input_button" type="button" id="countCost" onclick="countCost();" style="display: none;">Расчитать стоимость</button>
+                                <button class="div_center input_button" type="button" id="submit" onclick="final_button();">Рассчитать стоимость</button>
                                 <a href="/imgs/data.docx"><p class="personalDataBaboomkaDva text-center text_shadow" id="coockie">Нажимая на кнопку "Отправить", вы соглашаетесь <br> на обработку персональных данных</p></a>
                             </div>
                         </div>

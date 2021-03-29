@@ -180,6 +180,52 @@ h1, h2, h3, h4 {
   transition: all 0.3s;
 }
 
+label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.required_input {
+  display: block;
+  width: 18rem;
+  height: 2rem;
+  -webkit-box-shadow: 3px 3px 11px 0px #6d6d6d33;
+          box-shadow: 3px 3px 11px 0px #6d6d6d33;
+  border-radius: 7px;
+  border: none;
+  font-size: 1rem;
+  background-color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+}
+
+.input-group .error-message {
+  display: none;
+}
+
+/* Error Styling */
+.error label {
+  color: #cc0033;
+}
+
+.error input[type=text] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  display: inline-block;
+}
+
 #videoBG {
   position: fixed;
   z-index: -1;
@@ -349,7 +395,6 @@ h1, h2, h3, h4 {
 }
 
 #cost {
-  margin: 2rem auto;
   height: 2rem;
 }
 

@@ -868,6 +868,20 @@ function submitData() {
         Body: final_message,
     }).then((message) => checkSended(message), console.log(final_message));
 }
+
+ var final_button_Pressed = false;
+ function final_button() {
+
+    if (final_button_Pressed === false) {
+        countCost()
+        document.getElementById("submit").innerHTML = "Отправить"
+        final_button_Pressed = true;
+    } else {
+        submitData()
+        final_button_Pressed = false;
+    }
+ }
+
 // ------------------------------------- /fourth section  -------------------------------------------------------
 
 function checkSended(message) {
