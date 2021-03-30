@@ -237,8 +237,8 @@ function getAdressAndDistance() {
         marker1 = markers[0].getPosition();
         marker2 = markers[1].getPosition();
         distance = getDistance(marker1, marker2);
-        console.log(inPoly(markersPosition[0], mkad_points))
-        console.log(inPoly(markersPosition[1], mkad_points))
+        // console.log(inPoly(markersPosition[0], moscow_region_points, false))
+        // console.log(inPoly(markersPosition[1], moscow_region_points, false))
         document.getElementById("distance").innerHTML =
             "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
     }
@@ -396,9 +396,37 @@ var mkad_points = [
     [37.841145, 55.793925],
 ];
 
-function inPoly(latLngCords, polygon) {
-    let y = latLngCords[0]; // lat
-    let x = latLngCords[1]; // lng
+var moscow_region_points = [
+    [54.915865,37.432435],
+    [55.026218,36.927764],
+    [55.232313,36.359007],
+    [55.577974,36.15073],
+    [56.032674,36.174762],
+    [56.380203,36.575295],
+    [56.51745,37.039913],
+    [56.508611,37.672755],
+    [56.442247,38.257532],
+    [55.996851,38.882363],
+    [55.857726,39.074619],
+    [55.609659,39.122683],
+    [55.419163,38.922417],
+    [55.250581,38.71414],
+    [55.108783,38.377692],
+    [55.250581,38.71414],
+];
+
+
+
+function inPoly(latLngCords, polygon, reversed) {
+
+    let y = latLngCords[1]; // lat
+    let x = latLngCords[0]; // lng
+
+    if (reversed) {
+        y = latLngCords[0]; // lat
+        x = latLngCords[1]; // lng
+    } 
+
     var j = polygon.length - 1,
         c = false; // true/false - inside or outside of the polygon
     for (i = 0; i < polygon.length; i++) {
