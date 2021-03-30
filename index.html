@@ -31,10 +31,10 @@
     <!-- Font import -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
-      WebFont.load({
+    WebFont.load({
       google: {
-      families: ["Lato:100,300,400,700,900","Karla:regular","Cookie:regular"]
-    }
+        families: ["Cookie:regular"]
+      }
     });
     </script>
     <!-- /Font import -->
@@ -71,10 +71,16 @@
     
     <div class="container-fluid maintext">
         <h1 class="text_wh text-center">Расчёт стоимости доставки</h1>
-        <p class="text_wh">
-            ЕвроЭкспресс - это гарант качества грузоперевозок. Доставим быстро и без задержек. Наша система расчёта итоговой стоимости позволяет клиентам получать полное представление о цене
-            доставки в автоматическом порядке. Всё, что вам нужно - это только "вбить" свои данные в поля ниже, а мы посчитаем всё за вас! Можно даже заполнить только некоторые из них.
-            Все необязательно.
+        <p class="text_wh" style="font-family: 'Monotype Corsiva';">
+            ЕВРОЭКСПРЕСС — это гарант качества грузоперевозок по всей России. Почему именно МЫ? <br><br> Наши основные ПЛЮСЫ: <br>
+            · Оперативная работа по предоставлению транспорта. <br>
+            · Оставив заявку на нашем сайте, менеджер свяжется с вами в течении 5 минут и проконсультирует по всем вопросам. <br>
+            · Менеджеры на связи 24/7. <br>
+            · Доступные цены на грузоперевозки по всей России. <br>
+            · Ваш груз в надежных руках. <br> <br>
+
+            У вас есть груз? У нас есть транспорт!
+
         </p>
     </div>
 
@@ -102,18 +108,19 @@
                             <i class="fas fa-circle carousel_indicator"></i>
                         </li>
 
-                        <li data-target="#slider" data-slide-to="4">
+                        <!-- <li data-target="#slider" data-slide-to="4">
                             <i class="fas fa-circle carousel_indicator"></i>
-                        </li>
+                        </li> -->
                       </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
 
-                        <div class="carousel-item">
+                        <div class="carousel-item active">
                             <div class="container-fluid">
                                 <input id="pac-input" class="box_adress input_box div_center form-control" type="text" placeholder="Адрес откуда"/>
                                 <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда"/>
+                                <input class="box_adress input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
 
                                 <!-- Расстояние -->
                                 <h3 id="distance" class="data distanceData text_wh text-center"> </h3>
@@ -136,10 +143,10 @@
                             <div class="container-fluid inputGroup">
                                 <select class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
                                     <option value="0" disabled selected hidden>Тип т/с</option>
-                                    <option value="Тент, изотерм, целмет.">Тент, изотерм, целмет.</option>
+                                    <option value="Тент">Тент</option>
+                                    <option value="Изотерм">Изотерм</option>
                                     <option value="Рефрижератор">Рефрижератор</option>
                                     <option value="Борт">Борт</option>
-                                    <option value="Тент разборный, борт">Тент разборный, борт</option>
                                     <option value="Манипулятор">Манипулятор</option>
                                 </select>
         
@@ -153,7 +160,7 @@
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <!-- <div class="carousel-item">
                             <div class="container-fluid inputGroup">
                                 <div class="input_checkbox div_center carousel_input" onclick="checkCheckbox('to_TTK')">
                                     <input class="checkbox" type="checkbox" value="" id="to_TTK">
@@ -165,12 +172,11 @@
                                     <label class="label user-select-none" for="flexCheckChecked">Выезд за Садовое кольцо</label>
                                 </div>
 
-                                <input class="input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
                                 <p class="inputlabel" id="AltLoad_pointsLabel"></p>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="carousel-item active">
+                        <div class="carousel-item">
                             <div class="container-fluid last_carousel_item">
                                 <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
                                 <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00"></form>

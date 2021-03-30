@@ -237,6 +237,8 @@ function getAdressAndDistance() {
         marker1 = markers[0].getPosition();
         marker2 = markers[1].getPosition();
         distance = getDistance(marker1, marker2);
+        console.log(inPoly(markersPosition[0], mkad_points))
+        console.log(inPoly(markersPosition[1], mkad_points))
         document.getElementById("distance").innerHTML =
             "Расстояние: " + roundNumber(distance / 1000, 3) + " километров";
     }
@@ -394,20 +396,20 @@ var mkad_points = [
     [37.841145, 55.793925],
 ];
 
-function inPoly(latLngCords) {
-    let y = latLngCords.lat;
-    let x = latLngCords.lng;
-    var j = mkad_points.length - 1,
+function inPoly(latLngCords, polygon) {
+    let y = latLngCords[0]; // lat
+    let x = latLngCords[1]; // lng
+    var j = polygon.length - 1,
         c = false; // true/false - inside or outside of the polygon
-    for (i = 0; i < mkad_points.length; i++) {
+    for (i = 0; i < polygon.length; i++) {
         if (
-            ((mkad_points[i][1] <= y && y < mkad_points[j][1]) ||
-                (mkad_points[j][1] <= y && y < mkad_points[i][1])) &&
+            ((polygon[i][1] <= y && y < polygon[j][1]) ||
+                (polygon[j][1] <= y && y < polygon[i][1])) &&
             x >
-                ((mkad_points[j][0] - mkad_points[i][0]) *
-                    (y - mkad_points[i][1])) /
-                    (mkad_points[j][1] - mkad_points[i][1]) +
-                    mkad_points[i][0]
+                ((polygon[j][0] - polygon[i][0]) *
+                    (y - polygon[i][1])) /
+                    (polygon[j][1] - polygon[i][1]) +
+                    polygon[i][0]
         ) {
             c = !c;
         }
@@ -490,7 +492,7 @@ function limitOptions() {
     let option5 = document.createElement("option");
 
     if (vechicle_select.selectedIndex == 1) {
-        // if Тент, изотерм, целмет.
+        // if Тент
         option1.text = "1,5т / 6-16м3, 4м";
         option1.value = 5000;
         option2.text = "3т / 14-21м3";
@@ -671,7 +673,7 @@ function countCost() {
     }
 
     switch (true) {
-        // Тент, изотерм, целмет.
+        // Тент
         case vechicle_type == 1 && cargo_select == 5000:
             points_cost = 500;
             mkad_rate = 30;
@@ -693,7 +695,7 @@ function countCost() {
             mkad_rate = 60;
             break;
 
-        // Рефрижератор
+        // Изотерм
         case vechicle_type == 2 && cargo_select == 6000:
             points_cost = 1000;
             mkad_rate = 40;
@@ -715,7 +717,7 @@ function countCost() {
             mkad_rate = 70;
             break;
 
-        // Борт
+        // Рефрижератор
         case vechicle_type == 3 && cargo_select == 6000:
             points_cost = 500;
             mkad_rate = 30;
@@ -725,7 +727,7 @@ function countCost() {
             mkad_rate = 40;
             break;
 
-        // Тент разборный, борт
+        // Борт
         case vechicle_type == 4 && cargo_select == 9000:
             points_cost = 1000;
             mkad_rate = 50;
