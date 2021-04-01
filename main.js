@@ -540,7 +540,7 @@ function limitOptions() {
     }
 
     if (vechicle_select.selectedIndex == 2) {
-        // if Рефрижератор
+        // if Изотерм
         option1.text = "1-1,5 т /6-12м3";
         option1.value = 6000;
         option2.text = "3т / 14-21м3";
@@ -560,7 +560,7 @@ function limitOptions() {
     }
 
     if (vechicle_select.selectedIndex == 3) {
-        // if Борт
+        // if Рефрижератор
         option1.text = "1,5 т. 3м";
         option1.value = 6000;
         option2.text = "3т. 4м";
@@ -580,7 +580,7 @@ function limitOptions() {
     }
 
     if (vechicle_select.selectedIndex == 4) {
-        // if Тент разборный, борт
+        // if Борт
         option1.text = "1,5 т. 3м";
         option1.value = 6000;
         option2.text = "3т. 4м";
@@ -683,16 +683,16 @@ function countCost() {
     switch (vechicle_select) {
         // counting min mkad_rate based on vehivle type
 
-        case "Тент, изотерм, целмет.":
+        case "Тент":
             vechicle_type = 1;
             break;
-        case "Рефрижератор":
+        case "Изотерм":
             vechicle_type = 2;
             break;
-        case "Борт":
+        case "Рефрижератор":
             vechicle_type = 3;
             break;
-        case "Тент разборный, борт":
+        case "Борт":
             vechicle_type = 4;
             break;
         case "Манипулятор":
@@ -700,85 +700,208 @@ function countCost() {
             break;
     }
 
+    inMoscow = inPoly(markersPosition[0], moscow_region_points, false)
+    inMoscow2 = inPoly(markersPosition[1], moscow_region_points, false)
+    if (inMoscow === true && inMoscow2 == true) {
+        inMoscow = true;
+    } else {
+        inMoscow = false;
+    }
+
     switch (true) {
         // Тент
         case vechicle_type == 1 && cargo_select == 5000:
             points_cost = 500;
             mkad_rate = 30;
+
+            if (!inMoscow) {
+                mkad_rate = 40;
+            }
             break;
         case vechicle_type == 1 && cargo_select == 6000:
             points_cost = 500;
             mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 50;
+            }
             break;
         case vechicle_type == 1 && cargo_select == 8000:
             points_cost = 1000;
             mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 60;
+            }
             break;
         case vechicle_type == 1 && cargo_select == 10000:
             points_cost = 1000;
             mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 70;
+            }
             break;
         case vechicle_type == 1 && cargo_select == 12000:
             points_cost = 1500;
             mkad_rate = 60;
+
+            if (!inMoscow) {
+                mkad_rate = 80;
+            }
             break;
 
         // Изотерм
         case vechicle_type == 2 && cargo_select == 6000:
             points_cost = 1000;
             mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 40;
+            }
             break;
         case vechicle_type == 2 && cargo_select == 7000:
             points_cost = 1000;
             mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 50;
+            }
             break;
         case vechicle_type == 2 && cargo_select == 9000:
             points_cost = 1500;
             mkad_rate = 60;
+
+            if (!inMoscow) {
+                mkad_rate = 60;
+            }
             break;
         case vechicle_type == 2 && cargo_select == 11000:
             points_cost = 1500;
             mkad_rate = 60;
+
+            if (!inMoscow) {
+                mkad_rate = 70;
+            }
             break;
         case vechicle_type == 2 && cargo_select == 13000:
             points_cost = 2000;
             mkad_rate = 70;
+
+            if (!inMoscow) {
+                mkad_rate = 80;
+            }
             break;
 
         // Рефрижератор
         case vechicle_type == 3 && cargo_select == 6000:
             points_cost = 500;
             mkad_rate = 30;
+
+            if (!inMoscow) {
+                mkad_rate = 50;
+            }
             break;
         case vechicle_type == 3 && cargo_select == 7000:
             points_cost = 500;
             mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 60;
+            }
+            break;
+        case vechicle_type == 3 && cargo_select == 9000:
+            points_cost = 500;
+            mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 70;
+            }
+            break;
+        case vechicle_type == 3 && cargo_select == 11000:
+            points_cost = 500;
+            mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 80;
+            }
+            break;
+        case vechicle_type == 3 && cargo_select == 13000:
+            points_cost = 500;
+            mkad_rate = 40;
+
+            if (!inMoscow) {
+                mkad_rate = 90;
+            }
             break;
 
         // Борт
+        case vechicle_type == 4 && cargo_select == 6000:
+            points_cost = 1000;
+            mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 40;
+            }
+            break;
+        case vechicle_type == 4 && cargo_select == 7000:
+            points_cost = 1000;
+            mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 50;
+            }
+            break;
         case vechicle_type == 4 && cargo_select == 9000:
             points_cost = 1000;
             mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 60;
+            }
             break;
         case vechicle_type == 4 && cargo_select == 11000:
             points_cost = 1000;
             mkad_rate = 50;
+
+            if (!inMoscow) {
+                mkad_rate = 70;
+            }
             break;
         case vechicle_type == 4 && cargo_select == 13000:
             points_cost = 1500;
             mkad_rate = 60;
+
+            if (!inMoscow) {
+                mkad_rate = 80;
+            }
             break;
 
         // Манипулятор
         case vechicle_type == 5 && cargo_select == 10000:
             points_cost = 1500;
             mkad_rate = 60;
+
+            if (!inMoscow) {
+                mkad_rate = 80;
+            }
             break;
         case vechicle_type == 5 && cargo_select == 14000:
             points_cost = 2000;
             mkad_rate = 90;
+
+            if (!inMoscow) {
+                mkad_rate = 110;
+            }
             break;
     }
+
+    console.log("-------------------------")
+    console.log("mkad_rate = " + mkad_rate)
+    console.log("vechicle_type = " + vechicle_type)
+    console.log("cargo_select = " + cargo_select)
+    console.log("inMoscow = " + inMoscow)
+    console.log("-------------------------")
     // -- /getting vehicle_select and cargo_select input --
 
     // -- getting input from newThirdSection --
