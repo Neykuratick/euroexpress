@@ -118,8 +118,9 @@
 
                         <div class="carousel-item active">
                             <div class="container-fluid">
-                                <input id="pac-input" class="box_adress input_box div_center form-control" type="text" placeholder="Адрес откуда"/>
-                                <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда"/>
+
+                                <input id="pac-input" class="box_adress input_box div_center form-control" type="text" placeholder="Адрес откуда *"/>
+                                <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда *"/>
                                 <input class="box_adress input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
 
                                 <!-- Расстояние -->
@@ -130,8 +131,8 @@
                         
                         <div class="carousel-item">
                             <div class="container-fluid inputGroup">
-                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName" required>
-                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()" required>
+                                <input class="input_box div_center carousel_input" type="text" placeholder="Наименование груза" id="cargoName">
+                                <input class="input_box div_center carousel_input" type="number" placeholder="Вес груза (кг)" id="cargoWeight" oninput="cargoInput()">
                                 <!-- <p class="inputlabel" id="cargoWeightLabel"></p> -->
                                 <input class="input_box div_center carousel_input" type="number" placeholder="Объём груза (м²)" id="cargoVolume" oninput="cargoVolumeInput()">
                                 <!-- <p class="inputlabel" id="cargoVolumeLabel"></p> -->
@@ -142,7 +143,7 @@
                         <div class="carousel-item">
                             <div class="container-fluid inputGroup">
                                 <select class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
-                                    <option value="0" disabled selected hidden>Тип т/с</option>
+                                    <option value="0" disabled selected hidden>Тип т/с *</option>
                                     <option value="Тент">Тент</option>
                                     <option value="Изотерм">Изотерм</option>
                                     <option value="Рефрижератор">Рефрижератор</option>
@@ -151,7 +152,7 @@
                                 </select>
         
                                 <select class="input_box div_center carousel_input" name="cargo_select" id="cargo_select">
-                                    <option value="0" disabled selected hidden>Грузоподъёмность т/c</option>
+                                    <option value="0" disabled selected hidden>Грузоподъёмность т/c *</option>
                                     <option value="1" disabled>Сначала выберите т/с</option>
                                 </select>
         
@@ -179,7 +180,7 @@
                         <div class="carousel-item">
                             <div class="container-fluid last_carousel_item">
                                 <input class="input_box div_center carousel_input" type="text" name="name" placeholder="Контактное лицо" id="name">
-                                <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00"></form>
+                                <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00 *"></form>
                                 <textarea class="input_box div_center carousel_input" id="comment" placeholder="Комментарий к заказу"></textarea>
 
                                 <!-- <div id="cost">

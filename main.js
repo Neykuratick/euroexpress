@@ -418,9 +418,15 @@ var moscow_region_points = [
 
 
 function inPoly(latLngCords, polygon, reversed) {
-
-    let y = latLngCords[1]; // lat
-    let x = latLngCords[0]; // lng
+    let y;
+    let x;
+    try {
+        y = latLngCords[1]; // lat
+        x = latLngCords[0]; // lng
+      } catch (error) {
+        console.error(error);
+    }
+    
 
     if (reversed) {
         y = latLngCords[0]; // lat
@@ -905,17 +911,20 @@ function countCost() {
     // -- /getting vehicle_select and cargo_select input --
 
     // -- getting input from newThirdSection --
-    if (document.getElementById("to_Sadovoe").checked) {
-        Sadovoe_points = 1;
-    } else {
-        Sadovoe_points = 0;
-    }
+    // if (document.getElementById("to_Sadovoe").checked) {
+    //     Sadovoe_points = 1;
+    // } else {
+    //     Sadovoe_points = 0;
+    // }
 
-    if (document.getElementById("to_TTK").checked) {
-        TTK_points = 1;
-    } else {
-        TTK_points = 0;
-    }
+    Sadovoe_points = 0;
+    TTK_points = 0;
+
+    // if (document.getElementById("to_TTK").checked) {
+    //     TTK_points = 1;
+    // } else {
+    //     TTK_points = 0;
+    // }
 
     AltLoad_points_undef = Number.parseInt(
         document.getElementById("AltLoad_points").value
@@ -969,17 +978,20 @@ function submitData() {
     let comment = document.getElementById("comment").value;
     let price = totalcost;
 
-    if (document.getElementById("to_Sadovoe").checked) {
-        Sadovoe_points = "Да";
-    } else {
-        Sadovoe_points = "Нет";
-    }
+    // if (document.getElementById("to_Sadovoe").checked) {
+    //     Sadovoe_points = "Да";
+    // } else {
+    //     Sadovoe_points = "Нет";
+    // }
 
-    if (document.getElementById("to_TTK").checked) {
-        TTK_points = "Да";
-    } else {
-        TTK_points = "Нет";
-    }
+    Sadovoe_points = "Нет";
+    TTK_points = "Нет";
+
+    // if (document.getElementById("to_TTK").checked) {
+    //     TTK_points = "Да";
+    // } else {
+    //     TTK_points = "Нет";
+    // }
 
     AltLoad_points_undef = Number.parseInt(
         document.getElementById("AltLoad_points").value
@@ -1024,6 +1036,27 @@ function submitData() {
 
  var final_button_Pressed = false;
  function final_button() {
+
+    // requiredField_isField_1 = document.getElementById("AltLoad_points").value == ""
+    requiredField_isField_2 = document.getElementById("pac-input").value == ""
+    requiredField_isField_3 = document.getElementById("pac-inputTwo").value == ""
+    requiredField_isField_4 = document.getElementById("vechicle_select").value == "0"
+    requiredField_isField_5 = document.getElementById("phone").value == ""
+    isField = [!requiredField_isField_2, !requiredField_isField_3, !requiredField_isField_4, !requiredField_isField_5]
+    
+    let completed = true
+    
+    for (let i = 0; i < isField.length; i++) {
+        if (isField[i] === false) {
+            // console.log(i)
+            completed = false
+        }
+    }
+    
+    if (completed === false) {
+        document.getElementById("costLabel").innerHTML = 'Заполните все поля, помеченные "*"'
+        return
+    }
 
     if (final_button_Pressed === false) {
         countCost()
