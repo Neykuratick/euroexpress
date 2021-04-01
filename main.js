@@ -962,7 +962,7 @@ function countCost() {
 
     document.getElementById("countCost").innerHTML = "Пересчитать стоимость";
     document.getElementById("costLabel").innerHTML =
-        "Итоговая примерная стоимость: " + totalcost + " руб."; // displaying total cost
+        "Итого: " + totalcost + " руб. с учётом 20% НДС"; // displaying total cost
 }
 
 var final_message = "";

@@ -256,22 +256,6 @@ label {
   border: hidden;
 }
 
-#pac-inputTwo::-webkit-input-placeholder {
-  content: "reger";
-}
-
-#pac-inputTwo:-ms-input-placeholder {
-  content: "reger";
-}
-
-#pac-inputTwo::-ms-input-placeholder {
-  content: "reger";
-}
-
-#pac-inputTwo::placeholder {
-  content: "reger";
-}
-
 .maintext {
   margin: 0;
   padding: 0;
