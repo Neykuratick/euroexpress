@@ -738,7 +738,7 @@ function countCost() {
     inPeter = inPoly(markersPosition[0], leningrad_region_points, false)
     inPeter2 = inPoly(markersPosition[1], leningrad_region_points, false)
     
-    if (inPeter === true && inPeter2 == true) {
+    if (inPeter === true && inPeter2 == true || inMoscow == true) {
         inMoscow = true;
     } else {
         inMoscow = false;
@@ -1003,6 +1003,7 @@ function countCost() {
 }
 
 var final_message = "";
+var final_button_Pressed = false;
 function submitData() {
     let nameData = document.getElementById("name").value;
     let cargoName = document.getElementById("cargoName").value;
@@ -1060,18 +1061,32 @@ function submitData() {
   <br>
   Комментарий к заказу: ${comment}<br>
   `;
-    Email.send({
-        Host: "smtp.euroexpress.msk.ru",
-        Username: "noreply@euroexpress.msk.ru",
-        Password: "D8r8M9y6",
-        To: "euroexpress_logist@bk.ru",
-        From: "noreply@euroexpress.msk.ru",
-        Subject: "EuroExpress - Новый отклик!",
-        Body: final_message,
-    }).then((message) => checkSended(message), console.log(final_message));
+
+    if (final_button_Pressed === false) {
+        Email.send({
+            Host: "smtp.euroexpress.msk.ru",
+            Username: "noreply@euroexpress.msk.ru",
+            Password: "D8r8M9y6",
+            To: "euroexpress_logist@bk.ru",
+            From: "noreply@euroexpress.msk.ru",
+            Subject: "EuroExpress - Новый отклик!",
+            Body: final_message,
+        })
+        console.log(final_message)
+    } else {
+        Email.send({
+            Host: "smtp.euroexpress.msk.ru",
+            Username: "noreply@euroexpress.msk.ru",
+            Password: "D8r8M9y6",
+            To: "euroexpress_logist@bk.ru",
+            From: "noreply@euroexpress.msk.ru",
+            Subject: "EuroExpress - Новый отклик!",
+            Body: final_message,
+        }).then((message) => checkSended(message), console.log(final_message));
+    }
+    
 }
 
- var final_button_Pressed = false;
  function final_button() {
 
     // requiredField_isField_1 = document.getElementById("AltLoad_points").value == ""
@@ -1097,6 +1112,7 @@ function submitData() {
 
     if (final_button_Pressed === false) {
         countCost()
+        submitData()
         document.getElementById("submit").innerHTML = "Отправить"
         final_button_Pressed = true;
     } else {
