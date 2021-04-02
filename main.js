@@ -415,6 +415,21 @@ var moscow_region_points = [
     [55.250581,38.71414],
 ];
 
+var leningrad_region_points = [
+    [59.520589,30.079306],
+    [59.561089,30.653528],
+    [59.692375,30.983081],
+    [59.805574,31.112905],
+    [59.968407,30.833284],
+    [60.110544,30.558656],
+    [60.127958,30.333961],
+    [60.083162,29.989428],
+    [60.048279,29.679847],
+    [59.818128,29.594962],
+    [59.677252,29.629915],
+    [59.563618,29.88457],
+];
+
 
 
 function inPoly(latLngCords, polygon, reversed) {
@@ -713,14 +728,27 @@ function countCost() {
 
     inMoscow = inPoly(markersPosition[0], moscow_region_points, false)
     inMoscow2 = inPoly(markersPosition[1], moscow_region_points, false)
+
     if (inMoscow === true && inMoscow2 == true) {
         inMoscow = true;
     } else {
         inMoscow = false;
     }
 
+    inPeter = inPoly(markersPosition[0], leningrad_region_points, false)
+    inPeter2 = inPoly(markersPosition[1], leningrad_region_points, false)
+    
+    if (inPeter === true && inPeter2 == true) {
+        inMoscow = true;
+    } else {
+        inMoscow = false;
+    }
+
+    console.log(inMoscow, "inMoscow")
+
     switch (true) {
         // Тент
+        // inMoscow - находятся ли обе точки в московской области и ленинградской области
         case vechicle_type == 1 && cargo_select == 5000:
             points_cost = 500;
             mkad_rate = 30;
@@ -948,8 +976,11 @@ function countCost() {
 
     // -- counting total cost --
     min_rate = Number.parseInt(min_rate);
+    if (!inMoscow) {
+        min_rate = 0
+    }
     mkad_cost = mkad_distance_km * mkad_rate;
-    console.log(mkad_distance_km, mkad_rate);
+    // console.log(mkad_distance_km, mkad_rate);
     totalcost = min_rate + mkad_cost + AltLoad_points_cost;
     totalcost = roundNumber(totalcost, 0);
 
