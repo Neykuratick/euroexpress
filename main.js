@@ -520,10 +520,15 @@ function limitOptions() {
     }
 
     let option1 = document.createElement("option");
+    option1.style.color = "black"
     let option2 = document.createElement("option");
+    option2.style.color = "black"
     let option3 = document.createElement("option");
+    option3.style.color = "black"
     let option4 = document.createElement("option");
+    option4.style.color = "black"
     let option5 = document.createElement("option");
+    option5.style.color = "black"
 
     if (vechicle_select.selectedIndex == 1) {
         // if Тент

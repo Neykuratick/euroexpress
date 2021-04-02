@@ -70,8 +70,8 @@
     </nav>
     
     <div class="container-fluid maintext">
-        <h1 class="text_wh text-center">Расчёт стоимости доставки</h1>
-        <p class="text_wh" style="font-family: 'Monotype Corsiva';">
+        <h1 class="text_wh text-center" style="font-size: 2.5rem">Расчёт стоимости доставки</h1>
+        <p class="text_wh" style="font-family: 'Monotype Corsiva'; font-size: 2rem; font-weight: 600">
             ЕВРОЭКСПРЕСС — это гарант качества грузоперевозок по всей России. Почему именно МЫ? <br><br> Наши основные ПЛЮСЫ: <br>
             · Оперативная работа по предоставлению транспорта. <br>
             · Оставив заявку на нашем сайте, менеджер свяжется с вами в течении 5 минут и проконсультирует по всем вопросам. <br>
@@ -121,6 +121,15 @@
 
                                 <input id="pac-input" class="box_adress input_box div_center form-control" type="text" placeholder="Адрес откуда *"/>
                                 <input id="pac-inputTwo" class="box_adress input_box div_center" type="text" placeholder="Адрес куда *"/>
+                                <style>
+                                    #pac-input::placeholder {
+                                        color: red;
+                                    }
+
+                                    #pac-inputTwo::placeholder {
+                                        color: red;
+                                    }
+                                </style>
                                 <input class="box_adress input_box div_center carousel_input" type="number" maxlength="2" placeholder="Доп. точки погр/выгр" id="AltLoad_points" oninput="AltLoad_pointsInput()">
 
                                 <!-- Расстояние -->
@@ -142,16 +151,16 @@
 
                         <div class="carousel-item">
                             <div class="container-fluid inputGroup">
-                                <select class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
+                                <select style="color: red;" class="input_box div_center carousel_input" name="vechicle_select" id="vechicle_select" onchange="limitOptions()">
                                     <option value="0" disabled selected hidden>Тип т/с *</option>
-                                    <option value="Тент">Тент</option>
-                                    <option value="Изотерм">Изотерм</option>
-                                    <option value="Рефрижератор">Рефрижератор</option>
-                                    <option value="Борт">Борт</option>
-                                    <option value="Манипулятор">Манипулятор</option>
+                                    <option value="Тент" style="color: black;">Тент</option>
+                                    <option value="Изотерм" style="color: black;">Изотерм</option>
+                                    <option value="Рефрижератор" style="color: black;">Рефрижератор</option>
+                                    <option value="Борт" style="color: black;">Борт</option>
+                                    <option value="Манипулятор" style="color: black;">Манипулятор</option>
                                 </select>
         
-                                <select class="input_box div_center carousel_input" name="cargo_select" id="cargo_select">
+                                <select style="color: red;" class="input_box div_center carousel_input" name="cargo_select" id="cargo_select">
                                     <option value="0" disabled selected hidden>Грузоподъёмность т/c *</option>
                                     <option value="1" disabled>Сначала выберите т/с</option>
                                 </select>
@@ -183,6 +192,12 @@
                                 <form action=""><input class="input_box div_center carousel_input" type="text" name="phone" id="phone" placeholder="+7 (000) 000 00-00 *"></form>
                                 <textarea class="input_box div_center carousel_input" id="comment" placeholder="Комментарий к заказу"></textarea>
 
+                                <style>
+                                    #phone::placeholder {
+                                        color: red;
+                                    }
+                                </style>
+
                                 <!-- <div id="cost">
                                     <button class="div_center input_button" type="button" id="countCost" onclick="countCost();">Расчитать стоимость</button>
                                     <h1 id='costLabel' class="text-center div_center text_shadow"></h1>
@@ -193,7 +208,7 @@
                                 </div>
 
                                 <button class="div_center input_button" type="button" id="countCost" onclick="countCost();" style="display: none;">Расчитать стоимость</button>
-                                <button class="div_center input_button" type="button" id="submit" onclick="final_button();">Рассчитать стоимость</button>
+                                <button class="div_center input_button" type="button" id="submit" onclick="final_button();">Рассчитать стоимость и отправить</button>
                                 <a href="/imgs/data.docx"><p class="personalDataBaboomkaDva text-center text_shadow" id="coockie">Нажимая на кнопку "Отправить", вы соглашаетесь <br> на обработку персональных данных</p></a>
                             </div>
                         </div>
