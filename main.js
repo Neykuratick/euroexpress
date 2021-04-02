@@ -978,6 +978,7 @@ function countCost() {
     min_rate = Number.parseInt(min_rate);
     if (!inMoscow) {
         min_rate = 0
+        mkad_distance_km = roundNumber(distance / 1000, 3)
     }
     mkad_cost = mkad_distance_km * mkad_rate;
     // console.log(mkad_distance_km, mkad_rate);
