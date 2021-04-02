@@ -430,6 +430,50 @@ var leningrad_region_points = [
     [59.563618,29.88457],
 ];
 
+var kad_points = [
+    [59.832303,30.282054],
+    [59.811332,30.32417],
+    [59.817125,30.394099],
+    [59.825514,30.433036],
+    [59.85406,30.497402],
+    [59.861841,30.522433],
+    [59.888966,30.531449],
+    [59.941861,30.54299],
+    [59.976527,30.55618],
+    [59.981477,30.511664],
+    [60.034225,30.445713],
+    [60.048222,30.416035],
+    [60.068795,30.379763],
+    [60.068441,30.385064],
+    [60.086903,30.376778],
+    [60.092687,30.363521],
+    [60.094615,30.343082],
+    [60.095441,30.320433],
+    [60.098195,30.293918],
+    [60.098195,30.274584],
+    [60.095992,30.250831],
+    [60.086627,30.233154],
+    [60.081944,30.193381],
+    [60.075331,30.177914],
+    [60.054656,30.105549],
+    [60.048589,30.060252],
+    [60.031224,29.893731],
+    [60.018609,29.732929],
+    [60.005324,29.705021],
+    [59.969429,29.683758],
+    [59.936824,29.670468],
+    [59.90352,29.662495],
+    [59.881521,29.695718],
+    [59.864178,29.786086],
+    [59.838147,29.816652],
+    [59.816105,29.847218],
+    [59.817442,29.940244],
+    [59.82145,30.001376],
+    [59.82145,30.001376],
+    [59.815437,30.066494],
+    [59.799397,30.160849]
+];
+
 
 
 function inPoly(latLngCords, polygon, reversed) {
@@ -483,21 +527,30 @@ function getDistanceArray(p1, p2) {
     return d; // returns the distance in meter
 }
 
-function getmyMKADdistance(latLngCords) {
+function getmyСlosestDistanceToPoly(latLngCords, polygon, reversed) {
     let closestDistace = 99999999999999999999999;
     let closestLatLng = [];
+    let currentDistance;
 
-    for (var j = 0; j < mkad_points.length; j++) {
-        let currentDistance = getDistanceArray(
-            [latLngCords.lat, latLngCords.lng],
-            [mkad_points[j][1], mkad_points[j][0]]
-        );
+    for (var j = 0; j < polygon.length; j++) {
+        
+        if (reversed) {
+            currentDistance = getDistanceArray(
+                [latLngCords.lat, latLngCords.lng],
+                [polygon[j][1], polygon[j][0]]
+            );
+        } else {
+            currentDistance = getDistanceArray(
+                [latLngCords.lng, latLngCords.lat],
+                [polygon[j][1], polygon[j][0]]
+            );
+        }
         if (currentDistance < closestDistace) {
             closestDistace = currentDistance;
-            closestLatLng = mkad_points[j];
+            closestLatLng = polygon[j];
         }
     }
-    console.log(closestLatLng);
+    // console.log(closestLatLng);
     return closestDistace;
 }
 
@@ -680,7 +733,7 @@ function countCost() {
         // if there's only one
 
         JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the marker
-        mkad_distance = getmyMKADdistance(JSON_marker_one); // measuring distance
+        mkad_distance = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points); // measuring distance
         mkad_distance = roundNumber(mkad_distance, 0); // rounding distance
         mkad_distance_km = mkad_distance / 1000; // converting into kilometers
     }
@@ -691,8 +744,8 @@ function countCost() {
         JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
         JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
 
-        mkad_distance_one = getmyMKADdistance(JSON_marker_one);
-        mkad_distance_two = getmyMKADdistance(JSON_marker_two);
+        mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points);
+        mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, mkad_points);
         mkad_distance = mkad_distance_one + mkad_distance_two;
 
         mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
@@ -979,6 +1032,33 @@ function countCost() {
     if (!inMoscow) {
         min_rate = 0
         mkad_distance_km = roundNumber(distance / 1000, 3)
+    }
+
+    if (inPoly(markersPosition[0], leningrad_region_points, false) && inPoly(markersPosition[1], leningrad_region_points, false)) {
+        // -- checking if there's one or two markers on the map --
+        if (markers.length == 1) {
+            // if there's only one
+
+            JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the marker
+            mkad_distance = getmyСlosestDistanceToPoly(JSON_marker_one, kad_points, false); // measuring distance
+            mkad_distance = roundNumber(mkad_distance, 0); // rounding distance
+            mkad_distance_km = mkad_distance / 1000; // converting into kilometers
+        }
+
+        if (markers.length == 2) {
+            // if there are 2 markers
+
+            JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
+            JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
+
+            mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, kad_points, false);
+            mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, kad_points, false);
+            mkad_distance = mkad_distance_one + mkad_distance_two;
+
+            mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
+            mkad_distance_km = mkad_distance / 1000; // converting into kilometers
+        }   
+        // -- /checking if there's one or two markers on the map --
     }
     mkad_cost = mkad_distance_km * mkad_rate;
     // console.log(mkad_distance_km, mkad_rate);
