@@ -9,3 +9,9 @@ p {
 mark {
     background-color: rgb(255, 255, 60);
 }
+
+@media (max-width: 1000px) {
+    .icons_row {
+        max-width: 100%;
+    }
+}

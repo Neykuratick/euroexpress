@@ -9,4 +9,10 @@ p {
 mark {
   background-color: #ffff3c;
 }
+
+@media (max-width: 1000px) {
+  .icons_row {
+    max-width: 100%;
+  }
+}
 /*# sourceMappingURL=index.css.map */
