@@ -296,6 +296,12 @@ h1, h2, h3, h4{
 
 // ---- carousel ----
 
+.carousel_container {
+    @media (min-width: 1300px) {
+        margin-top: -6rem;
+    }
+}
+
 .carousel-item {
     min-height: 25rem;
 

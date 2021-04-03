@@ -288,6 +288,12 @@ label {
   }
 }
 
+@media (min-width: 1300px) {
+  .carousel_container {
+    margin-top: -6rem;
+  }
+}
+
 .carousel-item {
   min-height: 25rem;
 }
