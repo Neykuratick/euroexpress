@@ -1135,6 +1135,7 @@ function submitData() {
   Вес груза: ${cargoWeight}<br>
   Объём груза: ${cargoVolume}<br>
   Тип транспорта: ${vechicle_select}<br>
+  Грузоподъёмность тс: ${document.getElementById("cargo_select").options[document.getElementById("cargo_select").selectedIndex].text}<br>
   Дата погрузки: ${loadDate}<br>
   Дата выгрузки: ${unloadDate}<br>
   Итоговая цена: ${price} руб.<br>
@@ -1214,3 +1215,58 @@ function checkSended(message) {
         );
     }
 }
+
+$(document).ready(function(){
+    $("#phone").on("input", function(){
+        // Print entered value in a div box
+        // console.log($(this).val())
+        new_value = $(this).val()
+        
+        final_button_Pressed = false
+        document.getElementById("submit").innerHTML = "Расчитать стоимость"
+    });
+});
+
+$(document).ready(function(){
+    $("#pac-input").on("input", function(){
+        // Print entered value in a div box
+        // console.log($(this).val())
+        new_value = $(this).val()
+        
+        final_button_Pressed = false
+        document.getElementById("submit").innerHTML = "Расчитать стоимость"
+    });
+});
+
+$(document).ready(function(){
+    $("#pac-inputTwo").on("input", function(){
+        // Print entered value in a div box
+        // console.log($(this).val())
+        new_value = $(this).val()
+        
+        final_button_Pressed = false
+        document.getElementById("submit").innerHTML = "Расчитать стоимость"
+    });
+});
+
+$(document).ready(function(){
+    $("#vechicle_select").on("input", function(){
+        // Print entered value in a div box
+        // console.log($(this).val())
+        new_value = $(this).val()
+        
+        final_button_Pressed = false
+        document.getElementById("submit").innerHTML = "Расчитать стоимость"
+    });
+});
+
+$(document).ready(function(){
+    $("#cargo_select").on("input", function(){
+        // Print entered value in a div box
+        // console.log($(this).val())
+        new_value = $(this).val()
+        
+        final_button_Pressed = false
+        document.getElementById("submit").innerHTML = "Расчитать стоимость"
+    });
+});
