@@ -846,7 +846,7 @@ function countCost() {
         // Изотерм
         case vechicle_type == 2 && cargo_select == 6000:
             points_cost = 1000;
-            mkad_rate = 40;
+            mkad_rate = 30;
 
             if (!inMoscow) {
                 mkad_rate = 40;
@@ -854,7 +854,7 @@ function countCost() {
             break;
         case vechicle_type == 2 && cargo_select == 7000:
             points_cost = 1000;
-            mkad_rate = 50;
+            mkad_rate = 40;
 
             if (!inMoscow) {
                 mkad_rate = 50;
@@ -862,7 +862,7 @@ function countCost() {
             break;
         case vechicle_type == 2 && cargo_select == 9000:
             points_cost = 1500;
-            mkad_rate = 60;
+            mkad_rate = 50;
 
             if (!inMoscow) {
                 mkad_rate = 60;
@@ -870,7 +870,7 @@ function countCost() {
             break;
         case vechicle_type == 2 && cargo_select == 11000:
             points_cost = 1500;
-            mkad_rate = 60;
+            mkad_rate = 50;
 
             if (!inMoscow) {
                 mkad_rate = 70;
@@ -878,7 +878,7 @@ function countCost() {
             break;
         case vechicle_type == 2 && cargo_select == 13000:
             points_cost = 2000;
-            mkad_rate = 70;
+            mkad_rate = 60;
 
             if (!inMoscow) {
                 mkad_rate = 80;
@@ -888,7 +888,7 @@ function countCost() {
         // Рефрижератор
         case vechicle_type == 3 && cargo_select == 6000:
             points_cost = 500;
-            mkad_rate = 30;
+            mkad_rate = 40;
 
             if (!inMoscow) {
                 mkad_rate = 50;
@@ -896,7 +896,7 @@ function countCost() {
             break;
         case vechicle_type == 3 && cargo_select == 7000:
             points_cost = 500;
-            mkad_rate = 40;
+            mkad_rate = 50;
 
             if (!inMoscow) {
                 mkad_rate = 60;
@@ -904,7 +904,7 @@ function countCost() {
             break;
         case vechicle_type == 3 && cargo_select == 9000:
             points_cost = 500;
-            mkad_rate = 40;
+            mkad_rate = 60;
 
             if (!inMoscow) {
                 mkad_rate = 70;
@@ -912,7 +912,7 @@ function countCost() {
             break;
         case vechicle_type == 3 && cargo_select == 11000:
             points_cost = 500;
-            mkad_rate = 40;
+            mkad_rate = 60;
 
             if (!inMoscow) {
                 mkad_rate = 80;
@@ -920,7 +920,7 @@ function countCost() {
             break;
         case vechicle_type == 3 && cargo_select == 13000:
             points_cost = 500;
-            mkad_rate = 40;
+            mkad_rate = 70;
 
             if (!inMoscow) {
                 mkad_rate = 90;
@@ -930,7 +930,7 @@ function countCost() {
         // Борт
         case vechicle_type == 4 && cargo_select == 6000:
             points_cost = 1000;
-            mkad_rate = 50;
+            mkad_rate = 30;
 
             if (!inMoscow) {
                 mkad_rate = 40;
@@ -938,7 +938,7 @@ function countCost() {
             break;
         case vechicle_type == 4 && cargo_select == 7000:
             points_cost = 1000;
-            mkad_rate = 50;
+            mkad_rate = 40;
 
             if (!inMoscow) {
                 mkad_rate = 50;
