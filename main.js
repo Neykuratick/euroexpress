@@ -1035,31 +1035,19 @@ function countCost() {
     }
 
     if (inPoly(markersPosition[0], leningrad_region_points, false) && inPoly(markersPosition[1], leningrad_region_points, false)) {
-        // -- checking if there's one or two markers on the map --
-        if (markers.length == 1) {
-            // if there's only one
+        console.log("both markers in petersburg")
 
-            JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the marker
-            mkad_distance = getmyСlosestDistanceToPoly(JSON_marker_one, kad_points, false); // measuring distance
-            mkad_distance = roundNumber(mkad_distance, 0); // rounding distance
-            mkad_distance_km = mkad_distance / 1000; // converting into kilometers
-        }
+        JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
+        JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
 
-        if (markers.length == 2) {
-            // if there are 2 markers
+        mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, kad_points, false);
+        mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, kad_points, false);
+        mkad_distance = mkad_distance_one + mkad_distance_two;
 
-            JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
-            JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
-
-            mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, kad_points, false);
-            mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, kad_points, false);
-            mkad_distance = mkad_distance_one + mkad_distance_two;
-
-            mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
-            mkad_distance_km = mkad_distance / 1000; // converting into kilometers
-        }   
-        // -- /checking if there's one or two markers on the map --
+        mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
+        mkad_distance_km = mkad_distance / 1000; // converting into kilometers
     }
+
     mkad_cost = mkad_distance_km * mkad_rate;
     // console.log(mkad_distance_km, mkad_rate);
     totalcost = min_rate + mkad_cost + AltLoad_points_cost;
