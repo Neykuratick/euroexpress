@@ -7,6 +7,10 @@ html, body {
   font-family: "Monotype Corsiva", "Pacifico", "Roboto";
 }
 
+.navigation_text {
+  font-family: "Monotype Corsiva";
+}
+
 a {
   color: white;
   text-decoration: none;
