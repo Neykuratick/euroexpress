@@ -733,7 +733,7 @@ function countCost() {
         // if there's only one
 
         JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the marker
-        mkad_distance = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points); // measuring distance
+        mkad_distance = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points, true); // measuring distance
         mkad_distance = roundNumber(mkad_distance, 0); // rounding distance
         mkad_distance_km = mkad_distance / 1000; // converting into kilometers
     }
@@ -744,12 +744,13 @@ function countCost() {
         JSON_marker_one = markers[0].getPosition().toJSON(); // getting coordinates of the first marker
         JSON_marker_two = markers[1].getPosition().toJSON(); // getting coordinates of the second marker
 
-        mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points);
-        mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, mkad_points);
+        mkad_distance_one = getmyСlosestDistanceToPoly(JSON_marker_one, mkad_points, true);
+        mkad_distance_two = getmyСlosestDistanceToPoly(JSON_marker_two, mkad_points, true);
         mkad_distance = mkad_distance_one + mkad_distance_two;
 
         mkad_distance = roundNumber(mkad_distance, 0); // rounding disrance in meters
         mkad_distance_km = mkad_distance / 1000; // converting into kilometers
+        console.log("initial mkad_distance_km: ", mkad_distance_km)
     }
     // -- /checking if there's one or two markers on the map --
 
